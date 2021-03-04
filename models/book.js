@@ -21,11 +21,11 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     book_page_count: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     book_rating: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     book_published_date: {

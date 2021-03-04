@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     user_email: {
-      type: DataTyppes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
@@ -20,6 +20,6 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   //Model associations here
-  
+
   return User;
 }
