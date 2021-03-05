@@ -1,8 +1,10 @@
 import React from 'react';
-
+import Stats from "../components/stats/stats"
 function Profile() {
 	return (
-		<div>Por favor</div>
+		<div>
+			<Stats />
+		</div>
 	);
 }
 
