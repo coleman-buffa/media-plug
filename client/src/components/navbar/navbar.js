@@ -1,43 +1,3 @@
-// import React from 'react';
-// import './navbar.css';
-// import { makeStyles } from '@material-ui/core/styles';
-// import Paper from '@material-ui/core/Paper';
-// import Tabs from '@material-ui/core/Tabs';
-// import Tab from '@material-ui/core/Tab';
-
-// const useStyles = makeStyles({
-// 	root: {
-// 		flexGrow: 1,
-// 	},
-// });
-
-// function Navbar() {
-// 	const classes = useStyles();
-// 	const [value, setValue] = React.useState(0);
-
-// 	const handleChange = (event, newValue) => {
-// 		setValue(newValue);
-// 	};
-// 	return (
-// 		<Paper className={classes.root}>
-// 			<Tabs
-// 				value={value}
-// 				onChange={handleChange}
-// 				indicatorColor="primary"
-// 				textColor="primary"
-// 				centered
-// 			>
-// 				<Tab label="Home" />
-// 				<Tab label="Profile" />
-// 				<Tab label="Explore" />
-// 				<Tab label="Challenges" />
-// 			</Tabs>
-// 		</Paper>
-// 	);
-// }
-
-// export default Navbar;
-
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -48,9 +8,13 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+// import InboxIcon from '@material-ui/icons/MoveToInbox';
+// import MailIcon from '@material-ui/icons/Mail';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import SearchIcon from '@material-ui/icons/Search';
+import PublicIcon from '@material-ui/icons/Public';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
 
 const useStyles = makeStyles({
 	list: {
@@ -84,12 +48,22 @@ function Navbar() {
 			onKeyDown={toggleDrawer(anchor, false)}
 		>
 			<List>
-				{['Profile', 'Explore', 'Challenges'].map((text, index) => (
-					<ListItem button key={text}>
-						<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />  }</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
-				))}
+				<ListItem button key={'Profile'}>
+					<ListItemIcon><AccountCircleIcon /></ListItemIcon>
+					<ListItemText primary={'Profile'} />
+				</ListItem>
+				<ListItem button key={'Explore'}>
+					<ListItemIcon><PublicIcon /></ListItemIcon>
+					<ListItemText primary={'Explore'} />
+				</ListItem>
+				<ListItem button key={'Search Books'}>
+					<ListItemIcon><SearchIcon /></ListItemIcon>
+					<ListItemText primary={'Search Books'} />
+				</ListItem>
+				<ListItem button key={'Challenges'}>
+					<ListItemIcon><FlashOnIcon /></ListItemIcon>
+					<ListItemText primary={'Challenges'} />
+				</ListItem>
 			</List>
 			<Divider />
 			<List>
