@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Button, FormControl, FormLabel, Input, InputLabel, TextField } from '@material-ui/core';
+import { Card, Container, Button, FormControl, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -19,29 +19,29 @@ const useStyles = makeStyles({
 	inputcont: {
 		margin: 5
 	}
-})
+});
 
 function Login() {
 	const classes = useStyles();
 	return (
-		<Container className={classes.pagecont} md>
+		<Container className={classes.pagecont} md="true">
 			<Card className={classes.cardcont}>
-				<div>
+				<form>
 					<FormControl className={classes.formcont}>
-						<TextField required id="outlined-required" label="Required" defaultValue="Username" variant="outlined" className={classes.inputcont} />
-						<TextField required id="outlined-required" label="Required" defaultValue="Email" variant="outlined" className={classes.inputcont} />
-						<TextField id="outlined-search" label="Password" type="password" variant="outlined" className={classes.inputcont} />
+						<TextField required id="reg-user" label="Required" defaultValue="Username" variant="outlined" className={classes.inputcont} />
+						<TextField required id="reg-email" label="Required" defaultValue="Email" variant="outlined" className={classes.inputcont} />
+						<TextField id="reg-pass" label="Password" autoComplete="current-password" type="password" variant="outlined" className={classes.inputcont} />
 						<Button variant="contained" color="primary">Signup</Button>
 					</FormControl>
-				</div>
-				<div>
+				</form>
+				<form>
 					<FormControl className={classes.formcont}>
-						<TextField required id="outlined-required" label="Required" defaultValue="Username" variant="outlined" className={classes.inputcont} />
-						<TextField required id="outlined-required" label="Required" defaultValue="Email" variant="outlined" className={classes.inputcont} />
-						<TextField id="outlined-search" label="Password" type="password" variant="outlined" className={classes.inputcont} />
+						<TextField required id="login-user" label="Required" defaultValue="Username" variant="outlined" className={classes.inputcont} />
+						<TextField required id="login-email" label="Required" defaultValue="Email" variant="outlined" className={classes.inputcont} />
+						<TextField id="login-pass" label="Password" autoComplete="current-password" type="password" variant="outlined" className={classes.inputcont} />
 						<Button variant="contained" color="primary">Login</Button>
 					</FormControl>
-				</div>
+				</form>
 			</Card>
 		</Container>
 	);
