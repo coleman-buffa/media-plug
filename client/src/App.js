@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import UserContext from "./utils/usercontext";
 
-import Signup from "./pages/Signup";
+// import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Explore from "./pages/Explore";
@@ -21,7 +21,7 @@ function App() {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
+  // const [authenticated, setAuthenticated] = useState(false);
 
   const handleSignupBtnClick = e => {
     setRegisterUsername(e.target.value);
@@ -38,8 +38,9 @@ function App() {
         <Navbar />
         <Router>
           <Switch>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/login" component={Login} />
+            {/* <Route exact path="/" component={Login} /> */}
+            {/* <Route exact path="/login" component={Login} /> */}
+            <Route exact path="/" component={Explore} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/explore" component={Explore} />
             <Route exact path="/challenges" component={Challenges} />
