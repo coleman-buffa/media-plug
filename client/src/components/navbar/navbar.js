@@ -8,13 +8,12 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import MailIcon from '@material-ui/icons/Mail';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import PublicIcon from '@material-ui/icons/Public';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
 	list: {
@@ -78,7 +77,7 @@ function Navbar() {
 	);
 	return (
 		<div>
-			{['left'].map((anchor) => (
+			{['Menu'].map((anchor) => (
 				<React.Fragment key={anchor}>
 					<Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
 					<SwipeableDrawer
