@@ -8,13 +8,21 @@ const useStyles = makeStyles({
 	},
 	section: {
 		display: "flex",
-		justifyContent: 'center'
+		justifyContent: 'center',
 	},
 	card: {
-		margin: 20
+		margin: 20,
+		width: 300
 	},
 	media: {
 		height: 250
+	},
+	button: {
+		position: 'relative',
+		bottom: 0
+	},
+	set: {
+		margin: "150px 0"
 	}
 });
 
@@ -24,89 +32,89 @@ function Explore() {
 		<Container className={classes.pagecont}>
 			<Grid container>
 				{/* Book List section */}
-				<Typography variant="h2">Book list</Typography>
+				<Typography variant="h2" className={classes.set}>Book list
 				<Grid item className={classes.section}>
-					<Card className={classes.card}>
+					<Card elevation={5} className={classes.card}>
 						<CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" />
 						<CardContent>
-							<Typography variant="h4">Book Name #1</Typography>
+							<Typography variant="h4">Rich Dad, Poor Dad</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant="contained" color="secondary">Add to List</Button>
+							<Button variant="outlined">Add to List</Button>
 						</CardActions>
 					</Card>
 
-					<Card className={classes.card}>
+					<Card elevation={5} className={classes.card}>
 						<CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book2" />
 						<CardContent>
-							<Typography variant="h4">Book Name #2</Typography>
+							<Typography variant="h4">Starship Troopers</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant="contained" color="secondary">Add to List</Button>
+							<Button variant="outlined">Add to List</Button>
 						</CardActions>
 					</Card>
 
-					<Card className={classes.card}>
+					<Card elevation={5} className={classes.card}>
 						<CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book3" />
 						<CardContent>
-							<Typography variant="h4">Book Name #3</Typography>
+							<Typography variant="h4">The Way of Kings</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant="contained" color="secondary">Add to List</Button>
+							<Button variant="outlined">Add to List</Button>
 						</CardActions>
 					</Card>
 
-					<Card className={classes.card}>
+					<Card elevation={5} className={classes.card}>
 						<CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book4" />
 						<CardContent>
-							<Typography variant="h4">Book Name #4</Typography>
+							<Typography variant="h4">1984</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant="contained" color="secondary">Add to List</Button>
+							<Button variant="outlined" className={classes.button}>Add to List</Button>
 						</CardActions>
 					</Card>
 				</Grid>
-
+				</Typography>
 				{/* Challenge List section */}
 				<Typography variant="h2">Challenge list</Typography>
 				<Grid item className={classes.section}>
-					<Card className={classes.card}>
+					<Card elevation={5} className={classes.card}>
 						<CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" />
 						<CardContent>
 							<Typography variant="h4">Challenge #1</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant="contained" color="secondary">Add to List</Button>
+							<Button variant="contained">Add to List</Button>
 						</CardActions>
 					</Card>
 
-					<Card className={classes.card}>
+					<Card elevation={5} className={classes.card}>
 						<CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book2" />
 						<CardContent>
 							<Typography variant="h4">Challenge #2</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant="contained" color="secondary">Add to List</Button>
+							<Button variant="contained">Add to List</Button>
 						</CardActions>
 					</Card>
 
-					<Card className={classes.card}>
+					<Card elevation={5} className={classes.card}>
 						<CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book3" />
 						<CardContent>
 							<Typography variant="h4">Challenge #3</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant="contained" color="secondary">Add to List</Button>
+							<Button variant="contained">Add to List</Button>
 						</CardActions>
 					</Card>
 
-					<Card className={classes.card}>
+					<Card elevation={5} className={classes.card}>
 						<CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book4" />
 						<CardContent>
 							<Typography variant="h4">Challenge #4</Typography>
 						</CardContent>
 						<CardActions>
-							<Button variant="contained" color="secondary">Add to List</Button>
+							<Button variant="contained">Add to List</Button>
 						</CardActions>
 					</Card>
 				</Grid>
