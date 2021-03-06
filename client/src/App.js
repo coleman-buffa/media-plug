@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Explore from "./pages/Explore";
 import Challenges from "./pages/Challenges";
+import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
 
 
@@ -44,6 +45,7 @@ function App() {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/explore" component={Explore} />
             <Route exact path="/challenges" component={Challenges} />
+            <Route exact path="/search" component={Search} />
             <Route path="/*" component={NoMatch} />
           </Switch>
         </Router>
