@@ -15,7 +15,7 @@ function SearchContainer() {
 
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
-	const inputref = useRef("");
+	const inputRef = useRef("");
 
 	const classes = useStyles();
 
@@ -69,6 +69,7 @@ function SearchContainer() {
 						handleInputSearch={handleInputSearch}
 					/>
 				</Paper>
+				<SearchCard />
 				{searchResults.map(book => (
 					<SearchCard
 						key={book.id}

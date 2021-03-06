@@ -13,35 +13,35 @@ const useStyles = makeStyles({
 	button: {
 		display: 'block'
 	}
-
 });
 
-function SearchBar() {
+function SearchBar(props) {
 	const classes = useStyles();
 	return (
 		<Grid >
-			{/* <section > */}
-				<form className="content"  >
-					<FormControl fullWidth >
-						<TextField
-							className={classes.bar}
-							required
-							id="search-term"
-							placeholder="Learn you some knowledge"
-							variant="outlined"
-							InputProps={{
-								endAdornment: (
-									<InputAdornment position="end">
-										<IconButton>
-											<SearchIcon />
-										</IconButton>
-									</InputAdornment>
-								)
-							}}
-						/>
-					</FormControl>
-				</form>
-			{/* </section> */}
+			<form className="content"  >
+				<FormControl fullWidth >
+					<TextField
+						value={props.searchTerm}
+						ref={props.inputRef}
+						className={classes.bar}
+						required
+						id="search-term"
+						placeholder="Learn you some knowledge"
+						variant="outlined"
+						InputProps={{
+							endAdornment: (
+								<InputAdornment position="end">
+									<IconButton>
+										<SearchIcon
+											onClick={props.handleInputSearch} />
+									</IconButton>
+								</InputAdornment>
+							)
+						}}
+					/>
+				</FormControl>
+			</form>
 		</Grid>
 	);
 };

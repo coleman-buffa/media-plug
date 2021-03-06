@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchCard() {
+function SearchCard(props) {
 	return (
 		<div className="card cardHold">
 			<div className="card-content">
@@ -12,9 +12,9 @@ function SearchCard() {
 							</p>
 						</figure>
 						<div>
-							<p className="titleSaved"></p>
-							<p className="authorSaved"></p>
-							<p className="subtitle desc"></p>
+							<p className="titleSaved">{props.book_name}</p>
+							<p className="authorSaved">{props.book_author}</p>
+							<p className="subtitle desc">{props.book_desc}</p>
 						</div>
 						<div className="resultsBtns">
 							<p className="control">
@@ -23,7 +23,7 @@ function SearchCard() {
 								</a>
 							</p>
 							<p className="control">
-								<button id="viewBtn" className="button is-link"><i className="fas fa-save"></i></button>
+								<button id="viewBtn" className="button is-link" onClick={() => props.handleSaveButton(props.id)}><i className="fas fa-save"></i></button>
 							</p>
 						</div>
 					</article>
