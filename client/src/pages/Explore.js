@@ -37,11 +37,9 @@ function Explore() {
 
   const getAllBooks = () => {
     API.getBooks()
-    .then(results => {
-      setBooks(results.data);
-      console.log(`Return from DB`);
-      console.log(results); 
-    });
+      .then(results => {
+        setBooks(results.data);
+      });
   }
 
 
@@ -51,17 +49,17 @@ function Explore() {
         {/* Book List section */}
         <Typography variant="h2" className={classes.set}>Book list
 				<Grid item className={classes.section}>
-          {books.map(book => ( 
-            <Card elevation={5} className={classes.card}>
-            <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
-            <CardContent>
-              <Typography variant="h4">{book.book_name}</Typography>
-            </CardContent>
-            <CardActions>
-              <Button variant="outlined">Add to List</Button>
-            </CardActions>
-          </Card>
-          ))}
+            {books.map(book => (
+              <Card elevation={5} className={classes.card} key={book.id}>
+                <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
+                <CardContent>
+                  <Typography variant="h4">{book.book_name}</Typography>
+                </CardContent>
+                <CardActions>
+                  <Button variant="outlined">Add to List</Button>
+                </CardActions>
+              </Card>
+            ))}
 
 
             {/* <Card elevation={5} className={classes.card}>

@@ -11,6 +11,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   //Model associations here
+  //a challenge has many users (as participants)
   return Challenge;
 
 };

@@ -3,7 +3,6 @@ import axios from "axios";
 const API = {
   // Gets all books
   getBooks: function () {
-    console.log(`Made it to API`);
     return axios.get("/api/books");
   },
   // Gets the book with the given id
