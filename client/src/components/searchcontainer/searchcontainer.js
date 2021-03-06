@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import SearchBar from '../searchbar/searchbar';
 import SearchCard from '../searchcard/searchcard';
 import API from '../../utils/API';
-import { Card, Container, Paper } from '@material-ui/core';
+import { Container, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -15,7 +15,7 @@ function SearchContainer() {
 
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
-	const inputref = useRef("");
+	const inputRef = useRef("");
 
 	const classes = useStyles();
 
@@ -69,6 +69,7 @@ function SearchContainer() {
 						handleInputSearch={handleInputSearch}
 					/>
 				</Paper>
+				<SearchCard />
 				{searchResults.map(book => (
 					<SearchCard
 						key={book.id}
