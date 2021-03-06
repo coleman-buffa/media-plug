@@ -1,8 +1,24 @@
 import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 function SearchCard(props) {
 	return (
-		<div className="card cardHold">
+		<React.Fragment>
+			<CssBaseline />
+			<Container maxWidth="90%">
+				<Typography component="div" style={{ backgroundColor: '#E8E8E8', height: '100vh', marginTop: 30 }} />
+			</Container>
+		</React.Fragment>
+	);
+}
+
+export default SearchCard;
+
+
+
+{/* <div className="card cardHold">
 			<div className="card-content">
 				<div className="content">
 					<article className="media">
@@ -18,9 +34,9 @@ function SearchCard(props) {
 						</div>
 						<div className="resultsBtns">
 							<p className="control">
-								{/* <a href="#">
+								<a href="#">
 									<button id="viewBtn" className="button is-dark"><i className="fas fa-external-link-alt"></i></button>
-								</a> */}
+								</a>
 							</p>
 							<p className="control">
 								<button id="viewBtn" className="button is-link" onClick={() => props.handleSaveButton(props.id)}><i className="fas fa-save"></i></button>
@@ -29,8 +45,4 @@ function SearchCard(props) {
 					</article>
 				</div>
 			</div>
-		</div>
-	);
-};
-
-export default SearchCard;
+		</div> */}
