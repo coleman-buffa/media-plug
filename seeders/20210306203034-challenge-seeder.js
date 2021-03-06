@@ -3,21 +3,18 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
 
-     await queryInterface.bulkInsert('userbooks', [{
-       read_status: false,
-       UserId: 1,
-       BookId: 1,
-       createdAt: new Date(),
-       updatedAt: new Date()
-     },
-    {
-      read_status: true,
-      UserId: 1,
-      BookId: 2,
+    await queryInterface.bulkInsert('challenges', [{
+      challenge_name: "Book-a-thon",
+      challenge_desc: "Read a lot of books",
       createdAt: new Date(),
-      updatedAt: new Date() 
+      updatedAt: new Date()
+    },
+    {
+      challenge_name: "Sci-Fi",
+      challenge_desc: "Read the classics",
+      createdAt: new Date(),
+      updatedAt: new Date()
     }]);
-
   },
 
   down: async (queryInterface, Sequelize) => {

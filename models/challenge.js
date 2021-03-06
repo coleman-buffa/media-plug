@@ -9,8 +9,8 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     }
   });
-
-  //Model associations here
+  
   return Challenge;
 
 };
+
