@@ -9,9 +9,8 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     }
   });
-
-  //Model associations here
-  //a challenge has many users (as participants)
+  
   return Challenge;
 
 };
+
