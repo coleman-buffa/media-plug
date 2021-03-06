@@ -16,6 +16,7 @@ import FlashOnIcon from '@material-ui/icons/FlashOn';
 // import {Link} from 'react-router-dom';
 // import Challenges from "../../pages/Challenges";
 import MenuIcon from '@material-ui/icons/Menu';
+// import NavHead from "../appbar/appbar";
 
 const useStyles = makeStyles({
 	list: {
@@ -82,6 +83,7 @@ function Navbar() {
 	);
 	return (
 		<div>
+			{/* <NavHead> */}
 			<React.Fragment key={"anchor"}>
 					<Button onClick={toggleDrawer("anchor", true)}><ListItemIcon><MenuIcon /></ListItemIcon></Button>
 					<SwipeableDrawer
@@ -93,6 +95,7 @@ function Navbar() {
 						{list("anchor")}
 					</SwipeableDrawer>
 				</React.Fragment>
+				{/* </NavHead> */}
 		</div>
 	);
 }
