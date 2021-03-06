@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const API = {
+  //Books
   // Gets all books
   getBooks: function () {
     return axios.get("/api/books");
@@ -24,7 +25,12 @@ const API = {
           resolve(res.data.items.slice(0, 3));
         }).catch((err) => reject(err));
     })
-  }
+  },
+
+  //Challenges
+  getChallenges: function () {
+    return axios.get("/api/challenges");
+  },
 };
 
 export default API;

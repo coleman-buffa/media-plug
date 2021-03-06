@@ -29,16 +29,27 @@ const useStyles = makeStyles({
 
 function Explore() {
   const classes = useStyles();
+
   const [books, setBooks] = useState([]);
+  const [challenges, setChallenges] = useState([]);
 
   useEffect(() => {
     getAllBooks();
+    getAllChallenges();
   }, []);
 
   const getAllBooks = () => {
     API.getBooks()
       .then(results => {
         setBooks(results.data);
+      });
+  }
+
+  const getAllChallenges = () => {
+    API.getChallenges()
+      .then(results => {
+        console.log(results);
+        setChallenges(results.data);
       });
   }
 
