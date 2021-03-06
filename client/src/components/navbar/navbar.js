@@ -15,7 +15,7 @@ import PublicIcon from '@material-ui/icons/Public';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 // import {Link} from 'react-router-dom';
 // import Challenges from "../../pages/Challenges";
-// import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
 	list: {
@@ -25,6 +25,9 @@ const useStyles = makeStyles({
 		width: 'auto',
 	},
 });
+function ListItemLink(props) {
+	return <ListItem button component="a" {...props} />;
+}
 
 function Navbar() {
 	const classes = useStyles();
@@ -49,28 +52,28 @@ function Navbar() {
 			onKeyDown={toggleDrawer(anchor, false)}
 		>
 			<List>
-				<ListItem button key={'Profile'}>
+				<ListItemLink button key={'Profile'} href="/profile">
 					<ListItemIcon><AccountCircleIcon /></ListItemIcon>
 					<ListItemText primary={'Profile'} />
-				</ListItem>
-				<ListItem button key={'Explore'}>
+				</ListItemLink>
+				<ListItemLink button key={'Explore'} href="/explore">
 					<ListItemIcon><PublicIcon /></ListItemIcon>
 					<ListItemText primary={'Explore'} />
-				</ListItem>
+				</ListItemLink>
 				<ListItem button key={'Search Books'}>
 					<ListItemIcon><SearchIcon /></ListItemIcon>
 					<ListItemText primary={'Search Books'} />
 				</ListItem>
 				<ListItem button key={'Challenges'}>
 					<ListItemIcon><FlashOnIcon /></ListItemIcon>
-					<ListItemText primary={'Challenges'}/>
+					<ListItemText primary={'Challenges'} />
 				</ListItem>
 			</List>
 			<Divider />
 			<List>
 				{['Signout'].map((text) => (
 					<ListItem button key={text}>
-						<ListItemIcon>{<ExitToAppIcon/>}</ListItemIcon>
+						<ListItemIcon>{<ExitToAppIcon />}</ListItemIcon>
 						<ListItemText primary={text} />
 					</ListItem>
 				))}
@@ -79,19 +82,17 @@ function Navbar() {
 	);
 	return (
 		<div>
-			{['Menu'].map((anchor) => (
-				<React.Fragment key={anchor}>
-					<Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+			<React.Fragment key={"anchor"}>
+					<Button onClick={toggleDrawer("anchor", true)}><ListItemIcon><MenuIcon /></ListItemIcon></Button>
 					<SwipeableDrawer
-						anchor={anchor}
-						open={state[anchor]}
-						onClose={toggleDrawer(anchor, false)}
-						onOpen={toggleDrawer(anchor, true)}
+						anchor={"anchor"}
+						open={state["anchor"]}
+						onClose={toggleDrawer("anchor", false)}
+						onOpen={toggleDrawer("anchor", true)}
 					>
-						{list(anchor)}
+						{list("anchor")}
 					</SwipeableDrawer>
 				</React.Fragment>
-			))}
 		</div>
 	);
 }

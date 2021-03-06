@@ -1,9 +1,9 @@
 import React from 'react';
-import Stats from "../components/stats/stats"
+import StatsCarousel from '../components/statsCarousel/statsCarousel';
 function Profile() {
 	return (
-		<div>
-			<Stats />
+		<div className="statsCar" style={{padding:40}}>
+			<StatsCarousel />
 		</div>
 	);
 }
