@@ -77,20 +77,20 @@ function Explore() {
 
         {/* Challenge List section */}
         <Container>
-        <Typography variant="h2">Challenge list</Typography>
-        <Grid item className={classes.section}>
-          {challenges.map(challenge => (
-            <Card elevation={5} className={classes.card} key={challenge.id}>
-              <CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" />
-              <CardContent>
-                <Typography variant="h4">{challenge.challenge_name}</Typography>
-              </CardContent>
-              <CardActions>
-                <Button variant="contained">Add to List</Button>
-              </CardActions>
-            </Card>
-          ))}
-        </Grid>
+          <Typography variant="h2">Challenge list</Typography>
+          <Grid item className={classes.section}>
+            {challenges.map(challenge => (
+              <Card elevation={5} className={classes.card} key={challenge.id}>
+                <CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" />
+                <CardContent>
+                  <Typography variant="h4">{challenge.challenge_name}</Typography>
+                </CardContent>
+                <CardActions>
+                  <Button variant="contained">Add to List</Button>
+                </CardActions>
+              </Card>
+            ))}
+          </Grid>
         </Container>
       </Grid>
     </Container>
