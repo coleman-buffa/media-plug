@@ -19,7 +19,7 @@ module.exports = {
     {
       book_name: 'Starship Troopers',
       book_author: "Robert Heinlein",
-      book_desc: "The story is set in a future society ruled by a human interstellar government dominated by a military elite, referred to as the Terran Federation.[6] The first-person narrative follows Juan Johnny Rico through his military service in the Mobile Infantry. Rico progresses from recruit to officer against the backdrop of an interstellar war between humans and an alien species known as Arachnids or Bugs.",
+      book_desc: "The story is set in a future society ruled by a human interstellar government dominated by a military elite, referred to as the Terran Federation.[6] The first-person narrative follows Juan Johnny Rico through his military service in the Mobile Infantry.",
       book_image_link: "https://upload.wikimedia.org/wikipedia/en/a/a9/Starship_Troopers_%28novel%29.jpg",
       book_genre: "Fiction",
       book_page_count: 263,
