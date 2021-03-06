@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import { FormControl, TextField, Button, InputAdornment, IconButton, Grid } from '@material-ui/core';
+import { FormControl, TextField, InputAdornment, IconButton, Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles({
@@ -32,9 +32,10 @@ function SearchBar(props) {
 						InputProps={{
 							endAdornment: (
 								<InputAdornment position="end">
-									<IconButton>
-										<SearchIcon
-											onClick={props.handleInputSearch} />
+									<IconButton
+										onClick={props.handleInputSearch}
+									>
+										<SearchIcon />
 									</IconButton>
 								</InputAdornment>
 							)

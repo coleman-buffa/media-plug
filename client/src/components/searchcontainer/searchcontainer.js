@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import SearchBar from '../searchbar/searchbar';
 import SearchCard from '../searchcard/searchcard';
 import API from '../../utils/API';
-import { Card, Container, Paper } from '@material-ui/core';
+import { Container, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
