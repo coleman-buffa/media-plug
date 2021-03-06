@@ -5,17 +5,18 @@ import { BottomNavigation, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
 	foot: {
-		position: 'fixed',
+		position: 'relative',
 		width: "100%",
-		backgroundColor: '#3F51B5',
-		color: '#C2C8E7',
-		bottom: 0
+		backgroundColor: 'transparent',
+		color: 'black',
+		bottom: 0,
+		marginTop: 100
 	},
 	text: {
 		alignContent: 'bottom',
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'center'
+		justifyContent: 'center',
 	}
 })
 

@@ -28,16 +28,16 @@ function Login() {
 			<Card className={classes.cardcont}>
 				<form>
 					<FormControl className={classes.formcont}>
-						<TextField required id="reg-user" label="Required" defaultValue="Username" variant="outlined" className={classes.inputcont} />
-						<TextField required id="reg-email" label="Required" defaultValue="Email" variant="outlined" className={classes.inputcont} />
+						<TextField required id="reg-user" label="Required" placeholder="Username" variant="outlined" className={classes.inputcont} />
+						<TextField required id="reg-email" label="Required" placeholder="Email" variant="outlined" className={classes.inputcont} />
 						<TextField id="reg-pass" label="Password" autoComplete="current-password" type="password" variant="outlined" className={classes.inputcont} />
 						<Button variant="contained" color="primary">Signup</Button>
 					</FormControl>
 				</form>
 				<form>
 					<FormControl className={classes.formcont}>
-						<TextField required id="login-user" label="Required" defaultValue="Username" variant="outlined" className={classes.inputcont} />
-						<TextField required id="login-email" label="Required" defaultValue="Email" variant="outlined" className={classes.inputcont} />
+						<TextField required id="login-user" label="Required" placeholder="Username" variant="outlined" className={classes.inputcont} />
+						<TextField required id="login-email" label="Required" placeholder="Email" variant="outlined" className={classes.inputcont} />
 						<TextField id="login-pass" label="Password" autoComplete="current-password" type="password" variant="outlined" className={classes.inputcont} />
 						<Button variant="contained" color="primary">Login</Button>
 					</FormControl>
