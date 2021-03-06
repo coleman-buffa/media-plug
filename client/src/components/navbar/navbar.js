@@ -60,14 +60,14 @@ function Navbar() {
 					<ListItemIcon><PublicIcon /></ListItemIcon>
 					<ListItemText primary={'Explore'} />
 				</ListItemLink>
-				<ListItem button key={'Search Books'}>
+				<ListItemLink button key={'Search Books'} href="/search">
 					<ListItemIcon><SearchIcon /></ListItemIcon>
 					<ListItemText primary={'Search Books'} />
-				</ListItem>
-				<ListItem button key={'Challenges'}>
+				</ListItemLink>
+				<ListItemLink button key={'Challenges'} href="/challenges">
 					<ListItemIcon><FlashOnIcon /></ListItemIcon>
 					<ListItemText primary={'Challenges'} />
-				</ListItem>
+				</ListItemLink>
 			</List>
 			<Divider />
 			<List>
@@ -85,7 +85,7 @@ function Navbar() {
 			<React.Fragment key={"anchor"}>
 					<Button onClick={toggleDrawer("anchor", true)}><ListItemIcon><MenuIcon /></ListItemIcon></Button>
 					<SwipeableDrawer
-						anchor={"anchor"}
+						anchor={"left"}
 						open={state["anchor"]}
 						onClose={toggleDrawer("anchor", false)}
 						onOpen={toggleDrawer("anchor", true)}
