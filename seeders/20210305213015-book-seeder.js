@@ -14,7 +14,7 @@ module.exports = {
       book_rating: 5,
       book_published_date: new Date(),
       createdAt: new Date(),
-      UpdatedAt: new Date()
+      updatedAt: new Date()
     },
     {
       book_name: 'Starship Troopers',
@@ -26,11 +26,8 @@ module.exports = {
       book_rating: 5,
       book_published_date: new Date(),
       createdAt: new Date(),
-      UpdatedAt: new Date()
-    }
-
-
-    ]);
+      updatedAt: new Date()
+    }]);
   },
 
   down: async (queryInterface, Sequelize) => {

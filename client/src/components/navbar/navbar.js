@@ -67,6 +67,7 @@ function Navbar() {
 					<ListItemText primary={'Explore'} />
 				</ListItemLink>
 
+
 				<ListItemLink button key={'Search Books'} href="/search" >
 					<ListItemIcon>
 						<SearchIcon />
@@ -78,6 +79,7 @@ function Navbar() {
 					<ListItemIcon>
 						<FlashOnIcon />
 					</ListItemIcon>
+
 					<ListItemText primary={'Challenges'} />
 				</ListItemLink>
 			</List>
