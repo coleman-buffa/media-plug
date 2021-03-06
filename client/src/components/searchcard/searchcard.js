@@ -1,66 +1,55 @@
 import React from 'react';
-// import CssBaseline from '@material-ui/core/CssBaseline';
-// import Typography from '@material-ui/core/Typography';
-// import Container from '@material-ui/core/Container';
-import { CardActionArea } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import CardMedia from '@material-ui/core/CardMedia';
+import { FormHelperText } from '@material-ui/core';
 
 const useStyles = makeStyles({
 	root: {
-		minWidth: 275,
+		marginTop: 10,
+		width: 275,
+		height: 350,
 	},
-	bullet: {
-		display: 'inline-block',
-		margin: '0 2px',
-		transform: 'scale(0.8)',
-	},
-	title: {
-		fontSize: 14,
-	},
-	pos: {
-		marginBottom: 12,
+	media: {
+		height: 200,
 	},
 });
-
 function SearchCard(props) {
 	const classes = useStyles();
-	const bull = <span className={classes.bullet}>•</span>;
+
 	return (
-		// <React.Fragment>
-		// 	<CssBaseline />
-		// 	<Container maxWidth="90%">
-		// 		<Typography component="div" style={{ backgroundColor: '#E8E8E8', height: '100vh', marginTop: 30 }} />
-		// 	</Container>
-		// </React.Fragment>
-		<CardActionArea>
-			<Card className={classes.root}>
+		<div style={{display:"flex", justifyContent:"space-evenly"}}>
+		<Card className={classes.root}>
+			<CardActionArea>
 				<CardMedia
-					className={classes.cover}
-					image="/static/images/cards/live-from-space.jpg"
-					title="book cover"
+					className={classes.media}
+					image={props.book_image_link}
+					title="Contemplative Reptile"
 				/>
 				<CardContent>
-					<Typography variant="h5" component="h2">
-						Book title
-        </Typography>
-					<Typography className={classes.pos} color="textSecondary">
-						Author
-        </Typography>
-					<Typography variant="body2" component="p">
-						Description
-					</Typography>
+					<Typography gutterBottom variant="h5" component="h2">
+					{props.book_name}
+						</Typography>
+					<Typography variant="body2" color="textSecondary" component="p">
+					{props.book_author}
+						</Typography>
 				</CardContent>
-				<CardActions>
-					<Button size="small">Save</Button>
-				</CardActions>
-			</Card>
-		</CardActionArea >
+			</CardActionArea>
+			<CardActions>
+				<Button size="small" color="primary">
+					Save
+        </Button>
+				<Button size="small" color="primary">
+					Learn More
+        </Button>
+			</CardActions>
+		</Card>
+		</div>
 	);
 }
 
