@@ -31,6 +31,7 @@ const API = {
   getChallenges: function () {
     return axios.get("/api/challenges");
   },
+  //Add a challenge to current user's list
 };
 
 export default API;

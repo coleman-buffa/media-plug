@@ -29,7 +29,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     book_published_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false
     }     
   });
