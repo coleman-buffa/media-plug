@@ -1,10 +1,11 @@
+const { Op } = require("sequelize");
 const db = require("../models");
 
 module.exports = {
 	findAll: function (req, res) {
 		db.Challenge.findAll()
 			.then(dbChallenge => {
-        // console.log(dbChallenge);
+				// console.log(dbChallenge);
 				res.json(dbChallenge)
 			})
 			.catch(err => res.status(422).json(err));
@@ -30,17 +31,36 @@ module.exports = {
 			.then(dbChallenge => res.json(dbChallenge))
 			.catch(err => res.status(422).json(err));
 	},
-  challengesByUser: function (req, res) {
-    db.UserChallenge.findAll({
-      where: {
-        participantId: req.params.id
-      },
-      include: {
-          model: db.Challenge
-      }
-    })
-    .then(dbChallenge => {
-      res.json(dbChallenge);
-    })
-  }
+	challengesByUser: function (req, res) {
+		db.UserChallenge.findAll({
+			where: {
+				participantId: req.params.id
+			},
+			include: {
+				model: db.Challenge
+			}
+		})
+			.then(dbChallenge => {
+				res.json(dbChallenge);
+			})
+	},
+	//Explore page; get unsubscribed challenges by user
+	unsubbedChallengesByUser: function (req, res) {
+		console.log("We were never here");
+		console.log(req.params.id);
+		db.UserChallenge.findAll({
+			where: {
+				participantId: {
+					[Op.not]: req.params.id
+				},
+			},
+			include: {
+				model: db.Challenge
+			}
+		})
+			.then(dbChallenge => {
+				console.log(dbChallenge);
+				res.json(dbChallenge);
+			})
+	}
 };

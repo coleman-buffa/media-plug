@@ -46,11 +46,10 @@ module.exports = {
 	},
 	// Explore page; get books user has not read
 	unreadBooksByUser: function (req, res) {
-		console.log(req.params.id);
+		// console.log(req.params.id);
 		db.UserBook.findAll({
 			where: {
-				UserId:
-				{
+				UserId: {
 					[Op.not]: req.params.id
 				},
 			},
@@ -59,8 +58,8 @@ module.exports = {
 			}
 		})
 			.then(dbBook => {
-				console.log(dbBook);
+				// console.log(dbBook);
 				res.json(dbBook);
 			})
-	},
+	}
 };

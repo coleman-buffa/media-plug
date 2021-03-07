@@ -35,20 +35,20 @@ function Explore() {
 
   useEffect(() => {
     getUnreadBooks();
-    getAllChallenges();
+    getUnsubbedChallenges();
   }, []);
 
   const getUnreadBooks = () => {
     API.unreadBooksByUser(1)
       .then(results => {
-        console.log(results.data);
         setBooks(results.data);
       });
   }
 
-  const getAllChallenges = () => {
-    API.getChallenges()
+  const getUnsubbedChallenges = () => {
+    API.unsubbedChallengesByUser(1)
       .then(results => {
+        console.log(results.data);
         setChallenges(results.data);
       });
   }
@@ -59,7 +59,7 @@ function Explore() {
         {/* Book List section */}
         <Container>
           <Typography variant="h2" className={classes.set}>Book list
-				<Grid item className={classes.section}>
+				    <Grid item className={classes.section}>
               {books.map(book => (
                 <Card elevation={5} className={classes.card} key={book.Book.id}>
                   <CardMedia className={classes.media} image={book.Book.book_image_link} title="book1" />
