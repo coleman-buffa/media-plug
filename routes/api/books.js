@@ -14,7 +14,8 @@ router
   .put(booksController.update)
   .delete(booksController.remove);
 
-  router
+//Matches with "/api/books/user/:id"
+router
   .route("/user/:id")
   .get(booksController.booksByUser);
 

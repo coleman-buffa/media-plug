@@ -35,6 +35,9 @@ const API = {
   getChallenges: function () {
     return axios.get("/api/challenges");
   },
+  challengesByUser: function (userId) {
+    return axios.get("/api/challenges/user/" + userId);
+  }
   //Add a challenge to current user's list
 };
 

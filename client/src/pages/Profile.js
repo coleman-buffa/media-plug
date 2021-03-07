@@ -5,16 +5,26 @@ import API from "../utils/API";
 
 function Profile() {
 
-  const [challenges, setChallenges] = useState([]);
-  const [userStats, setUserStats] = useState({});
-  const [books, setBooks] = useState([]);
+  // const [challenges, setChallenges] = useState([]);
+  // const [userStats, setUserStats] = useState({});
+  // const [books, setBooks] = useState([]);
 
   useEffect(() => {
     getAllBooksByUser();
+    getAllChallengesByUser();
   }, []);
 
-const getAllBooksByUser = ()  => {
+const getAllBooksByUser = () => {
   API.booksByUser(1)
+  .then(results => {
+    console.log(results.data);
+    //Do some work with the results
+  })
+  .catch(err => console.log(err));
+}
+
+const getAllChallengesByUser = () => {
+  API.challengesByUser(1)
   .then(results => {
     console.log(results.data);
     //Do some work with the results

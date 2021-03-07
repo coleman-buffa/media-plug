@@ -40,7 +40,6 @@ module.exports = {
       }
     })
     .then(dbBook => {
-      console.log(dbBook);
       res.json(dbBook);
     })
   }
