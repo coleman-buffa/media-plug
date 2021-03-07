@@ -30,15 +30,36 @@ const API = {
   booksByUser: function (userId) {
     return axios.get("/api/books/user/" + userId);
   },
+  unreadBooksByUser: function (userId) {
+    return axios.get("/api/books/user/" + userId + "/unread/");
+  },
 
-  //Challenges
+
+  //////////////
+  // Challenges
   getChallenges: function () {
     return axios.get("/api/challenges");
   },
   challengesByUser: function (userId) {
     return axios.get("/api/challenges/user/" + userId);
-  }
+  },
+  unsubbedChallengesByUser: function (userId) {
+    return axios.get("/api/challenges/user/" + userId + "/unsubbed/");
+  },
   //Add a challenge to current user's list
+
+
+  //////////////
+  // UserBook
+  saveUserBook: function (userId, bookId) {
+    return axios.post("/api/books/userbook/" + userId + "/" + bookId);
+  },
+
+  //////////////
+  // UserChallenge
+  saveUserChallenge: function (userId, challengeId) {
+    return axios.post("api/challenges/userchallenge/" + userId + "/" + challengeId);
+  }
 };
 
 export default API;

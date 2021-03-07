@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 function Footer() {
 	const classes = useStyles();
 	return (
-		<BottomNavigation className={classes.foot} showlabel="false">
+		<BottomNavigation className={classes.foot}>
 			<Typography className={classes.text}>Media Plug designed by Coleman Buffa, Jessny Joseph, and Muhammad A Khalid</Typography>
 		</BottomNavigation>
 	);

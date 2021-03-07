@@ -14,9 +14,18 @@ router
   .put(challengesController.update)
   .delete(challengesController.remove);
 
-//Matches wuth "/api/challenges/user/:id"
+//Matches with "/api/challenges/user/:id"
 router
   .route("/user/:id")
   .get(challengesController.challengesByUser);
+
+//Matches with "/api/challenges/user/:id/unsubbed"
+router
+  .route("/user/:id/unsubbed")
+  .get(challengesController.unsubbedChallengesByUser);
+
+router
+  .route("/userchallenge/:userId/:challengeId")
+  .post(challengesController.subscribeToChallenge);
 
 module.exports = router;

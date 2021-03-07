@@ -34,24 +34,34 @@ function Explore() {
   const [challenges, setChallenges] = useState([]);
 
   useEffect(() => {
-    getAllBooks();
-    getAllChallenges();
-  }, []);
+    getUnreadBooks();
+    getUnsubbedChallenges();
+  }, [setBooks, setChallenges]);
 
-  const getAllBooks = () => {
-    API.getBooks()
+  const getUnreadBooks = () => {
+    API.unreadBooksByUser(1)
       .then(results => {
         setBooks(results.data);
       });
   }
 
-  const getAllChallenges = () => {
-    API.getChallenges()
+  const getUnsubbedChallenges = () => {
+    API.unsubbedChallengesByUser(1)
       .then(results => {
         setChallenges(results.data);
       });
   }
 
+  const handleAddBookToList = (bookId) => {
+    // console.log(bookId);
+    API.saveUserBook(1, bookId);
+    getUnreadBooks();
+  }
+  const handleAddChallengeToList = (challengeId) => {
+    // console.log(`Challenge ${id}`);
+    API.saveUserChallenge(1, challengeId);
+    getUnsubbedChallenges();
+  }
 
   return (
     <Container className={classes.pagecont}>
@@ -59,15 +69,15 @@ function Explore() {
         {/* Book List section */}
         <Container>
           <Typography variant="h2" className={classes.set}>Book list
-				<Grid item className={classes.section}>
+				    <Grid item className={classes.section}>
               {books.map(book => (
-                <Card elevation={5} className={classes.card} key={book.id}>
-                  <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
+                <Card elevation={5} className={classes.card} key={book.Book.id}>
+                  <CardMedia className={classes.media} image={book.Book.book_image_link} title="book1" />
                   <CardContent>
-                    <Typography variant="h4">{book.book_name}</Typography>
+                    <Typography variant="h4">{book.Book.book_name}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button variant="outlined">Add to List</Button>
+                    <Button variant="outlined" onClick={() => handleAddBookToList(book.Book.id)}>Add to List</Button>
                   </CardActions>
                 </Card>
               ))}
@@ -80,13 +90,13 @@ function Explore() {
           <Typography variant="h2">Challenge list</Typography>
           <Grid item className={classes.section}>
             {challenges.map(challenge => (
-              <Card elevation={5} className={classes.card} key={challenge.id}>
+              <Card elevation={5} className={classes.card} key={challenge.Challenge.id}>
                 <CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" />
                 <CardContent>
-                  <Typography variant="h4">{challenge.challenge_name}</Typography>
+                  <Typography variant="h4">{challenge.Challenge.challenge_name}</Typography>
                 </CardContent>
                 <CardActions>
-                  <Button variant="contained">Add to List</Button>
+                  <Button variant="contained" onClick={() => handleAddChallengeToList(challenge.Challenge.id)}>Add to List</Button>
                 </CardActions>
               </Card>
             ))}
