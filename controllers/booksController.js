@@ -46,7 +46,6 @@ module.exports = {
 	},
 	// Explore page; get books user has not read
 	unreadBooksByUser: function (req, res) {
-		// console.log(req.params.id);
 		db.UserBook.findAll({
 			where: {
 				UserId: {

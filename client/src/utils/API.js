@@ -34,7 +34,9 @@ const API = {
     return axios.get("/api/books/user/" + userId + "/unread/");
   },
 
-  //Challenges
+
+  //////////////
+  // Challenges
   getChallenges: function () {
     return axios.get("/api/challenges");
   },
@@ -42,10 +44,13 @@ const API = {
     return axios.get("/api/challenges/user/" + userId);
   },
   unsubbedChallengesByUser: function (userId) {
-    console.log("We are here!");
     return axios.get("/api/challenges/user/" + userId + "/unsubbed/");
   },
   //Add a challenge to current user's list
+
+
+  //////////////
+  // UserBook
 };
 
 export default API;

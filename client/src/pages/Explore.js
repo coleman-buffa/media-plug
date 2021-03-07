@@ -53,6 +53,13 @@ function Explore() {
       });
   }
 
+  const handleAddBookToList = id => {
+   console.log(id);
+  }
+  const handleAddChallengeToList = id => {
+    console.log(`Challenge ${id}`);
+  }
+
   return (
     <Container className={classes.pagecont}>
       <Grid container>
@@ -67,7 +74,7 @@ function Explore() {
                     <Typography variant="h4">{book.Book.book_name}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button variant="outlined">Add to List</Button>
+                    <Button variant="outlined" onClick={() => handleAddBookToList(book.Book.id)}>Add to List</Button>
                   </CardActions>
                 </Card>
               ))}
@@ -80,13 +87,13 @@ function Explore() {
           <Typography variant="h2">Challenge list</Typography>
           <Grid item className={classes.section}>
             {challenges.map(challenge => (
-              <Card elevation={5} className={classes.card} key={challenge.id}>
+              <Card elevation={5} className={classes.card} key={challenge.Challenge.id}>
                 <CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" />
                 <CardContent>
-                  <Typography variant="h4">{challenge.challenge_name}</Typography>
+                  <Typography variant="h4">{challenge.Challenge.challenge_name}</Typography>
                 </CardContent>
                 <CardActions>
-                  <Button variant="contained">Add to List</Button>
+                  <Button variant="contained" onClick={() => handleAddChallengeToList(challenge.Challenge.id)}>Add to List</Button>
                 </CardActions>
               </Card>
             ))}

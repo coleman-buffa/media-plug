@@ -46,8 +46,6 @@ module.exports = {
 	},
 	//Explore page; get unsubscribed challenges by user
 	unsubbedChallengesByUser: function (req, res) {
-		console.log("We were never here");
-		console.log(req.params.id);
 		db.UserChallenge.findAll({
 			where: {
 				participantId: {
@@ -59,7 +57,7 @@ module.exports = {
 			}
 		})
 			.then(dbChallenge => {
-				console.log(dbChallenge);
+				// console.log(dbChallenge);
 				res.json(dbChallenge);
 			})
 	}
