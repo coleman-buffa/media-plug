@@ -27,7 +27,7 @@ function SearchBar(props) {
 						className={classes.bar}
 						required
 						id="search-term"
-						placeholder="Learn you some knowledge"
+						placeholder="Search a book"
 						variant="outlined"
 						InputProps={{
 							endAdornment: (
