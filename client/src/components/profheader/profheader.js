@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     profimage: {
         display: 'flex',
         '& > *': {
-            margin: theme.spacing(5),
+            margin: theme.spacing(10),
         },
     },
     large: {
@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(28),
     },
     welcome: {
-        marginTop: 100,
-        marginLeft: 5,
+        marginTop: 160,
+        marginLeft: 3,
     }
 }));
 function ProfHeader(props) {
