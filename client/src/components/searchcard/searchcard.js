@@ -12,21 +12,23 @@ const useStyles = makeStyles({
 	root: {
 		minWidth: 275,
 		marginTop: 10,
-		// display: "flex",
 	},
 	title: {
+		marginTop: 20,
 		fontSize: 25,
 		marginLeft: 20,
 		fontFamily: "Georgia",
 		fontWeight: "bold",
-		// marginTop: 20,
 	},
-	pos: {
+	author: {
 		marginBottom: 12,
 		marginLeft: 20,
+		fontSize: 19,
+		fontFamily: "Arial",
+		fontWeight: "bold",
 	},
 	media: {
-		height: 250,
+		height: 220,
 		minWidth: 180,
 	},
 	content: {
@@ -34,10 +36,7 @@ const useStyles = makeStyles({
 	},
 	desc: {
 		marginLeft: 20,
-		// whiteSpace: "nowrap",
-		// overflow: "hidden",
-		// textOverflow: "ellipsis",
-	}
+	},
 	// saveBook: {
 	// 	display: "flex", 
 
@@ -60,7 +59,7 @@ function SearchCard(props) {
 						<Typography className={classes.title} color="textSecondary" gutterBottom>
 							{props.book_name}
 						</Typography>
-						<Typography className={classes.pos} color="textSecondary">
+						<Typography className={classes.author} color="textSecondary">
 							{props.book_author}
 						</Typography>
 						<Typography className={classes.desc} color="textSecondary">
