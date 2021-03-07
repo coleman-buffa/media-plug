@@ -24,4 +24,8 @@ router
   .route("/user/:id/unsubbed")
   .get(challengesController.unsubbedChallengesByUser);
 
+router
+  .route("/userchallenge/:userId/:challengeId")
+  .post(challengesController.subscribeToChallenge);
+
 module.exports = router;

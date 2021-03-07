@@ -51,6 +51,17 @@ const API = {
 
   //////////////
   // UserBook
+  saveUserBook: function (userId, bookId) {
+    console.log("reached saveUserBook in API.js");
+    return axios.post("/api/books/userbook/" + userId + "/" + bookId);
+  },
+
+  //////////////
+  // UserChallenge
+  saveUserChallenge: function (userId, challengeId) {
+    console.log("reached saveUserChallenge in API.js");
+    return axios.post("api/challenges/userchallenge/" + userId + "/" + challengeId);
+  }
 };
 
 export default API;

@@ -24,4 +24,8 @@ router
   .route("/user/:id/unread")
   .get(booksController.unreadBooksByUser);
 
+router
+  .route("/userbook/:userId/:bookId")
+  .post(booksController.subscribeToBook);
+
 module.exports = router;

@@ -36,7 +36,7 @@ function Explore() {
   useEffect(() => {
     getUnreadBooks();
     getUnsubbedChallenges();
-  }, []);
+  }, [setBooks, setChallenges]);
 
   const getUnreadBooks = () => {
     API.unreadBooksByUser(1)
@@ -48,16 +48,19 @@ function Explore() {
   const getUnsubbedChallenges = () => {
     API.unsubbedChallengesByUser(1)
       .then(results => {
-        console.log(results.data);
         setChallenges(results.data);
       });
   }
 
-  const handleAddBookToList = id => {
-   console.log(id);
+  const handleAddBookToList = (bookId) => {
+    // console.log(bookId);
+    API.saveUserBook(1, bookId);
+    getUnreadBooks();
   }
-  const handleAddChallengeToList = id => {
-    console.log(`Challenge ${id}`);
+  const handleAddChallengeToList = (challengeId) => {
+    // console.log(`Challenge ${id}`);
+    API.saveUserChallenge(1, challengeId);
+    getUnsubbedChallenges();
   }
 
   return (

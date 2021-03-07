@@ -60,5 +60,24 @@ module.exports = {
 				// console.log(dbBook);
 				res.json(dbBook);
 			})
+	},
+	// add to userbook join table
+	subscribeToBook: function (req, res) {
+		console.log("UserBooks");
+		console.log(req.params);
+		db.UserBook.create({
+			read_status: 0,
+			UserId: req.params.userId,
+			BookId: req.params.bookId,
+			createdAt: new Date(),
+			updatedAt: new Date()
+		})
+			.then(dbUserBook => {
+				console.log(dbUserBook)
+				res.json(dbUserBook)
+			})
+			.catch(err => res.status(422).json(err));
 	}
+
+
 };
