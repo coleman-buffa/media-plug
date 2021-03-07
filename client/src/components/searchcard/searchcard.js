@@ -1,59 +1,60 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { FormHelperText } from '@material-ui/core';
+import CardMedia from '@material-ui/core/CardMedia';
 
 const useStyles = makeStyles({
 	root: {
+		minWidth: 275,
 		marginTop: 10,
-		width: 275,
-		height: 350,
+	},
+	title: {
+		fontSize: 20,
+	},
+	pos: {
+		marginBottom: 12,
 	},
 	media: {
-		height: 200,
-	},
+		height:150,
+		width: 100,
+	}
 });
+
 function SearchCard(props) {
 	const classes = useStyles();
 
 	return (
-		<div style={{display:"flex", justifyContent:"space-evenly"}}>
-		<Card className={classes.root}>
-			<CardActionArea>
-				<CardMedia
-					className={classes.media}
-					image={props.book_image_link}
-					title="Contemplative Reptile"
-				/>
+		<div>
+			<Card className={classes.root}>
 				<CardContent>
-					<Typography gutterBottom variant="h5" component="h2">
-					{props.book_name}
-						</Typography>
-					<Typography variant="body2" color="textSecondary" component="p">
-					{props.book_author}
-						</Typography>
+					<CardMedia
+						className={classes.media}
+						image={props.book_image_link}
+						title="Book Cover"
+					>
+					<Typography className={classes.title} color="textSecondary" gutterBottom>
+						{props.book_name}
+					</Typography>
+					<Typography className={classes.pos} color="textSecondary">
+						{props.book_author}
+					</Typography>
+					</CardMedia>
 				</CardContent>
-			</CardActionArea>
-			<CardActions>
-				<Button size="small" color="primary">
-					Save
-        </Button>
-				<Button size="small" color="primary">
-					Learn More
-        </Button>
-			</CardActions>
-		</Card>
+				<CardActions>
+					<Button size="small">Save</Button>
+				</CardActions>
+			</Card>
 		</div>
 	);
 }
 
 export default SearchCard;
+
+
 
 
 
