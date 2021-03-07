@@ -11,14 +11,15 @@ import "./searchcard.css";
 
 const useStyles = makeStyles({
 	searchCard: {
+		backgroundColor: '#eeeeee',
 		minWidth: 275,
 		marginTop: 10,
-	"&:hover": {
-		transform: "scale(1.01)",
-		boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
-		transition: ".1s",
-	},
-	
+		"&:hover": {
+			transform: "scale(1.01)",
+			boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
+			transition: ".1s",
+		},
+
 	},
 	title: {
 		marginTop: 20,
@@ -44,8 +45,8 @@ const useStyles = makeStyles({
 	desc: {
 		marginLeft: 20,
 	},
-	saveBook: {
-		float: "right", 
+saveBook: {
+	float: "right", 
 	},
 });
 
@@ -65,10 +66,10 @@ function SearchCard(props) {
 						<Typography className={classes.title} color="textSecondary" gutterBottom>
 							{props.book_name}
 						</Typography>
-						<Typography className={classes.author} color="textSecondary">
+						<Typography className={classes.author} color="textSecondary" >
 							{props.book_author}
 						</Typography>
-						<Typography className={classes.desc} color="textSecondary">
+						<Typography className={classes.desc} color="textSecondary" >
 							{props.book_desc}
 						</Typography>
 					</div>
