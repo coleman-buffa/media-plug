@@ -6,22 +6,42 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
+import { FormHelperText } from '@material-ui/core';
 
 const useStyles = makeStyles({
 	root: {
 		minWidth: 275,
 		marginTop: 10,
+		// display: "flex",
 	},
 	title: {
-		fontSize: 20,
+		fontSize: 25,
+		marginLeft: 20,
+		fontFamily: "Georgia",
+		fontWeight: "bold",
+		// marginTop: 20,
 	},
 	pos: {
 		marginBottom: 12,
+		marginLeft: 20,
 	},
 	media: {
-		height:150,
-		width: 100,
+		height: 250,
+		minWidth: 180,
+	},
+	content: {
+		display: "flex",
+	},
+	desc: {
+		marginLeft: 20,
+		// whiteSpace: "nowrap",
+		// overflow: "hidden",
+		// textOverflow: "ellipsis",
 	}
+	// saveBook: {
+	// 	display: "flex", 
+
+	// }
 });
 
 function SearchCard(props) {
@@ -30,23 +50,27 @@ function SearchCard(props) {
 	return (
 		<div>
 			<Card className={classes.root}>
-				<CardContent>
+				<CardContent className={classes.content}>
 					<CardMedia
 						className={classes.media}
 						image={props.book_image_link}
 						title="Book Cover"
-					>
-					<Typography className={classes.title} color="textSecondary" gutterBottom>
-						{props.book_name}
-					</Typography>
-					<Typography className={classes.pos} color="textSecondary">
-						{props.book_author}
-					</Typography>
-					</CardMedia>
+					/>
+					<div>
+						<Typography className={classes.title} color="textSecondary" gutterBottom>
+							{props.book_name}
+						</Typography>
+						<Typography className={classes.pos} color="textSecondary">
+							{props.book_author}
+						</Typography>
+						<Typography className={classes.desc} color="textSecondary">
+							{props.book_desc}
+						</Typography>
+					</div>
 				</CardContent>
-				<CardActions>
+				{/* <CardActions className={classes.saveBook}>
 					<Button size="small">Save</Button>
-				</CardActions>
+				</CardActions> */}
 			</Card>
 		</div>
 	);
