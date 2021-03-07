@@ -1,9 +1,8 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import { Button } from '@material-ui/core'
 import Stats from "../stats/stats";
 
-function StatsCarousel(props) {
+function StatsCarousel() {
     var items = [
         {
             name: "Random Name #1",
@@ -28,7 +27,7 @@ function StatsCarousel(props) {
     )
 }
 
-function Item(props) {
+function Item() {
     return (
         <div style={{display:"flex", justifyContent:"space-evenly"}}>
             <Stats></Stats>

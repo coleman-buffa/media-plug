@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import StatsCarousel from '../components/statsCarousel/statsCarousel';
 import ProfHeader from "../components/profheader/profheader";
+import MyChallenges from "../components/mychallenges/mychallenges";
 import API from "../utils/API";
 
 function Profile() {
@@ -37,6 +38,7 @@ const getAllChallengesByUser = () => {
       <ProfHeader />
       <div className="statsCar" style={{ padding: 40 }}>
         <StatsCarousel />
+    				<MyChallenges />
       </div>
     </div>
   );
