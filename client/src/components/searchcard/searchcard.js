@@ -36,6 +36,7 @@ const useStyles = makeStyles({
 		fontWeight: "bold",
 	},
 	media: {
+		marginTop: 28,
 		height: 220,
 		minWidth: 180,
 	},
