@@ -6,7 +6,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
-import { FormHelperText } from '@material-ui/core';
+import SaveIcon from '@material-ui/icons/Save';
+
+// import { FormHelperText } from '@material-ui/core';
 
 const useStyles = makeStyles({
 	root: {
@@ -37,10 +39,9 @@ const useStyles = makeStyles({
 	desc: {
 		marginLeft: 20,
 	},
-	// saveBook: {
-	// 	display: "flex", 
-
-	// }
+	saveBook: {
+		float: "right", 
+	},
 });
 
 function SearchCard(props) {
@@ -67,9 +68,17 @@ function SearchCard(props) {
 						</Typography>
 					</div>
 				</CardContent>
-				{/* <CardActions className={classes.saveBook}>
-					<Button size="small">Save</Button>
-				</CardActions> */}
+				<CardActions className={classes.saveBook}>
+					<Button
+						variant="contained"
+						color="primary"
+						size="small"
+						className={classes.button}
+						startIcon={<SaveIcon />}
+					>
+						Save
+					</Button>
+				</CardActions>
 			</Card>
 		</div>
 	);
