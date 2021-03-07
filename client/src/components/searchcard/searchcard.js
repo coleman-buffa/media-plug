@@ -7,13 +7,18 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import SaveIcon from '@material-ui/icons/Save';
-
-// import { FormHelperText } from '@material-ui/core';
+import "./searchcard.css";
 
 const useStyles = makeStyles({
-	root: {
+	searchCard: {
 		minWidth: 275,
 		marginTop: 10,
+	"&:hover": {
+		transform: "scale(1.01)",
+		boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
+		transition: ".1s",
+	},
+	
 	},
 	title: {
 		marginTop: 20,
@@ -49,7 +54,7 @@ function SearchCard(props) {
 
 	return (
 		<div>
-			<Card className={classes.root}>
+			<Card className={classes.searchCard} elevation={0}>
 				<CardContent className={classes.content}>
 					<CardMedia
 						className={classes.media}
@@ -75,6 +80,7 @@ function SearchCard(props) {
 						size="small"
 						className={classes.button}
 						startIcon={<SaveIcon />}
+						onClick={() => props.handleSaveButton(props.id)}
 					>
 						Save
 					</Button>
