@@ -14,6 +14,7 @@ module.exports = {
 			.catch(err => res.status(422).json(err));
 	},
 	create: function (req, res) {
+    console.log(req.body);
 		db.Book.create(req.body)
 			.then(dbBook => res.json(dbBook))
 			.catch(err => res.status(422).json(err));
@@ -28,5 +29,18 @@ module.exports = {
 			.then(dbBook => dbBook.remove())
 			.then(dbBook => res.json(dbBook))
 			.catch(err => res.status(422).json(err));
-	}
+	},
+  booksByUser: function (req, res) {
+    db.UserBook.findAll({
+      where: {
+        userId: req.params.id
+      },
+      include: {
+          model: db.Book
+      }
+    })
+    .then(dbBook => {
+      res.json(dbBook);
+    })
+  }
 };
