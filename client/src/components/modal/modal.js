@@ -9,6 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import IconButton from '@material-ui/core/IconButton';
 import FormControl from '@material-ui/core/FormControl';
+import Typography from '@material-ui/core/Typography';
+
 import "./modal.css";
 
 function Modal() {
@@ -24,9 +26,12 @@ function Modal() {
 
     return (
         <div>
+            <Typography style={{ fontSize: 30 }}  >
+                My Challenges
             <IconButton className="playlistadd" color="primary" aria-label="add new challenge" onClick={handleClickOpen}>
-                <PlaylistAddIcon />
-            </IconButton>
+                    <PlaylistAddIcon />
+                </IconButton>
+            </Typography>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Add New Challenge</DialogTitle>
                 <DialogContent>
