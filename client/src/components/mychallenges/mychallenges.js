@@ -9,7 +9,8 @@ function MyChallenges() {
         <React.Fragment>
             <CssBaseline />
             <Container style={{width:"95%", marginTop: 30}}>       
-                <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
+                <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh', padding: 30, paddingTop: 20, fontSize:30 }}>
+                My Challenges
                 <ChallengeCard />   
                     </Typography>       
             </Container>
