@@ -62,8 +62,6 @@ module.exports = {
 			})
 	},
 	subscribeToChallenge: function (req, res) {
-		console.log("UserCHallenges");
-		console.log(req.params);
 		db.UserChallenge.create({
 			participantId: req.params.userId,
 			ChallengeId: req.params.challengeId,
@@ -71,7 +69,6 @@ module.exports = {
 			updatedAt: new Date()
 		})
 			.then(dbUserChallenge => {
-				console.log(dbUserChallenge)
 				res.json(dbUserChallenge)
 			})
 			.catch(err => res.status(422).json(err));

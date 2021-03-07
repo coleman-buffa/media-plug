@@ -63,8 +63,6 @@ module.exports = {
 	},
 	// add to userbook join table
 	subscribeToBook: function (req, res) {
-		console.log("UserBooks");
-		console.log(req.params);
 		db.UserBook.create({
 			read_status: 0,
 			UserId: req.params.userId,
@@ -73,7 +71,6 @@ module.exports = {
 			updatedAt: new Date()
 		})
 			.then(dbUserBook => {
-				console.log(dbUserBook)
 				res.json(dbUserBook)
 			})
 			.catch(err => res.status(422).json(err));
