@@ -8,6 +8,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import IconButton from '@material-ui/core/IconButton';
+import FormControl from '@material-ui/core/FormControl';
 import "./modal.css";
 
 function Modal() {
@@ -30,8 +31,8 @@ function Modal() {
                 <DialogTitle id="form-dialog-title">Add New Challenge</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        To create a new challenge, please enter a title and short description. Upon submitting,
-                        you will be able to access the challenge from your profile and the challenges page.
+                        To create a new challenge, please enter a title and description. Upon submitting,
+                        you will be able to view the challenge from your profile and the challenges page.
             </DialogContentText>
                     <TextField
                         autoFocus
@@ -55,7 +56,7 @@ function Modal() {
                         Cancel
                     </Button>
                     <Button onClick={handleClose} color="primary">
-                        Subscribe
+                        Add
                     </Button>
                 </DialogActions>
             </Dialog>
