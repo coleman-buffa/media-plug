@@ -26,6 +26,10 @@ const API = {
         }).catch((err) => reject(err));
     })
   },
+  //Check with instructors re: is this a book or user route for org purposes
+  booksByUser: function (userId) {
+    return axios.get("/api/books/user/" + userId);
+  },
 
   //Challenges
   getChallenges: function () {

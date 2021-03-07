@@ -29,5 +29,19 @@ module.exports = {
 			.then(dbBook => dbBook.remove())
 			.then(dbBook => res.json(dbBook))
 			.catch(err => res.status(422).json(err));
-	}
+	},
+  booksByUser: function (req, res) {
+    db.UserBook.findAll({
+      where: {
+        userId: req.params.id
+      },
+      include: {
+          model: db.Book
+      }
+    })
+    .then(dbBook => {
+      console.log(dbBook);
+      res.json(dbBook);
+    })
+  }
 };

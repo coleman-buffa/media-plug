@@ -37,7 +37,7 @@ function ProfHeader(props) {
     return (
         <div>
             <div className={classes.profimage}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.large} />
+                <Avatar alt="Remy Sharp" src="https://via.placeholder.com/150" className={classes.large} />
                 <ThemeProvider theme={theme}>
                     <Typography className={classes.welcome} variant="h3">Welcome, Jessny</Typography>
                 </ThemeProvider>
