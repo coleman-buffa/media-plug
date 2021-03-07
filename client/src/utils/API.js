@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const API = {
+  //Books
   // Gets all books
   getBooks: function () {
     return axios.get("/api/books");
@@ -24,7 +25,20 @@ const API = {
           resolve(res.data.items.slice(0, 3));
         }).catch((err) => reject(err));
     })
+  },
+  //Check with instructors re: is this a book or user route for org purposes
+  booksByUser: function (userId) {
+    return axios.get("/api/books/user/" + userId);
+  },
+
+  //Challenges
+  getChallenges: function () {
+    return axios.get("/api/challenges");
+  },
+  challengesByUser: function (userId) {
+    return axios.get("/api/challenges/user/" + userId);
   }
+  //Add a challenge to current user's list
 };
 
 export default API;

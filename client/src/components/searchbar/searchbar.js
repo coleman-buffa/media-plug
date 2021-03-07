@@ -4,15 +4,15 @@ import { FormControl, TextField, InputAdornment, IconButton, Grid } from '@mater
 import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles({
-	searchForm: {
-		marginTop: 50
-	},
-	bar: {
-		width: "100%"
-	},
-	button: {
-		display: 'block'
-	}
+  searchForm: {
+    marginTop: 50
+  },
+  bar: {
+    width: "100%"
+  },
+  button: {
+    display: 'block'
+  }
 });
 
 function SearchBar(props) {

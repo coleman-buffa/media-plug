@@ -78,7 +78,7 @@ export default SearchCard;
 								</a>
 							</p>
 							<p className="control">
-								<button id="viewBtn" className="button is-link" onClick={() => props.handleSaveButton(props.id)}><i className="fas fa-save"></i></button>
+								<button id="viewBtn" className="button is-link" onClick={() => props.handleSaveButton(props.id)}>Save<i className="fas fa-save"></i></button>
 							</p>
 						</div>
 					</article>

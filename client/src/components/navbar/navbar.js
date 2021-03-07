@@ -13,8 +13,6 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import PublicIcon from '@material-ui/icons/Public';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
-// import {Link} from 'react-router-dom';
-// import Challenges from "../../pages/Challenges";
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
@@ -67,6 +65,7 @@ function Navbar() {
 					<ListItemText primary={'Explore'} />
 				</ListItemLink>
 
+
 				<ListItemLink button key={'Search Books'} href="/search" >
 					<ListItemIcon>
 						<SearchIcon />
@@ -78,6 +77,7 @@ function Navbar() {
 					<ListItemIcon>
 						<FlashOnIcon />
 					</ListItemIcon>
+
 					<ListItemText primary={'Challenges'} />
 				</ListItemLink>
 			</List>
