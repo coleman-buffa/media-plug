@@ -4,7 +4,7 @@ module.exports = {
 	findAll: function (req, res) {
 		db.Challenge.findAll()
 			.then(dbChallenge => {
-        console.log(dbChallenge);
+        // console.log(dbChallenge);
 				res.json(dbChallenge)
 			})
 			.catch(err => res.status(422).json(err));

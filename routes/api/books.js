@@ -19,4 +19,9 @@ router
   .route("/user/:id")
   .get(booksController.booksByUser);
 
+//Matches with "api/books/user/:id/unread"
+router
+  .route("/user/:id/unread")
+  .get(booksController.unreadBooksByUser);
+
 module.exports = router;

@@ -30,6 +30,10 @@ const API = {
   booksByUser: function (userId) {
     return axios.get("/api/books/user/" + userId);
   },
+  unreadBooksByUser: function (userId) {
+    console.log("We are here!");
+    return axios.get("/api/books/user/" + userId + "/unread/");
+  },
 
   //Challenges
   getChallenges: function () {
