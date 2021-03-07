@@ -15,7 +15,6 @@ function MyChallenges() {
                 <Paper>
                     <Typography component="div"
                         style={{ backgroundColor: '#cfe8fc', height: '100vh', padding: 30, paddingTop: 20, fontSize: 30 }}>
-                        {/* My Challenges */}
                     <Modal />
                         <ChallengeCard />
                     </Typography>
