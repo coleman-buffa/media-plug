@@ -29,5 +29,18 @@ module.exports = {
 			.then(dbChallenge => dbChallenge.remove())
 			.then(dbChallenge => res.json(dbChallenge))
 			.catch(err => res.status(422).json(err));
-	}
+	},
+  challengesByUser: function (req, res) {
+    db.UserChallenge.findAll({
+      where: {
+        participantId: req.params.id
+      },
+      include: {
+          model: db.Challenge
+      }
+    })
+    .then(dbChallenge => {
+      res.json(dbChallenge);
+    })
+  }
 };

@@ -33,7 +33,6 @@ function SearchContainer() {
 		let str = inputRef.current.value;
 		// .trim();
 		let replaced = str.split(' ').join('+');
-
 		setSearchTerm(replaced);
 		inputRef.current.value = "";
 		getSearchResults(replaced);
@@ -47,7 +46,7 @@ function SearchContainer() {
 			book_author: tempArr[0].volumeInfo.authors.toString(),
 			book_desc: tempArr[0].volumeInfo.description,
 			book_image_link: tempArr[0].volumeInfo.imageLinks.thumbnail,
-			book_genre: tempArr[0].volumeInfo.categories,
+			book_genre: tempArr[0].volumeInfo.categories[0],
 			book_page_count: tempArr[0].volumeInfo.pageCount,
 			book_rating: tempArr[0].volumeInfo.averageRating,
 			book_published_date: tempArr[0].volumeInfo.publishedDate
@@ -69,7 +68,6 @@ function SearchContainer() {
 						handleInputSearch={handleInputSearch}
 					/>
 				</Paper>
-				<SearchCard />
 				{searchResults.map(book => (
 					<SearchCard
 						key={book.id}
