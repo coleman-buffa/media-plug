@@ -3,6 +3,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import ChallengeCard from "../challengecard/challengecard";
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import "./mychallenges.css";
 
 function MyChallenges() {
     return (
@@ -10,7 +12,7 @@ function MyChallenges() {
             <CssBaseline />
             <Container style={{width:"95%", marginTop: 30}}>       
                 <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh', padding: 30, paddingTop: 20, fontSize:30 }}>
-                My Challenges
+                My Challenges <PlaylistAddIcon className="playlistadd"/>
                 <ChallengeCard />   
                     </Typography>       
             </Container>
