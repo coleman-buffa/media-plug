@@ -44,12 +44,12 @@ function SearchContainer() {
 		API.saveBook({
 			book_name: tempArr[0].volumeInfo.title,
 			book_author: tempArr[0].volumeInfo.authors.toString(),
-			book_desc: tempArr[0].volumeInfo.description,
-			book_image_link: tempArr[0].volumeInfo.imageLinks.thumbnail,
-			book_genre: tempArr[0].volumeInfo.categories[0],
+			book_desc: tempArr[0].volumeInfo.description ? tempArr[0].volumeInfo.description : "Description not found",
+			book_image_link: tempArr[0].volumeInfo.imageLinks.thumbnail ? tempArr[0].volumeInfo.imageLinks.thumbnail : "https://via.placeholder.com/150",
+			book_genre: tempArr[0].volumeInfo.categories[0] ? tempArr[0].volumeInfo.categories[0] : "NA",
 			book_page_count: tempArr[0].volumeInfo.pageCount ? tempArr[0].volumeInfo.pageCount : 0,
 			book_rating: tempArr[0].volumeInfo.averageRating ? tempArr[0].volumeInfo.averageRating : 0,
-			book_published_date: tempArr[0].volumeInfo.publishedDate
+			book_published_date: tempArr[0].volumeInfo.publishedDate ? tempArr[0].volumeInfo.publishedDate : "1900-01-01"
 		})
 			.then(result => {
 				console.log(result);
