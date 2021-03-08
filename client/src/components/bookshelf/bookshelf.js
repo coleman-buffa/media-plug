@@ -1,21 +1,47 @@
 import React from 'react';
 import "./bookshelf.css";
+import { makeStyles, Card, CardMedia, CardContent } from '@material-ui/core';
 
-function BookShelf() {
+
+const useStyles = makeStyles({
+userCard: {
+    width: 220,
+    height: 250,
+    marginLeft: 25,
+},
+shelfContent: {
+    // display: 'flex',
+    // justifyContent: 'space-evenly',
+},
+shelfImage: {
+    height: 220,
+    minWidth: 180,
+},
+});
+
+function BookShelf(props) {
+    const classes = useStyles();
     return (
-<div className="container">
-        <div className="booksRead"><img src="http://placehold.it/150x190" /></div>
-        <div className="shelf"></div>
-        {/* <div className="col-xs-4 col-md-2"><img src="http://placehold.it/150x190" className="img-responsive book"/></div>
-        <div className="col-xs-12 shelf"></div>
-        <div className="col-xs-4 col-md-2"><img src="http://placehold.it/150x190" className="img-responsive book"/></div>
-        <div className="col-xs-12 shelf hidden-md hidden-lg"></div>
-        <div className="col-xs-4 col-md-2"><img src="http://placehold.it/150x190" className="img-responsive book"/></div>
-        <div className="col-xs-12 shelf"></div> */}
-</div>
+        <div>
+            < Card className={classes.userCard} elevation={24}>
+                <CardContent className={classes.shelfContent}>
+                    <CardMedia
+                        className={classes.shelfImage}
+                        image={props.image}
+                        title="Book Cover"
+                    />
+                </CardContent>
+            </Card >
+            <div className="shelf"></div>
+        </div>
     );
 }
 
 export default BookShelf;
 
-{/* <div className="shelf"></div> */}
+{/* <div className="container">
+        <div className="booksRead"><img src={props.image} /></div>
+        <div className="shelf"></div>
+</div> */}
+
+{/* <div className="shelf"></div> */ }

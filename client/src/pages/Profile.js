@@ -95,8 +95,8 @@ function Profile() {
 				<BookShelf 
 				key={book.id}
 				id={book.id}
-				image={book.volumeInfo.imageLinks.thumbnail}
-				rating={book.volumeInfo.averageRating}
+				image={book.book_image_link}
+				rating={book.book_rating}
 				/>
 			))}
 			<div className="statsCar" style={{ padding: 40 }}>
