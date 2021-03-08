@@ -16,9 +16,10 @@ const useStyles = makeStyles({
         // justifyContent: 'space-evenly',
     },
     shelfImage: {
-        height: 250,
+        height: 260,
         width: 190,
-        marginLeft: 25,
+        marginLeft: 10,
+        marginRight: 10,
     },
     rating: {
         marginLeft: 10,
