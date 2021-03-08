@@ -91,7 +91,14 @@ function Profile() {
 	return (
 		<div>
 			<ProfHeader />
-			<BookShelf />
+			{books.map(book => (
+				<BookShelf 
+				key={book.id}
+				id={book.id}
+				image={book.volumeInfo.imageLinks.thumbnail}
+				rating={book.volumeInfo.averageRating}
+				/>
+			))}
 			<div className="statsCar" style={{ padding: 40 }}>
 				<StatsCarousel />
 				<MyChallenges />
