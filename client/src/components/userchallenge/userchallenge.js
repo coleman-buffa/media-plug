@@ -1,8 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles, Card, CardContent, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
@@ -21,18 +18,22 @@ const useStyles = makeStyles({
     pos: {
         marginBottom: 12,
     },
+    chDescription: {
+        marginTop: 10,
+        marginLeft: 2,
+    },
 });
 
 function ChallengeCard() {
     const classes = useStyles();
-    
+
     return (
         <Card className={classes.root}>
             <CardContent>
                 <Typography variant="h5" component="h2">
                     Challenge Title
                 </Typography>
-                <Typography variant="body2" component="p" style={{marginTop: 10, marginLeft: 2}}>
+                <Typography variant="body2" component="p" className={classes.chDescription}>
                     Challenge description
                 </Typography>
             </CardContent>
