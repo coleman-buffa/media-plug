@@ -13,8 +13,6 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
 import PublicIcon from '@material-ui/icons/Public';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
-// import {Link} from 'react-router-dom';
-// import Challenges from "../../pages/Challenges";
 import MenuIcon from '@material-ui/icons/Menu';
 // import NavHead from "../appbar/appbar";
 
@@ -35,6 +33,7 @@ function Navbar() {
 	const [state, setState] = React.useState({
 		left: false
 	});
+
 	const toggleDrawer = (anchor, open) => (event) => {
 		if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
 			return;
@@ -49,26 +48,39 @@ function Navbar() {
 				[classes.fullList]: anchor === 'top' || anchor === 'bottom',
 			})}
 			role="presentation"
-			onClick={toggleDrawer(anchor, false)}
+			onClick={toggleDrawer(anchor, true)}
 			onKeyDown={toggleDrawer(anchor, false)}
 		>
 			<List>
 				<ListItemLink button key={'Profile'} href="/profile">
-					<ListItemIcon><AccountCircleIcon /></ListItemIcon>
+					<ListItemIcon>
+						<AccountCircleIcon />
+					</ListItemIcon>
 					<ListItemText primary={'Profile'} />
 				</ListItemLink>
+
 				<ListItemLink button key={'Explore'} href="/explore">
-					<ListItemIcon><PublicIcon /></ListItemIcon>
+					<ListItemIcon>
+						<PublicIcon />
+					</ListItemIcon>
 					<ListItemText primary={'Explore'} />
 				</ListItemLink>
-				<ListItem button key={'Search Books'}>
-					<ListItemIcon><SearchIcon /></ListItemIcon>
+
+
+				<ListItemLink button key={'Search Books'} href="/search" >
+					<ListItemIcon>
+						<SearchIcon />
+					</ListItemIcon>
 					<ListItemText primary={'Search Books'} />
-				</ListItem>
-				<ListItem button key={'Challenges'}>
-					<ListItemIcon><FlashOnIcon /></ListItemIcon>
+				</ListItemLink>
+
+				<ListItemLink button key={'Challenges'} href="/challenges">
+					<ListItemIcon>
+						<FlashOnIcon />
+					</ListItemIcon>
+
 					<ListItemText primary={'Challenges'} />
-				</ListItem>
+				</ListItemLink>
 			</List>
 			<Divider />
 			<List>
@@ -85,17 +97,16 @@ function Navbar() {
 		<div>
 			{/* <NavHead> */}
 			<React.Fragment key={"anchor"}>
-					<Button onClick={toggleDrawer("anchor", true)}><ListItemIcon><MenuIcon /></ListItemIcon></Button>
-					<SwipeableDrawer
-						anchor={"anchor"}
-						open={state["anchor"]}
-						onClose={toggleDrawer("anchor", false)}
-						onOpen={toggleDrawer("anchor", true)}
-					>
-						{list("anchor")}
-					</SwipeableDrawer>
-				</React.Fragment>
-				{/* </NavHead> */}
+				<Button onClick={toggleDrawer("anchor", true)}><ListItemIcon><MenuIcon /></ListItemIcon></Button>
+				<SwipeableDrawer
+					anchor={"left"}
+					open={state["anchor"]}
+					onClose={toggleDrawer("anchor", false)}
+					onOpen={toggleDrawer("anchor", true)}
+				>
+					{list("anchor")}
+				</SwipeableDrawer>
+			</React.Fragment>
 		</div>
 	);
 }

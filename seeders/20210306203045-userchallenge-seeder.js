@@ -3,34 +3,30 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
 
-    await queryInterface.bulkInsert('userbooks', [
+    await queryInterface.bulkInsert('userchallenges', [
       {
-        read_status: false,
-        UserId: 1,
-        BookId: 1,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        participantId: 1,
+        ChallengeId: 1
       },
       {
-        read_status: true,
-        UserId: 1,
-        BookId: 2,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        participantId: 1,
+        ChallengeId: 2
       },
       {
-        read_status: false,
-        UserId: 2,
-        BookId: 3,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        participantId: 2,
+        ChallengeId: 3
       },
       {
-        read_status: false,
-        UserId: 2,
-        BookId: 4,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        participantId: 2,
+        ChallengeId: 4
       }
     ]);
   },

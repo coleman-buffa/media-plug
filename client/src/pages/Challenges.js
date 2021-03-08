@@ -1,8 +1,9 @@
 import React from 'react';
+import AllChallenges from "../components/allchallenges/allchallenges";
 
 function Challenges() {
 	return (
-		<div>A new challenger approaches</div>
+		<AllChallenges />
 	);
 }
 

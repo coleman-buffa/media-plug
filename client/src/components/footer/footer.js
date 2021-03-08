@@ -5,24 +5,25 @@ import { BottomNavigation, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
 	foot: {
-		position: 'fixed',
+		position: 'relative',
 		width: "100%",
-		backgroundColor: '#3F51B5',
-		color: '#C2C8E7',
-		bottom: 0
+		backgroundColor: 'transparent',
+		color: 'black',
+		bottom: 0,
+		marginTop: 100
 	},
 	text: {
 		alignContent: 'bottom',
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'center'
+		justifyContent: 'center',
 	}
 })
 
 function Footer() {
 	const classes = useStyles();
 	return (
-		<BottomNavigation className={classes.foot} showlabels="false">
+		<BottomNavigation className={classes.foot}>
 			<Typography className={classes.text}>Media Plug designed by Coleman Buffa, Jessny Joseph, and Muhammad A Khalid</Typography>
 		</BottomNavigation>
 	);
