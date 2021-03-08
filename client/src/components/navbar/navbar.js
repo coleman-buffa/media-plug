@@ -14,7 +14,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import PublicIcon from '@material-ui/icons/Public';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import MenuIcon from '@material-ui/icons/Menu';
-// import NavHead from "../appbar/appbar";
 
 const useStyles = makeStyles({
 	list: {
@@ -95,7 +94,6 @@ function Navbar() {
 	);
 	return (
 		<div>
-			{/* <NavHead> */}
 			<React.Fragment key={"anchor"}>
 				<Button onClick={toggleDrawer("anchor", true)}><ListItemIcon><MenuIcon /></ListItemIcon></Button>
 				<SwipeableDrawer

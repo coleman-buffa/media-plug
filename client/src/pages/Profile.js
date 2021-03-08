@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StatsCarousel from '../components/statsCarousel/statsCarousel';
 import ProfHeader from "../components/profheader/profheader";
 import MyChallenges from "../components/mychallenges/mychallenges";
+import UserBooks from "../components/userbooks/userbooks";
 import API from "../utils/API";
 
 function Profile() {
@@ -91,6 +92,7 @@ function Profile() {
 	return (
 		<div>
 			<ProfHeader />
+			<UserBooks />
 			<div className="statsCar" style={{ padding: 40 }}>
 				<StatsCarousel />
 				<MyChallenges />
