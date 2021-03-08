@@ -35,25 +35,55 @@ function Profile() {
 	}
 
 	const calculateStats = () => {
-		// pages read: x,
-		// books read: y,
-		// genres_read: z,
-		// average book length: a,
-		// average rating: b
-		// longest book read
-		// shortest book read
 		let pagesRead = 0;
 		let booksRead = 0;
-
+		let avgLength = 0;
+		let ratingSum = 0;
+		let avgRating = 0;
+		let min = Number.MAX_SAFE_INTEGER;
+		let max = Number.MIN_SAFE_INTEGER;
+		let shortestBook = "";
+		let longestBook = "";
+		let genresRead = {};
 		books.forEach(book => {
 			booksRead++;
 			pagesRead += book.Book.book_page_count;
+			ratingSum += book.Book.book_rating;
+
+			if (book.Book.book_page_count > max) {
+				max = book.Book.book_page_count
+				longestBook = book.Book.book_name;
+			}
+
+			if (book.Book.book_page_count < min) {
+				min = book.Book.book_page_count;
+				shortestBook = book.Book.book_name;
+			}
+			if (genresRead[book.Book.book_genre]) {
+				genresRead[book.Book.book_genre]++;
+			} else {
+				genresRead[book.Book.book_genre] = 1;
+			}
 		});
+
+		avgLength = pagesRead / booksRead;
+		avgRating = ratingSum / booksRead;
 
 		setUserStats(
 			{
 				"booksRead": booksRead,
-				"pagesRead": pagesRead
+				"pagesRead": pagesRead,
+				"avgLength": avgLength,
+				"avgRating": avgRating,
+				"shortestBook": {
+					name: shortestBook,
+					length: min
+				},
+				"longestBook": {
+					name: longestBook,
+					length: max
+				},
+				"genresRead": genresRead
 			}
 		)
 	}
