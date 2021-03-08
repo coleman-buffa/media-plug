@@ -18,8 +18,10 @@ const useStyles = makeStyles({
     }
 });
 
-function MyChallenges() {
+function MyChallenges(props) {
     const classes = useStyles();
+    const local = props;
+    console.log(props);
 
     return (
         <React.Fragment>
@@ -28,9 +30,16 @@ function MyChallenges() {
                 <Paper>
                     <Typography component="div" className={classes.userChCont}>
                         <Modal />
-                        <UserChallenge />
+                        {local.challenges.map(user => (
+                            <UserChallenge
+                                key={user.Challenge.id}
+                                id={user.Challenge.id}
+                                name={user.Challenge.challenge_name}
+                                desc={user.Challenge.challenge_desc}
+                            />
+                        ))}
                     </Typography>
-                </Paper>
+                </Paper>=
             </Container>
         </React.Fragment>
     );

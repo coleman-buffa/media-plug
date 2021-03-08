@@ -22,23 +22,26 @@ const useStyles = makeStyles({
         marginTop: 10,
         marginLeft: 2,
     },
+    chTitle: {
+        fontSize: 20,
+    }
 });
 
-function ChallengeCard() {
+function UserChallenge(props) {
     const classes = useStyles();
 
     return (
         <Card className={classes.root}>
             <CardContent>
-                <Typography variant="h5" component="h2">
-                    Challenge Title
+                <Typography className={classes.chTitle} variant="h5" component="h2">
+                    {props.name}
                 </Typography>
                 <Typography variant="body2" component="p" className={classes.chDescription}>
-                    Challenge description
+                    {props.desc}
                 </Typography>
             </CardContent>
         </Card>
     );
 }
 
-export default ChallengeCard;
+export default UserChallenge;

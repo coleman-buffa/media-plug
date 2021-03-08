@@ -90,21 +90,23 @@ function Profile() {
 	return (
 		<div>
 			<ProfHeader />
-			<div style={{display:"flex", justifyContent:"center"}}>
-			{books.map(book => (
-				<BookShelf 
-				key={book.Book.id}
-				id={book.Book.id}
-				image={book.Book.book_image_link}
-				rating={book.Book.book_rating}
-				/>
-			))}
+			<div style={{ display: "flex", justifyContent: "center" }}>
+				{books.map(book => (
+					<BookShelf
+						key={book.Book.id}
+						id={book.Book.id}
+						image={book.Book.book_image_link}
+						rating={book.Book.book_rating}
+					/>
+				))}
 			</div>
 			<div className="shelf"></div>
 			<div className="statsCar" style={{ padding: 40 }}>
 				<StatsCarousel />
-				<MyChallenges />
 			</div>
+			<MyChallenges
+				challenges={challenges}
+			/>
 		</div>
 	);
 }
