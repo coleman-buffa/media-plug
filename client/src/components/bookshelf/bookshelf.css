@@ -3,7 +3,7 @@
     margin: auto;
 }
 .shelf {
-    border-bottom: 30px solid #A1A194;
+    border-bottom: 30px solid rgb(32, 31, 31);
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     top: -15px;

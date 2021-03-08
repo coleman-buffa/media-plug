@@ -1,7 +1,8 @@
 import React from 'react';
 import "./bookshelf.css";
 import { makeStyles, Card, CardMedia, CardContent, Box } from '@material-ui/core';
-import { Rating } from '@material-ui/lab';
+// import { Rating } from '@material-ui/lab';
+// import Grid from '@material-ui/core/Grid';
 
 
 const useStyles = makeStyles({
@@ -33,18 +34,23 @@ function BookShelf(props) {
     const classes = useStyles();
     return (
         <div>
-            {/* < Card className={classes.userCard} elevation={24}>
+            {/* <Grid container spacing={3}>
+                <Grid item xs={6} sm={3}> */}
+                    {/* < Card className={classes.userCard} elevation={24}>
                 <CardContent className={classes.shelfContent}> */}
                     <CardMedia
                         className={classes.shelfImage}
                         image={props.image}
                         title="Book Cover"
+                        
                     />
                     {/* <Box component="fieldset" borderColor="transparent">
                         <Rating className={classes.rating} name="read-only" value={props.rating} readOnly />
                     </Box> */}
-                {/* </CardContent>
+                    {/* </CardContent>
             </Card > */}
+                {/* </Grid>
+            </Grid> */}
         </div>
     );
 }

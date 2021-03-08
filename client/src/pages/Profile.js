@@ -91,6 +91,7 @@ function Profile() {
 	return (
 		<div>
 			<ProfHeader />
+			<div style={{display:"flex", justifyContent:"center"}}>
 			{books.map(book => (
 				<BookShelf 
 				key={book.Book.id}
@@ -99,6 +100,7 @@ function Profile() {
 				rating={book.Book.book_rating}
 				/>
 			))}
+			</div>
 			<div className="shelf"></div>
 			<div className="statsCar" style={{ padding: 40 }}>
 				<StatsCarousel />
