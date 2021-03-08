@@ -4,7 +4,7 @@ import './App.css';
 import UserContext from "./utils/usercontext";
 
 // import Signup from "./pages/Signup";
-// import Login from "./pages/Login";
+import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Explore from "./pages/Explore";
 import Challenges from "./pages/Challenges";
@@ -39,8 +39,8 @@ function App() {
         <Navbar />
         <Router>
           <Switch>
-            {/* <Route exact path="/" component={Login} /> */}
-            {/* <Route exact path="/login" component={Login} /> */}
+            <Route exact path="/" component={Login} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Explore} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/explore" component={Explore} />

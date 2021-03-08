@@ -1,32 +1,30 @@
 import React from 'react';
-import './footer.css';
 import { makeStyles } from '@material-ui/core/styles';
-import { BottomNavigation, Typography } from '@material-ui/core';
+import {BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const useStyles = makeStyles({
-	foot: {
-		position: 'relative',
+	root: {
 		width: "100%",
-		backgroundColor: 'transparent',
-		color: 'black',
-		bottom: 0,
-		marginTop: 100
+		marginTop: 550,
 	},
-	text: {
-		alignContent: 'bottom',
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'center',
-	}
-})
+});
 
 function Footer() {
 	const classes = useStyles();
+
 	return (
-		<BottomNavigation className={classes.foot}>
-			<Typography className={classes.text}>Media Plug designed by Coleman Buffa, Jessny Joseph, and Muhammad A Khalid</Typography>
+		<BottomNavigation
+			showLabels
+			className={classes.root}
+		>
+			<BottomNavigationAction href="https://github.com/jessnyj" label="Jessny Joseph" icon={<GitHubIcon color="primary" />} />
+			<BottomNavigationAction href="https://github.com/coleman-buffa" label="Coleman Buffa" icon={<GitHubIcon color="primary" />} />
+			<BottomNavigationAction href="https://github.com/akhalid88" label="Muhammad Khalid" icon={<GitHubIcon color="primary" />} />
 		</BottomNavigation>
 	);
 }
 
 export default Footer;
+
+
