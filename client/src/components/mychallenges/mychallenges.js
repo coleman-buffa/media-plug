@@ -1,20 +1,32 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
+import { makeStyles, CssBaseline, Typography, Container, Paper } from '@material-ui/core';
 import UserChallenge from "../userchallenge/userchallenge";
 import Modal from "../modal/modal";
 import "./mychallenges.css";
-import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles({
+    userChCont: {
+        backgroundColor: '#cfe8fc',
+        height: '100vh',
+        padding: 30,
+        paddingTop: 20,
+        fontSize: 30
+    },
+    root: {
+        width: "95%",
+        marginTop: 30,
+    }
+});
 
 function MyChallenges() {
+    const classes = useStyles();
+
     return (
         <React.Fragment>
             <CssBaseline />
-            <Container style={{ width: "95%", marginTop: 30 }}>
+            <Container className={classes.root}>
                 <Paper>
-                    <Typography component="div"
-                        style={{ backgroundColor: '#cfe8fc', height: '100vh', padding: 30, paddingTop: 20, fontSize: 30 }}>
+                    <Typography component="div" className={classes.userChCont}>
                         <Modal />
                         <UserChallenge />
                     </Typography>
