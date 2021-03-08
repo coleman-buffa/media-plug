@@ -40,21 +40,25 @@ function SearchContainer() {
 
 	const handleSaveButton = id => {
 		let tempArr = searchResults.filter(book => book.id === id);
-
+		console.log(tempArr);
 		API.saveBook({
 			book_name: tempArr[0].volumeInfo.title,
 			book_author: tempArr[0].volumeInfo.authors.toString(),
 			book_desc: tempArr[0].volumeInfo.description,
 			book_image_link: tempArr[0].volumeInfo.imageLinks.thumbnail,
 			book_genre: tempArr[0].volumeInfo.categories[0],
-			book_page_count: tempArr[0].volumeInfo.pageCount,
-			book_rating: tempArr[0].volumeInfo.averageRating,
+			book_page_count: tempArr[0].volumeInfo.pageCount ? tempArr[0].volumeInfo.pageCount : 0,
+			book_rating: tempArr[0].volumeInfo.averageRating ? tempArr[0].volumeInfo.averageRating : 0,
 			book_published_date: tempArr[0].volumeInfo.publishedDate
 		})
-			.then(result => console.log(result))
+			.then(result => {
+				console.log(result);
+				API.saveUserBook(1, result.data.id);
+			})
 			.catch(err => console.log(err));
 
 		setSearchResults([]);
+
 	}
 
 

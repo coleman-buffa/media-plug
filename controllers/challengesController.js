@@ -48,17 +48,24 @@ module.exports = {
 	unsubbedChallengesByUser: function (req, res) {
 		db.UserChallenge.findAll({
 			where: {
-				participantId: {
-					[Op.not]: req.params.id
-				},
+				participantId: req.params.id
 			},
-			include: {
-				model: db.Challenge
-			}
 		})
 			.then(dbChallenge => {
-				// console.log(dbChallenge);
-				res.json(dbChallenge);
+				//map through result and get array of challenge ids
+				let tempArray = [];
+				dbChallenge.map(chal => {
+					tempArray.push(chal.dataValues.ChallengeId);
+				})
+				db.Challenge.findAll({
+					where: {
+						[Op.not]: [{ id: tempArray }]
+					}
+				})
+					.then(dbChallenge => {
+						res.json(dbChallenge)
+					})
+					.catch(err => res.status(422).json(err));
 			})
 	},
 	subscribeToChallenge: function (req, res) {

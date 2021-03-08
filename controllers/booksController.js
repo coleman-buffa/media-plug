@@ -63,7 +63,6 @@ module.exports = {
 					}
 				})
 					.then(dbBook => {
-						console.log(dbBook);
 						res.json(dbBook);
 					})
 					.catch(err => res.status(422).json(err));
@@ -83,6 +82,4 @@ module.exports = {
 			})
 			.catch(err => res.status(422).json(err));
 	}
-
-
 };
