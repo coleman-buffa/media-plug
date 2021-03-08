@@ -24,6 +24,9 @@ const useStyles = makeStyles({
     chdesc: {
         marginTop: 10,
         marginLeft: 2,
+    },
+    chTitle: {
+        fontFamily: "Georgia"
     }
 });
 
@@ -33,7 +36,7 @@ function AllChallengeCard() {
     return (
         <Card className={classes.root} elevation={8}>
             <CardContent>
-                <Typography variant="h5" component="h2">
+                <Typography className={classes.chTitle} variant="h5" component="h2">
                     Challenge Title
                 </Typography>
                 <Typography className={classes.chdesc} variant="body2" component="p">
