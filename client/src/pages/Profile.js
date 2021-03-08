@@ -6,20 +6,21 @@ import API from "../utils/API";
 
 function Profile() {
 
-	// const [challenges, setChallenges] = useState([]);
-	// const [userStats, setUserStats] = useState({});
-	// const [books, setBooks] = useState([]);
+	const [challenges, setChallenges] = useState([]);
+	const [userStats, setUserStats] = useState({});
+	const [books, setBooks] = useState([]);
 
 	useEffect(() => {
 		getAllBooksByUser();
 		getAllChallengesByUser();
+		calculateStats();
 	}, []);
 
 	const getAllBooksByUser = () => {
 		API.booksByUser(1)
 			.then(results => {
 				console.log(results.data);
-				//Do some work with the results
+				setBooks(results.data);//Do some work with the results
 			})
 			.catch(err => console.log(err));
 	}
@@ -28,9 +29,63 @@ function Profile() {
 		API.challengesByUser(1)
 			.then(results => {
 				console.log(results.data);
-				//Do some work with the results
+				setChallenges(results.data);//Do some work with the results
 			})
 			.catch(err => console.log(err));
+	}
+
+	const calculateStats = () => {
+		let pagesRead = 0;
+		let booksRead = 0;
+		let avgLength = 0;
+		let ratingSum = 0;
+		let avgRating = 0;
+		let min = Number.MAX_SAFE_INTEGER;
+		let max = Number.MIN_SAFE_INTEGER;
+		let shortestBook = "";
+		let longestBook = "";
+		let genresRead = {};
+		books.forEach(book => {
+			booksRead++;
+			pagesRead += book.Book.book_page_count;
+			ratingSum += book.Book.book_rating;
+
+			if (book.Book.book_page_count > max) {
+				max = book.Book.book_page_count
+				longestBook = book.Book.book_name;
+			}
+
+			if (book.Book.book_page_count < min) {
+				min = book.Book.book_page_count;
+				shortestBook = book.Book.book_name;
+			}
+			if (genresRead[book.Book.book_genre]) {
+				genresRead[book.Book.book_genre]++;
+			} else {
+				genresRead[book.Book.book_genre] = 1;
+			}
+		});
+
+		avgLength = pagesRead / booksRead;
+		avgRating = ratingSum / booksRead;
+
+		setUserStats(
+			{
+				"booksRead": booksRead,
+				"pagesRead": pagesRead,
+				"avgLength": avgLength,
+				"avgRating": avgRating,
+				"shortestBook": {
+					name: shortestBook,
+					length: min
+				},
+				"longestBook": {
+					name: longestBook,
+					length: max
+				},
+				"genresRead": genresRead
+			}
+		)
 	}
 
 	return (
@@ -45,16 +100,3 @@ function Profile() {
 }
 
 export default Profile;
-
-
-
-
-// useStats = {
-//   pages read: x,
-//   books read: y,
-//   genres_read: z,
-//   average book length: a,
-//   average rating:b
-//   longest book read
-//   shortest book read
-// }
