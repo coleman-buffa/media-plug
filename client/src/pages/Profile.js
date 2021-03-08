@@ -91,26 +91,33 @@ function Profile() {
 	return (
 		<div>
 			<ProfHeader />
-			<div style={{display:"flex", justifyContent:"center"}}>
-			{books.map(book => (
-				<BookShelf 
-				key={book.Book.id}
-				id={book.Book.id}
-				image={book.Book.book_image_link}
-				rating={book.Book.book_rating}
-				/>
-			))}
+			<div style={{ display: "flex", justifyContent: "center" }}>
+				{books.map(book => (
+					<BookShelf
+						key={book.Book.id}
+						id={book.Book.id}
+						image={book.Book.book_image_link}
+						rating={book.Book.book_rating}
+					/>
+				))}
 			</div>
 			<div className="shelf"></div>
 			<div className="statsCar" style={{ padding: 40 }}>
-				{/* {userStats.map(stat => (
-
-				))} */}
-				<StatsCarousel 
-				
-				/>
-				<MyChallenges />
+				{/* {userStats.map(user => ( */}
+					<StatsCarousel
+						// key={user.id}
+						// id={user.id}
+						// readBooks={user.booksRead}
+						// readPages={user.pagesRead}
+						// bookLength={user.avgLength}
+						// bookRating={user.rating}
+						// shortestBook={user.shortestBook}
+						// longestBook={user.longestBook}
+						// bookGenres={user.genresRead}
+					/>
+				{/* ))} */}
 			</div>
+			<MyChallenges />
 		</div>
 	);
 }
