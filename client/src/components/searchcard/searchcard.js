@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Box, Card, CardActions, CardContent, Button, Typography, CardMedia} from '@material-ui/core';
+import { makeStyles, Box, Card, CardActions, CardContent, Button, Typography, CardMedia } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import { Rating } from '@material-ui/lab';
 import "./searchcard.css";
@@ -14,7 +14,6 @@ const useStyles = makeStyles({
 			boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
 			transition: ".1s",
 		},
-
 	},
 	title: {
 		marginTop: 20,
@@ -57,14 +56,14 @@ function SearchCard(props) {
 			<Card className={classes.searchCard} elevation={0}>
 				<CardContent className={classes.content}>
 					<div>
-					<CardMedia
-						className={classes.media}
-						image={props.book_image_link}
-						title="Book Cover"
-					/>
-					<Box component="fieldset" borderColor="transparent">
-						<Rating className={classes.rating} name="read-only" value={props.book_rating} readOnly />
-					</Box>
+						<CardMedia
+							className={classes.media}
+							image={props.book_image_link}
+							title="Book Cover"
+						/>
+						<Box component="fieldset" borderColor="transparent">
+							<Rating className={classes.rating} name="read-only" value={props.book_rating} readOnly />
+						</Box>
 					</div>
 					<div>
 						<Typography className={classes.title} color="textSecondary" gutterBottom>

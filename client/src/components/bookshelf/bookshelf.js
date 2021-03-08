@@ -1,7 +1,6 @@
 import React from 'react';
 import "./bookshelf.css";
 import { makeStyles, CardMedia } from '@material-ui/core';
-// import { Rating } from '@material-ui/lab';
 
 const useStyles = makeStyles({
     shelfImage: {
@@ -9,6 +8,11 @@ const useStyles = makeStyles({
         width: 190,
         marginLeft: 10,
         marginRight: 10,
+        "&:hover": {
+            transform: "scale(1.01)",
+            boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
+            transition: ".1s",
+        },
     },
     rating: {
         marginLeft: 10,
@@ -29,9 +33,6 @@ function BookShelf(props) {
                 title="Book Cover"
 
             />
-            {/* <Box component="fieldset" borderColor="transparent">
-                        <Rating className={classes.rating} name="read-only" value={props.rating} readOnly />
-                    </Box>  */}
         </div>
     );
 }
