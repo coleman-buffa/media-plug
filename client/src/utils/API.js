@@ -16,6 +16,7 @@ const API = {
   },
   // Saves a book to the database
   saveBook: function (bookData) {
+    console.log(bookData);
     return axios.post("/api/books", bookData);
   },
   searchBookName: function (bookName) {
@@ -45,6 +46,9 @@ const API = {
   },
   unsubbedChallengesByUser: function (userId) {
     return axios.get("/api/challenges/user/" + userId + "/unsubbed/");
+  },
+  saveChallenge: function (challengeData) {
+    return axios.post("api/challenges/", challengeData);
   },
   //Add a challenge to current user's list
 

@@ -20,7 +20,6 @@ function Profile() {
 		calculateStats()
 	}, [books]);
 
-
 	const getAllBooksByUser = () => {
 		API.booksByUser(1)
 			.then(results => {
