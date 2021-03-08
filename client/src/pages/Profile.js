@@ -14,8 +14,12 @@ function Profile() {
 	useEffect(() => {
 		getAllBooksByUser();
 		getAllChallengesByUser();
-		calculateStats();
 	}, []);
+
+	useEffect(() => {
+		calculateStats()
+	}, [books]);
+
 
 	const getAllBooksByUser = () => {
 		API.booksByUser(1)
@@ -60,6 +64,7 @@ function Profile() {
 				min = book.Book.book_page_count;
 				shortestBook = book.Book.book_name;
 			}
+
 			if (genresRead[book.Book.book_genre]) {
 				genresRead[book.Book.book_genre]++;
 			} else {
@@ -76,14 +81,8 @@ function Profile() {
 				"pagesRead": pagesRead,
 				"avgLength": avgLength,
 				"avgRating": avgRating,
-				"shortestBook": {
-					name: shortestBook,
-					length: min
-				},
-				"longestBook": {
-					name: longestBook,
-					length: max
-				},
+				"shortestBook": [shortestBook, min],
+				"longestBook": [longestBook, max],
 				"genresRead": genresRead
 			}
 		)
