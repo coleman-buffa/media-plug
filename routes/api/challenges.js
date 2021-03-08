@@ -17,7 +17,7 @@ router
 //Matches with "/api/challenges/user/:id"
 router
   .route("/user/:id")
-  .get(challengesController.challengesByUser);
+  .get(challengesController.challengesByUser)
 
 //Matches with "/api/challenges/user/:id/unsubbed"
 router

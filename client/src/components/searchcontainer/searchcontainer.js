@@ -58,7 +58,6 @@ function SearchContainer() {
 			.catch(err => console.log(err));
 
 		setSearchResults([]);
-
 	}
 
 

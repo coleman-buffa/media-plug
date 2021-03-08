@@ -5,7 +5,6 @@ module.exports = {
 	findAll: function (req, res) {
 		db.Challenge.findAll()
 			.then(dbChallenge => {
-				// console.log(dbChallenge);
 				res.json(dbChallenge)
 			})
 			.catch(err => res.status(422).json(err));
@@ -16,6 +15,8 @@ module.exports = {
 			.catch(err => res.status(422).json(err));
 	},
 	create: function (req, res) {
+		console.log("Thats where we at");
+		console.log(req.body);
 		db.Challenge.create(req.body)
 			.then(dbChallenge => res.json(dbChallenge))
 			.catch(err => res.status(422).json(err));
