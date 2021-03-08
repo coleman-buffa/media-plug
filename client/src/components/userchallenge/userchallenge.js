@@ -1,14 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles, Card, CardContent, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
         minWidth: 250,
         marginTop: 10,
-        // backgroundColor: ,
+        borderLeft: '6px solid rgb(0, 128, 255)',
     },
     bullet: {
         display: 'inline-block',
@@ -21,23 +18,34 @@ const useStyles = makeStyles({
     pos: {
         marginBottom: 12,
     },
+    chDescription: {
+        marginTop: 10,
+        marginLeft: 2,
+        fontFamily: 'Arial',
+        fontSize: 16,
+    },
+    chTitle: {
+        fontSize: 22,
+        fontFamily: "Garamond",
+        fontWeight: 'bold',
+    },
 });
 
-function ChallengeCard() {
+function UserChallenge(props) {
     const classes = useStyles();
-    
+
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} elevation={8}>
             <CardContent>
-                <Typography variant="h5" component="h2">
-                    Challenge Title
+                <Typography className={classes.chTitle} variant="h5" component="h2">
+                    {props.name}
                 </Typography>
-                <Typography variant="body2" component="p" style={{marginTop: 10, marginLeft: 2}}>
-                    Challenge description
+                <Typography variant="body2" component="p" className={classes.chDescription}>
+                    {props.desc}
                 </Typography>
             </CardContent>
         </Card>
     );
 }
 
-export default ChallengeCard;
+export default UserChallenge;
