@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StatsCarousel from '../components/statsCarousel/statsCarousel';
 import ProfHeader from "../components/profheader/profheader";
 import MyChallenges from "../components/mychallenges/mychallenges";
-import UserBooks from "../components/userbooks/userbooks";
+import BookShelf from "../components/bookshelf/bookshelf";
 import API from "../utils/API";
 
 function Profile() {
@@ -91,7 +91,17 @@ function Profile() {
 	return (
 		<div>
 			<ProfHeader />
-			<UserBooks />
+			<div style={{display:"flex", justifyContent:"center"}}>
+			{books.map(book => (
+				<BookShelf 
+				key={book.Book.id}
+				id={book.Book.id}
+				image={book.Book.book_image_link}
+				rating={book.Book.book_rating}
+				/>
+			))}
+			</div>
+			<div className="shelf"></div>
 			<div className="statsCar" style={{ padding: 40 }}>
 				<StatsCarousel />
 				<MyChallenges />
