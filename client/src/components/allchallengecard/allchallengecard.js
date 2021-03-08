@@ -9,6 +9,8 @@ const useStyles = makeStyles({
         minWidth: 250,
         marginTop: 10,
         backgroundColor: '#f5f5f5',
+        borderLeft: '6px solid rgb(0, 128, 255)',
+        height: 100,
     },
     bullet: {
         display: 'inline-block',
@@ -24,9 +26,10 @@ const useStyles = makeStyles({
     chdesc: {
         marginTop: 10,
         marginLeft: 2,
+        fontFamily: 'Arial'
     },
     chTitle: {
-        fontFamily: "Georgia"
+        fontFamily: "Garamond"
     }
 });
 
