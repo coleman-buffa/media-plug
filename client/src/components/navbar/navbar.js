@@ -84,10 +84,12 @@ function Navbar() {
 			<Divider />
 			<List>
 				{['Signout'].map((text) => (
-					<ListItem button key={text}>
-						<ListItemIcon>{<ExitToAppIcon />}</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
+					<ListItemLink href="/login">
+						<ListItem button key={text}>
+							<ListItemIcon>{<ExitToAppIcon />}</ListItemIcon>
+							<ListItemText primary={text} />
+						</ListItem>
+					</ListItemLink>
 				))}
 			</List>
 		</div>
