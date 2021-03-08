@@ -48,17 +48,25 @@ module.exports = {
 	unreadBooksByUser: function (req, res) {
 		db.UserBook.findAll({
 			where: {
-				UserId: {
-					[Op.not]: req.params.id
-				},
+				UserId: req.params.id
 			},
-			include: {
-				model: db.Book
-			}
 		})
 			.then(dbBook => {
-				// console.log(dbBook);
-				res.json(dbBook);
+				//map through result and get array of book ids
+				let tempArray = [];
+				dbBook.map(bk => {
+					tempArray.push(bk.dataValues.BookId);
+				})
+				db.Book.findAll({
+					where: {
+						[Op.not]: [{ id: tempArray }]
+					}
+				})
+					.then(dbBook => {
+						console.log(dbBook);
+						res.json(dbBook);
+					})
+					.catch(err => res.status(422).json(err));
 			})
 	},
 	// add to userbook join table

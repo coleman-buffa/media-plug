@@ -41,6 +41,7 @@ function Explore() {
   const getUnreadBooks = () => {
     API.unreadBooksByUser(1)
       .then(results => {
+        console.log(results.data);
         setBooks(results.data);
       });
   }
@@ -71,13 +72,13 @@ function Explore() {
           <Typography variant="h2" className={classes.set}>Book list
 				    <Grid item className={classes.section}>
               {books.map(book => (
-                <Card elevation={5} className={classes.card} key={book.Book.id}>
-                  <CardMedia className={classes.media} image={book.Book.book_image_link} title="book1" />
+                <Card elevation={5} className={classes.card} key={book.id}>
+                  <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
                   <CardContent>
-                    <Typography variant="h4">{book.Book.book_name}</Typography>
+                    <Typography variant="h4">{book.book_name}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button variant="outlined" onClick={() => handleAddBookToList(book.Book.id)}>Add to List</Button>
+                    <Button variant="outlined" onClick={() => handleAddBookToList(book.id)}>Add to List</Button>
                   </CardActions>
                 </Card>
               ))}
