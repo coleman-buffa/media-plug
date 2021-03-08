@@ -15,11 +15,16 @@ const useStyles = makeStyles({
         // justifyContent: 'space-evenly',
     },
     shelfImage: {
-        height: 220,
-        width:220,
+        height: 250,
+        width: 190,
+        marginLeft: 25,
     },
     rating: {
         marginLeft: 10,
+        backgroundColor: "black",
+        padding: 10,
+        width: 190,
+        marginTop: 0,
     }
 });
 
@@ -28,18 +33,18 @@ function BookShelf(props) {
     const classes = useStyles();
     return (
         <div>
-            < Card className={classes.userCard} elevation={24}>
-                <CardContent className={classes.shelfContent}>
+            {/* < Card className={classes.userCard} elevation={24}>
+                <CardContent className={classes.shelfContent}> */}
                     <CardMedia
                         className={classes.shelfImage}
                         image={props.image}
                         title="Book Cover"
                     />
-                    <Box component="fieldset" borderColor="transparent">
+                    {/* <Box component="fieldset" borderColor="transparent">
                         <Rating className={classes.rating} name="read-only" value={props.rating} readOnly />
-                    </Box>
-                </CardContent>
-            </Card >
+                    </Box> */}
+                {/* </CardContent>
+            </Card > */}
         </div>
     );
 }
