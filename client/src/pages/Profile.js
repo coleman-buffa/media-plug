@@ -93,12 +93,13 @@ function Profile() {
 			<ProfHeader />
 			{books.map(book => (
 				<BookShelf 
-				key={book.id}
-				id={book.id}
-				image={book.book_image_link}
-				rating={book.book_rating}
+				key={book.Book.id}
+				id={book.Book.id}
+				image={book.Book.book_image_link}
+				rating={book.Book.book_rating}
 				/>
 			))}
+			<div className="shelf"></div>
 			<div className="statsCar" style={{ padding: 40 }}>
 				<StatsCarousel />
 				<MyChallenges />

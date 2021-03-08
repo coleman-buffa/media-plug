@@ -1,25 +1,30 @@
 import React from 'react';
 import "./bookshelf.css";
-import { makeStyles, Card, CardMedia, CardContent } from '@material-ui/core';
+import { makeStyles, Card, CardMedia, CardContent, Box } from '@material-ui/core';
+import { Rating } from '@material-ui/lab';
 
 
 const useStyles = makeStyles({
-userCard: {
-    width: 220,
-    height: 250,
-    marginLeft: 25,
-},
-shelfContent: {
-    // display: 'flex',
-    // justifyContent: 'space-evenly',
-},
-shelfImage: {
-    height: 220,
-    minWidth: 180,
-},
+    userCard: {
+        width: 220,
+        height: 270,
+        marginLeft: 25,
+    },
+    shelfContent: {
+        // display: 'flex',
+        // justifyContent: 'space-evenly',
+    },
+    shelfImage: {
+        height: 220,
+        width:220,
+    },
+    rating: {
+        marginLeft: 10,
+    }
 });
 
 function BookShelf(props) {
+    // const [value, setValue] = React.useState(2);
     const classes = useStyles();
     return (
         <div>
@@ -30,9 +35,11 @@ function BookShelf(props) {
                         image={props.image}
                         title="Book Cover"
                     />
+                    <Box component="fieldset" borderColor="transparent">
+                        <Rating className={classes.rating} name="read-only" value={props.rating} readOnly />
+                    </Box>
                 </CardContent>
             </Card >
-            <div className="shelf"></div>
         </div>
     );
 }
