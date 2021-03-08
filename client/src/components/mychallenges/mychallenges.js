@@ -21,7 +21,6 @@ const useStyles = makeStyles({
 function MyChallenges(props) {
     const classes = useStyles();
     const local = props;
-    console.log(props);
 
     return (
         <React.Fragment>
@@ -39,7 +38,7 @@ function MyChallenges(props) {
                             />
                         ))}
                     </Typography>
-                </Paper>=
+                </Paper>
             </Container>
         </React.Fragment>
     );

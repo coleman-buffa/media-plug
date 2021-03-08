@@ -36,7 +36,7 @@ function Modal() {
 
     return (
         <div>
-            <Typography className="challengeTitle" style={{ fontSize: 30 }}  >
+            <Typography className="challengeTitle" style={{ fontSize: 30, fontFamily: 'Georgia', fontWeight: 'bold' }}  >
                 My Challenges
                 <IconButton className="playlistadd" color="primary" aria-label="add new challenge" onClick={handleClickOpen}>
                     <PlaylistAddIcon />

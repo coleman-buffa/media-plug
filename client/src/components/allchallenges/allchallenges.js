@@ -13,7 +13,7 @@ const useStyles = makeStyles({
         padding: 30,
         paddingTop: 20,
         fontSize: 30,
-        fontFamily: 'Georgia'
+        fontFamily: 'Georgia',
     },
     contChallenge: {
         width: "95%",

@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     root: {
         minWidth: 250,
         marginTop: 10,
-        // backgroundColor: ,
+        borderLeft: '6px solid rgb(0, 128, 255)',
     },
     bullet: {
         display: 'inline-block',
@@ -21,17 +21,21 @@ const useStyles = makeStyles({
     chDescription: {
         marginTop: 10,
         marginLeft: 2,
+        fontFamily: 'Arial',
+        fontSize: 16,
     },
     chTitle: {
-        fontSize: 20,
-    }
+        fontSize: 22,
+        fontFamily: "Garamond",
+        fontWeight: 'bold',
+    },
 });
 
 function UserChallenge(props) {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
+        <Card className={classes.root} elevation={8}>
             <CardContent>
                 <Typography className={classes.chTitle} variant="h5" component="h2">
                     {props.name}
