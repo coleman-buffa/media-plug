@@ -1,12 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import CardMedia from '@material-ui/core/CardMedia';
+import { makeStyles, Box, Card, CardActions, CardContent, Button, Typography, CardMedia } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
+import { Rating } from '@material-ui/lab';
 import "./searchcard.css";
 
 const useStyles = makeStyles({
@@ -19,7 +14,6 @@ const useStyles = makeStyles({
 			boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
 			transition: ".1s",
 		},
-
 	},
 	title: {
 		marginTop: 20,
@@ -46,8 +40,11 @@ const useStyles = makeStyles({
 	desc: {
 		marginLeft: 20,
 	},
-saveBook: {
-	float: "right", 
+	saveBook: {
+		float: "right",
+	},
+	rating: {
+		marginLeft: 15,
 	},
 });
 
@@ -58,11 +55,16 @@ function SearchCard(props) {
 		<div>
 			<Card className={classes.searchCard} elevation={0}>
 				<CardContent className={classes.content}>
-					<CardMedia
-						className={classes.media}
-						image={props.book_image_link}
-						title="Book Cover"
-					/>
+					<div>
+						<CardMedia
+							className={classes.media}
+							image={props.book_image_link}
+							title="Book Cover"
+						/>
+						<Box component="fieldset" borderColor="transparent">
+							<Rating className={classes.rating} name="read-only" value={props.book_rating} readOnly />
+						</Box>
+					</div>
 					<div>
 						<Typography className={classes.title} color="textSecondary" gutterBottom>
 							{props.book_name}
@@ -93,36 +95,3 @@ function SearchCard(props) {
 }
 
 export default SearchCard;
-
-
-
-
-
-{/* <div className="card cardHold">
-			<div className="card-content">
-				<div className="content">
-					<article className="media">
-						<figure className="media-left">
-							<p className="image">
-								<img className="cardImg" src={props.book_image_link} alt={props.book_name}></img>
-							</p>
-						</figure>
-						<div>
-							<p className="titleSaved">{props.book_name}</p>
-							<p className="authorSaved">{props.book_author}</p>
-							<p className="subtitle desc">{props.book_desc}</p>
-						</div>
-						<div className="resultsBtns">
-							<p className="control">
-								<a href="#">
-									<button id="viewBtn" className="button is-dark"><i className="fas fa-external-link-alt"></i></button>
-								</a>
-							</p>
-							<p className="control">
-								<button id="viewBtn" className="button is-link" onClick={() => props.handleSaveButton(props.id)}>Save<i className="fas fa-save"></i></button>
-							</p>
-						</div>
-					</article>
-				</div>
-			</div>
-		</div> */}
