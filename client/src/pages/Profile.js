@@ -92,7 +92,12 @@ function Profile() {
 		<div>
 			<ProfHeader />
 			<div className="statsCar" style={{ padding: 40 }}>
-				<StatsCarousel />
+				{/* {userStats.map(stat => (
+
+				))} */}
+				<StatsCarousel 
+				
+				/>
 				<MyChallenges />
 			</div>
 		</div>
@@ -100,3 +105,4 @@ function Profile() {
 }
 
 export default Profile;
+

@@ -40,3 +40,33 @@ function Item() {
 }
 
 export default StatsCarousel;
+
+// return (
+// 	<Carousel>
+// 		{
+// 			userStats.map(stat => (
+// 				<Card
+// 					key={stat.id}
+// 					id={stat.id}
+// 					booksRead={stat.booksRead}
+// 					avgLength={stat.avgLength}
+// 					avgRating={stat.avgRating}
+// 					shortestBook={stat.shortestBook.name}
+// 					longestBook={stat.longestBook.name}
+// 					genresRead={stat.genresRead}
+
+// 				/>
+// 			))}
+// 	</Carousel>
+// )
+// }
+
+// function Card() {
+// return (
+// 	<div style={{ display: "flex", justifyContent: "space-evenly" }}>
+// 		<Stats />
+// 		<Stats />
+// 		<Stats />
+// 	</div>
+// )
+// }
