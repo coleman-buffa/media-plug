@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Container, Button, FormControl, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles({
 	pagecont: {
@@ -23,6 +24,8 @@ const useStyles = makeStyles({
 
 function Login() {
 	const classes = useStyles();
+	const { loginWithRedirect, logout } = useAuth0();
+
 	return (
 		<Container className={classes.pagecont} md="true">
 			<Card className={classes.cardcont}>
@@ -39,9 +42,12 @@ function Login() {
 						<TextField required id="login-user" label="Required" placeholder="Username" variant="outlined" className={classes.inputcont} />
 						<TextField required id="login-email" label="Required" placeholder="Email" variant="outlined" className={classes.inputcont} />
 						<TextField id="login-pass" label="Password" autoComplete="current-password" type="password" variant="outlined" className={classes.inputcont} />
-						<Button variant="contained" color="primary">Login</Button>
+						{/* All we need below! */}
+						<Button variant="contained" color="primary" onClick={() => loginWithRedirect()}>Login</Button>
+						<Button variant="contained" color="primary" onClick={() => logout()}>Logout</Button>
 					</FormControl>
 				</form>
+
 			</Card>
 		</Container>
 	);
