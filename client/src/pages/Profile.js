@@ -80,8 +80,10 @@ function Profile() {
 				"pagesRead": pagesRead,
 				"avgLength": avgLength,
 				"avgRating": avgRating,
-				"shortestBook": [shortestBook, min],
-				"longestBook": [longestBook, max],
+				"shortestBook": shortestBook,
+				"min": min,
+				"longestBook": longestBook,
+				"max": max,
 				"genresRead": genresRead
 			}
 		)
@@ -102,7 +104,9 @@ function Profile() {
 			</div>
 			<div className="shelf"></div>
 			<div className="statsCar" style={{ padding: 40 }}>
-				<StatsCarousel />
+				<StatsCarousel
+					userStats={userStats}
+				/>
 			</div>
 			<MyChallenges
 				challenges={challenges}
@@ -112,3 +116,4 @@ function Profile() {
 }
 
 export default Profile;
+

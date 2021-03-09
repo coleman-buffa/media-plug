@@ -2,41 +2,50 @@ import React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import Stats from "../stats/stats";
 
-function StatsCarousel() {
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
-        },
-        {
-            name: "Random Name #2",
-            description: "Hello World!"
-        },
-        {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
-        }
-    ]
+function StatsCarousel(props) {
 
     return (
-        <Carousel>
-            {
-                items.map((item, i) => <Item key={i} item={item} />)
-            }
-        </Carousel>
-    )
+        <Carousel autoPlay={false}>
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+
+                <Stats
+                    name={"Average Length"}
+                    stat={props.userStats.avgLength}
+                />
+                <Stats
+                    name={"Average Rating"}
+                    stat={props.userStats.avgRating}
+
+                />
+                <Stats
+                    name={"Books Read"}
+                    stat={props.userStats.booksRead}
+                />
+                {/* <Stats
+                    name={"Genres Read"}
+                    stat={props.userStats.booksRead}
+                /> */}
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                <Stats
+                    name={"Longest Book"}
+                    stat={props.userStats.longestBook}
+                />
+                <Stats
+                    name={"Pages Read"}
+                    stat={props.userStats.pagesRead}
+                />
+                <Stats
+                    name={"Shortest Book"}
+                    stat={props.userStats.shortestBook}
+                />
+            </div>
+        </Carousel >
+    );
 }
 
-function Item() {
-    return (
-        <div style={{display:"flex", justifyContent:"space-evenly"}}>
-            <Stats></Stats>
-            <Stats></Stats>
-            <Stats></Stats>
-            <Stats>
-            </Stats>
-        </div>
-    )
-}
+
 
 export default StatsCarousel;
+
+
