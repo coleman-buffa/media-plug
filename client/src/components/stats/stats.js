@@ -7,11 +7,15 @@ const useStyles = makeStyles({
     },
     title: {
         fontSize: 18,
+        textAlign: 'center',
+        fontFamily: 'Helvetica',
+        marginTop: 10,
     },
     pos: {
         marginBottom: 12,
         fontSize: 30,
         textAlign: 'center',
+        fontWeight: 'bold',
     },
 });
 
