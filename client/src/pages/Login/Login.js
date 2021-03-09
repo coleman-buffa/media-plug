@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Container, Button, FormControl, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
+import "./Login.css";
 
 const useStyles = makeStyles({
 	pagecont: {

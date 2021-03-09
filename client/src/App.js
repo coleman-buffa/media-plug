@@ -4,7 +4,7 @@ import './App.css';
 import UserContext from "./utils/usercontext";
 
 // import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+import Login from "./pages/Login/Login";
 import Profile from "./pages/Profile";
 import Explore from "./pages/Explore";
 import Challenges from "./pages/Challenges";
