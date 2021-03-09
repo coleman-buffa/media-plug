@@ -4,18 +4,21 @@ import { makeStyles, Card, CardContent, Typography } from '@material-ui/core';
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
+        backgroundColor: '#e5e5e5'
     },
     title: {
         fontSize: 18,
         textAlign: 'center',
         fontFamily: 'Helvetica',
         marginTop: 10,
+        color: 'black',
     },
     pos: {
         marginBottom: 12,
         fontSize: 30,
         textAlign: 'center',
         fontWeight: 'bold',
+        color: 'black',
     },
 });
 
