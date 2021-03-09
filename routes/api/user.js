@@ -3,7 +3,13 @@ const userController = require("../../controllers/userController");
 
 // Matches with "/api/user"
 router
-  .route("/")  
+  .route("/")
   .post(userController.register);
 
-  module.exports = router;
+//Matches with "/api/user/:email"
+router
+  .route('/:email')
+  .get(userController.checkUserStatus);
+
+
+module.exports = router;
