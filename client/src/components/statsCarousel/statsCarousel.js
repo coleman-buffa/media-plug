@@ -3,50 +3,65 @@ import Carousel from 'react-material-ui-carousel'
 import Stats from "../stats/stats";
 
 function StatsCarousel(props) {
-    var items = [
-        {
-            name: "Random Name #1",
-            description: "Probably the most random thing you have ever seen!"
-        },
-        {
-            name: "Random Name #2",
-            description: "Hello World!"
-        },
-    ]
 
+    function longestBook(props) {
+        return (
+            <div>
+                <div>{props.userStats.longestBook[0]}</div>
+                <div>Number of pages: {props.userStats.longestBook[1]}</div>
+            </div>
+        );
+    }
+
+    function shortestBook(props) {
+        return (
+            <div>
+                <div>{props.userStats.shortestBook[0]}</div>
+                <div>Number of pages: {props.userStats.shortestBook[1]}</div>
+            </div>
+        );
+    }
     return (
-        <Carousel>
-            {
-                items.map((item, i) => <Item key={i} item={item} />)
-            }
-            {/* <div style={{display:"flex", justifyContent:"space-evenly"}}></div>
-            <Stats
-            userStats={props}
-            /> */}
+        <Carousel autoPlay={false}>
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+
+                <Stats
+                    name={"Average Length"}
+                    stat={props.userStats.avgLength}
+                />
+                <Stats
+                    name={"Average Rating"}
+                    stat={props.userStats.avgRating}
+                />
+                <Stats
+                    name={"Books Read"}
+                    stat={props.userStats.booksRead}
+                />
+                <Stats
+                    name={"Genres Read"}
+                    stat={props.userStats.booksRead}
+                />
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                <Stats
+                    name={"Longest Book"}
+                    stat={longestBook(props)}
+                />
+                <Stats 
+                name={"Pages Read"}
+                stat={props.userStats.pagesRead}
+                />
+                <Stats 
+                name={"Shortest Book"}
+                stat={shortestBook(props)}
+                />
+            </div>
         </Carousel>
-    )
+    );
 }
 
-function Item() {
-    return (
-        <div style={{display:"flex", justifyContent:"space-evenly"}}>
-            <Stats />
-            <Stats />
-            <Stats />
-            <Stats />
-        </div>
-    )
-}
+
 
 export default StatsCarousel;
 
 
-// function Card() {
-// return (
-// 	<div style={{ display: "flex", justifyContent: "space-evenly" }}>
-// 		<Stats />
-// 		<Stats />
-// 		<Stats />
-// 	</div>
-// )
-// }

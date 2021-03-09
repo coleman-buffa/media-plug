@@ -102,7 +102,9 @@ function Profile() {
 			</div>
 			<div className="shelf"></div>
 			<div className="statsCar" style={{ padding: 40 }}>
-				<StatsCarousel />
+				<StatsCarousel 
+				userStats={userStats}
+				/>
 			</div>
 			<MyChallenges
 				challenges={challenges}
