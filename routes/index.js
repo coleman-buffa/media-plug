@@ -2,8 +2,6 @@ const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
 
-const isAuthenticated = require("../config/middleware/isAuthenticated"); 
-
 // API Routes
 router.use("/api", apiRoutes);
 

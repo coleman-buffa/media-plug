@@ -20,7 +20,6 @@ function Profile() {
 		calculateStats()
 	}, [books]);
 
-
 	const getAllBooksByUser = () => {
 		API.booksByUser(1)
 			.then(results => {
@@ -103,21 +102,11 @@ function Profile() {
 			</div>
 			<div className="shelf"></div>
 			<div className="statsCar" style={{ padding: 40 }}>
-				{/* {userStats.map(user => ( */}
-					<StatsCarousel
-						// key={user.id}
-						// id={user.id}
-						// readBooks={user.booksRead}
-						// readPages={user.pagesRead}
-						// bookLength={user.avgLength}
-						// bookRating={user.rating}
-						// shortestBook={user.shortestBook}
-						// longestBook={user.longestBook}
-						// bookGenres={user.genresRead}
-					/>
-				{/* ))} */}
+				<StatsCarousel />
 			</div>
-			<MyChallenges />
+			<MyChallenges
+				challenges={challenges}
+			/>
 		</div>
 	);
 }

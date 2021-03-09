@@ -26,11 +26,11 @@ const useStyles = makeStyles({
     chdesc: {
         marginTop: 10,
         marginLeft: 2,
-        fontFamily: 'Arial'
+        fontFamily: 'Arial',
     },
     chTitle: {
-        fontFamily: "Garamond"
-    }
+        fontFamily: "Garamond", 
+    },
 });
 
 function AllChallengeCard() {

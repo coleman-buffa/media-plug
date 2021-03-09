@@ -1,20 +1,13 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import React, { useRef } from 'react';
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, Typography } from '@material-ui/core';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
-import IconButton from '@material-ui/core/IconButton';
-import FormControl from '@material-ui/core/FormControl';
-import Typography from '@material-ui/core/Typography';
-
 import "./modal.css";
+import API from '../../utils/API';
 
 function Modal() {
     const [open, setOpen] = React.useState(false);
+    const nameRef = useRef("");
+    const descRef = useRef("");
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -24,11 +17,28 @@ function Modal() {
         setOpen(false);
     };
 
+    const handleAddChallenge = e => {
+        e.preventDefault();
+
+        let chal = {
+            "challenge_name": nameRef.current.value,
+            "challenge_desc": descRef.current.value
+        }
+        API.saveChallenge(chal)
+            .then(result => {
+                API.saveUserChallenge(1, result.data.id)
+                    .catch(err => console.log(err));
+            })
+            .catch(err => console.log(err));
+
+        handleClose();
+    }
+
     return (
         <div>
-            <Typography style={{ fontSize: 30 }}  >
+            <Typography className="challengeTitle" style={{ fontSize: 30, fontFamily: 'Georgia', fontWeight: 'bold' }}  >
                 My Challenges
-            <IconButton className="playlistadd" color="primary" aria-label="add new challenge" onClick={handleClickOpen}>
+                <IconButton className="playlistadd" color="primary" aria-label="add new challenge" onClick={handleClickOpen}>
                     <PlaylistAddIcon />
                 </IconButton>
             </Typography>
@@ -38,7 +48,7 @@ function Modal() {
                     <DialogContentText>
                         To create a new challenge, please enter a title and description. Upon submitting,
                         you will be able to view the challenge from your profile and the challenges page.
-            </DialogContentText>
+                    </DialogContentText>
                     <TextField
                         autoFocus
                         margin="dense"
@@ -46,6 +56,7 @@ function Modal() {
                         label="Title"
                         type="email"
                         fullWidth
+                        inputRef={nameRef}
                     />
                     <TextField
                         autoFocus
@@ -54,13 +65,14 @@ function Modal() {
                         label="Description"
                         type="email"
                         fullWidth
+                        inputRef={descRef}
                     />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
                         Cancel
                     </Button>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleAddChallenge} color="primary">
                         Add
                     </Button>
                 </DialogActions>
