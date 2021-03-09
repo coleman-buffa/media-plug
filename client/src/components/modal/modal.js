@@ -1,10 +1,17 @@
 import React, { useRef } from 'react';
-import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, Typography } from '@material-ui/core';
+import { makeStyles, Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton, Typography } from '@material-ui/core';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import "./modal.css";
 import API from '../../utils/API';
 
+const useStyles = makeStyles({
+playlistAdd: {
+    color: 'green',
+    float: 'right',
+}
+});
 function Modal() {
+    const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const nameRef = useRef("");
     const descRef = useRef("");
@@ -36,9 +43,9 @@ function Modal() {
 
     return (
         <div>
-            <Typography className="challengeTitle" style={{ fontSize: 30, fontFamily: 'Georgia', fontWeight: 'bold' }}  >
+            <Typography className="challengeTitle" style={{ fontSize: 35, fontFamily: 'Georgia', fontWeight: 'bold', marginLeft: 5 }}  >
                 My Challenges
-                <IconButton className="playlistadd" color="white" aria-label="add new challenge" onClick={handleClickOpen}>
+                <IconButton className={classes.playlistAdd} aria-label="add new challenge" onClick={handleClickOpen}>
                     <PlaylistAddIcon />
                 </IconButton>
             </Typography>
