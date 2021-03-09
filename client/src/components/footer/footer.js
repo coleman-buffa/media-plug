@@ -9,6 +9,13 @@ const useStyles = makeStyles({
 		width: "100%",
 		marginTop: 550,
 	},
+	icon: {
+		color: 'black',
+		"&:hover": {
+			color: 'darkgreen',
+		},
+	},
+
 });
 
 function Footer() {
@@ -20,9 +27,9 @@ function Footer() {
 			showLabels
 			className={classes.root}
 		>
-			<BottomNavigationAction href="https://github.com/jessnyj" label="Jessny Joseph" icon={<GitHubIcon color="primary" />} />
-			<BottomNavigationAction href="https://github.com/coleman-buffa" label="Coleman Buffa" icon={<GitHubIcon color="primary" />} />
-			<BottomNavigationAction href="https://github.com/akhalid88" label="Muhammad Khalid" icon={<GitHubIcon color="primary" />} />
+			<BottomNavigationAction href="https://github.com/jessnyj" label="Jessny Joseph" icon={<GitHubIcon className={classes.icon} />} />
+			<BottomNavigationAction href="https://github.com/coleman-buffa" label="Coleman Buffa" icon={<GitHubIcon className={classes.icon} />} />
+			<BottomNavigationAction href="https://github.com/akhalid88" label="Muhammad Khalid" icon={<GitHubIcon className={classes.icon} />} />
 		</BottomNavigation>
 		</div>
 	);

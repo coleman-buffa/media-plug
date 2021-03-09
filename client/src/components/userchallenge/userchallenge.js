@@ -28,8 +28,8 @@ function UserChallenge(props) {
     const classes = useStyles();
 
     return (
-        // <Grid container spacing={3}>
-        //     <Grid item xs={12}>
+        <Grid container alignItems="stretch" spacing={3}>
+            <Grid item xs={12}>
                 <Card className={classes.card} elevation={8}>
                     <CardContent>
                         <Typography className={classes.chTitle} variant="h5" component="h2">
@@ -40,8 +40,8 @@ function UserChallenge(props) {
                         </Typography>
                     </CardContent>
                 </Card>
-        //     </Grid>
-        // </Grid>
+            </Grid>
+        </Grid>
     );
 }
 

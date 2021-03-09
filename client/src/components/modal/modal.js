@@ -13,6 +13,7 @@ const useStyles = makeStyles({
         fontFamily: 'Georgia',
         fontWeight: 'bold',
         marginLeft: 5,
+        borderBottom: "solid black ",
     }
 });
 function Modal() {

@@ -65,46 +65,13 @@ body {
 
 /* Grey gradient background */
 /* body {
-  background: linear-gradient(grey, white, white, darkgrey);
+  background: linear-gradient(darkgrey, white, white, darkgrey);
 } */
 
-/* leaves */
-/* body {
-  background: url(https://images.pexels.com/photos/2409038/pexels-photo-2409038.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
-    background-repeat: no-repeat;
-  background-size: cover;
-} */
-
-/* leaves no repeat */
-/* body {
-  background: url(https://images.pexels.com/photos/1216345/pexels-photo-1216345.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
-
-/* Lights */
-/* body {
-  background: url(https://images.pexels.com/photos/716398/pexels-photo-716398.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 /* Leaves white background */
 body {
   background: url(https://images.pexels.com/photos/1048035/pexels-photo-1048035.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
   background-repeat: no-repeat;
   background-size: cover;
-
 }
-
-
-
-/* .challengeBook {
-  border-bottom: #282c34;
-} */
-
-
-/* Application Background */
-/* body {
-  background: blue;
-} */
