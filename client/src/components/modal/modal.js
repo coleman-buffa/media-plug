@@ -5,8 +5,11 @@ import API from '../../utils/API';
 
 const useStyles = makeStyles({
     playlistAdd: {
-        color: 'green',
+        color: 'black',
         float: 'right',
+        "&:hover": {
+			color: 'green',
+		},
     },
     challengeTitle: {
         fontSize: 35,
