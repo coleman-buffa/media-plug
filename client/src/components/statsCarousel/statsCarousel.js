@@ -1,7 +1,8 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel'
 import Stats from "../stats/stats";
-
+import { Rating } from '@material-ui/lab';
+// import Box from '@material-ui/core';
 function StatsCarousel(props) {
 
     function longestBook(props) {
@@ -33,30 +34,31 @@ function StatsCarousel(props) {
                     name={"Average Rating"}
                     stat={props.userStats.avgRating}
                 />
+        
                 <Stats
                     name={"Books Read"}
                     stat={props.userStats.booksRead}
                 />
-                <Stats
+                {/* <Stats
                     name={"Genres Read"}
                     stat={props.userStats.booksRead}
-                />
+                /> */}
             </div>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-                <Stats
+                {/* <Stats
                     name={"Longest Book"}
                     stat={longestBook(props)}
-                />
+                /> */}
                 <Stats 
                 name={"Pages Read"}
                 stat={props.userStats.pagesRead}
                 />
-                <Stats 
+                {/* <Stats 
                 name={"Shortest Book"}
                 stat={shortestBook(props)}
-                />
+                /> */}
             </div>
-        </Carousel>
+        </Carousel >
     );
 }
 

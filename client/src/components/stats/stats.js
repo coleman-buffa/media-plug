@@ -24,9 +24,6 @@ function Stats(props) {
                 <Typography className={classes.pos} color="textSecondary">
                     {props.stat}
                 </Typography>
-                {/* <Typography variant="body2" component="p">
-                    {props.stat}
-                </Typography> */}
             </CardContent>
         </Card>
     );
