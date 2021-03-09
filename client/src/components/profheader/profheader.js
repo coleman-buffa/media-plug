@@ -30,13 +30,13 @@ const useStyles = makeStyles((theme) => ({
     welcome: {
         marginTop: 100,
         marginLeft: 5,
-        color: 'white',
+        color: 'black',
         fontSize: 50,
-        webkitTextStroke: ' 1px #F8F8F8',
-        textShadow: ' 0px 1px 3px #23430C',
-        fontFamily: 'Arial'
+        fontFamily: 'Garamond',
+        fontWeight: 'bold',
     }
 }));
+
 function ProfHeader(props) {
     const classes = useStyles();
     return (
