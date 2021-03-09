@@ -35,6 +35,15 @@ const API = {
     return axios.get("/api/books/user/" + userId + "/unread/");
   },
 
+  //////////////
+  //User
+  checkUser: function (email) {
+    return axios.get("/api/user/" + email);
+  },
+  createUser: function (userInfo) {
+    return axios.post("/api/user/", userInfo);
+  },
+
 
   //////////////
   // Challenges

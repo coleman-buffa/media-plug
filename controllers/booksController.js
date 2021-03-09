@@ -53,7 +53,7 @@ module.exports = {
 		})
 			.then(dbBook => {
 				//map through result and get array of book ids
-				let tempArray = [];
+        let tempArray = [0];
 				dbBook.map(bk => {
 					tempArray.push(bk.dataValues.BookId);
 				})

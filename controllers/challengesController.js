@@ -54,7 +54,7 @@ module.exports = {
 		})
 			.then(dbChallenge => {
 				//map through result and get array of challenge ids
-				let tempArray = [];
+				let tempArray = [0];
 				dbChallenge.map(chal => {
 					tempArray.push(chal.dataValues.ChallengeId);
 				})
