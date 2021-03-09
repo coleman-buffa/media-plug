@@ -40,6 +40,9 @@ const API = {
   checkUser: function (email) {
     return axios.get("/api/user/" + email);
   },
+  createUser: function (userInfo) {
+    return axios.post("/api/user/", userInfo);
+  },
 
   //////////////
   // Challenges

@@ -27,25 +27,24 @@ function Login() {
 
   const classes = useStyles();
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
-  
-//using isAuthenticated check database for user's email
-  //if it exists do nothing
-  //if it does not exists -> create a new user
+ 
+
 useEffect(() => {
   if (isAuthenticated) {
     //API call that checks uf user email exists in DB
     API.checkUser(user.email)
     .then(result => {
-      console.log(result);    
+      if (result.data.length === 0) {
+        API.createUser(user)
+        .then(result => {
+          console.log("User successfully added to DB");
+        })
+        .catch(err => console.log(err));
+      }
     })
     .catch(err => console.log(err));
   }
-}, [isAuthenticated]);
-  
-
-
-
-
+}, [user, isAuthenticated]);
 
   return (
     <Container className={classes.pagecont} md="true">
