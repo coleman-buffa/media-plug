@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import API from "../utils/API";
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 const useStyles = makeStyles({
   pagecont: {
@@ -30,23 +32,42 @@ const useStyles = makeStyles({
 function Explore() {
   const classes = useStyles();
 
+  const [userId, setUserId] = useState(0);
   const [books, setBooks] = useState([]);
   const [challenges, setChallenges] = useState([]);
+
+  const {isAuthenticated, user} = useAuth0();
+
 
   useEffect(() => {
     getUnreadBooks();
     getUnsubbedChallenges();
-  }, [setBooks, setChallenges]);
+  }, [userId]);
+
+  useEffect(() => {
+    if(user) {
+      getCurrentUserId()
+    }
+	}, [isAuthenticated, user]);
 
   const getUnreadBooks = () => {
-    API.unreadBooksByUser(1)
+    API.unreadBooksByUser(userId)
       .then(results => {
+
         setBooks(results.data);
       });
   }
+  const getCurrentUserId = () => {
+
+    API.checkUser(user.email)
+    .then(result => {
+      setUserId(result.data[0].id);
+    })
+    .catch(err => console.log(err));
+  }
 
   const getUnsubbedChallenges = () => {
-    API.unsubbedChallengesByUser(1)
+    API.unsubbedChallengesByUser(userId)
       .then(results => {
         setChallenges(results.data);
       });
@@ -54,12 +75,12 @@ function Explore() {
 
   const handleAddBookToList = (bookId) => {
     // console.log(bookId);
-    API.saveUserBook(1, bookId);
+    API.saveUserBook(userId, bookId);
     getUnreadBooks();
   }
   const handleAddChallengeToList = (challengeId) => {
     // console.log(`Challenge ${id}`);
-    API.saveUserChallenge(1, challengeId);
+    API.saveUserChallenge(userId, challengeId);
     getUnsubbedChallenges();
   }
 
