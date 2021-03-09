@@ -44,6 +44,7 @@ const API = {
     return axios.post("/api/user/", userInfo);
   },
 
+
   //////////////
   // Challenges
   getChallenges: function () {

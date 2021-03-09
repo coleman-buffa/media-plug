@@ -4,35 +4,53 @@ import ProfHeader from "../components/profheader/profheader";
 import MyChallenges from "../components/mychallenges/mychallenges";
 import BookShelf from "../components/bookshelf/bookshelf";
 import API from "../utils/API";
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Profile() {
 
-	const [challenges, setChallenges] = useState([]);
+	const [userId, setUserId] = useState(0);
+  const [challenges, setChallenges] = useState([]);
 	const [userStats, setUserStats] = useState({});
 	const [books, setBooks] = useState([]);
+
+  const {isAuthenticated, user} = useAuth0();
 
 	useEffect(() => {
 		getAllBooksByUser();
 		getAllChallengesByUser();
-	}, []);
+	}, [userId]);
 
 	useEffect(() => {
 		calculateStats()
-	}, [books]);
+	}, [books]); 
+  
+  useEffect(() => {
+    if(user) {
+      getCurrentUserId()
+    }
+	}, [isAuthenticated, user]);
+
+  const getCurrentUserId = () => {
+
+    API.checkUser(user.email)
+    .then(result => {
+      setUserId(result.data[0].id);
+
+    })
+    .catch(err => console.log(err));
+  }
 
 	const getAllBooksByUser = () => {
-		API.booksByUser(1)
+		API.booksByUser(userId)
 			.then(results => {
-				console.log(results.data);
 				setBooks(results.data);//Do some work with the results
 			})
 			.catch(err => console.log(err));
 	}
 
 	const getAllChallengesByUser = () => {
-		API.challengesByUser(1)
+		API.challengesByUser(userId)
 			.then(results => {
-				console.log(results.data);
 				setChallenges(results.data);//Do some work with the results
 			})
 			.catch(err => console.log(err));
