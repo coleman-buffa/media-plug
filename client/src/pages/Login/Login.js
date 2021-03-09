@@ -28,6 +28,7 @@ function Login() {
 	const { loginWithRedirect, logout } = useAuth0();
 
 	return (
+		<body className="loginBody">
 		<Container className={classes.pagecont} md="true">
 			<Card className={classes.cardcont}>
 				<form>
@@ -51,6 +52,7 @@ function Login() {
 
 			</Card>
 		</Container>
+		</body>
 	);
 }
 
