@@ -3,9 +3,10 @@ import { makeStyles, Card, CardContent, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 250,
+        minWidth: 275,
         marginTop: 10,
         borderLeft: '6px solid rgb(0, 128, 255)',
+    
     },
     bullet: {
         display: 'inline-block',

@@ -23,7 +23,8 @@ const useStyles = makeStyles({
     bottom: 0
   },
   set: {
-    margin: "150px 0"
+    margin: "150px 0",
+    borderBottom: "solid black ",
   }
 });
 

@@ -3,9 +3,14 @@
     margin: auto;
 }
 .shelf {
-    border-bottom: 30px solid rgb(32, 31, 31);
+    /* border-bottom: 30px solid rgb(32, 31, 31); */
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     top: -15px;
     z-index: -1;
+
+    background-repeat: no-repeat;
+    height: 50px;
+    background-image: url(https://empire-s3-production.bobvila.com/articles/wp-content/uploads/2017/03/wood-grain1.jpg);
+    background-size: cover;
 }
