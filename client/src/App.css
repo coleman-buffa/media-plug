@@ -63,11 +63,16 @@ body {
 } */
 /* ################################## */
 
-/* body {
+body {
   background: linear-gradient(darkgrey, white, white, darkgrey);
-} */
+}
 
 /* .challengeBook {
   border-bottom: #282c34;
 } */
 
+
+/* Application Background */
+/* body {
+  background: blue;
+} */
