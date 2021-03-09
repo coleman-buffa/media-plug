@@ -6,10 +6,12 @@ const useStyles = makeStyles({
         minWidth: 275,
     },
     title: {
-        fontSize: 14,
+        fontSize: 18,
     },
     pos: {
         marginBottom: 12,
+        fontSize: 30,
+        textAlign: 'center',
     },
 });
 
