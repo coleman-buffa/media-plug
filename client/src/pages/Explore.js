@@ -25,6 +25,9 @@ const useStyles = makeStyles({
   set: {
     margin: "150px 0",
     borderBottom: "solid black ",
+  },
+  chListTitle: {
+    borderBottom: "solid black ",
   }
 });
 
@@ -88,7 +91,7 @@ function Explore() {
 
         {/* Challenge List section */}
         <Container>
-          <Typography variant="h2">Challenge list</Typography>
+          <Typography className={classes.chListTitle} variant="h2">Challenge list</Typography>
           <Grid item className={classes.section}>
             {challenges.map(challenge => (
               <Card elevation={5} className={classes.card} key={challenge.id}>
