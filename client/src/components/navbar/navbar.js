@@ -1,7 +1,19 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, SwipeableDrawer, Button, List, Divider, ListItem, ListItemIcon, ListItemText,} from '@material-ui/core';
-import {ExitToAppIcon, AccountCircleIcon, SearchIcon, PublicIcon, FlashOnIcon, MenuIcon } from '@material-ui/icons';
+import { makeStyles } from '@material-ui/core/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import SearchIcon from '@material-ui/icons/Search';
+import PublicIcon from '@material-ui/icons/Public';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
 	list: {
@@ -45,18 +57,22 @@ function Navbar() {
 					</ListItemIcon>
 					<ListItemText primary={'Profile'} />
 				</ListItemLink>
+
 				<ListItemLink button key={'Explore'} href="/explore">
 					<ListItemIcon>
 						<PublicIcon />
 					</ListItemIcon>
 					<ListItemText primary={'Explore'} />
 				</ListItemLink>
+
+
 				<ListItemLink button key={'Search Books'} href="/search" >
 					<ListItemIcon>
 						<SearchIcon />
 					</ListItemIcon>
 					<ListItemText primary={'Search Books'} />
 				</ListItemLink>
+
 				<ListItemLink button key={'Challenges'} href="/challenges">
 					<ListItemIcon>
 						<FlashOnIcon />
