@@ -70,17 +70,17 @@ function Explore() {
         <Container>
           <Typography variant="h2" className={classes.set}>Book list
 				    <Grid item className={classes.section}>
-              {books.map(book => (
-                <Card elevation={5} className={classes.card} key={book.id}>
-                  <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
+              {/* {books.map(book => ( */}
+                <Card elevation={5} className={classes.card} key="2">
+                  <CardMedia className={classes.media} image={"https://via.placeholder.com/150"} title="book1" />
                   <CardContent>
-                    <Typography variant="h4">{book.book_name}</Typography>
+                    <Typography variant="h4">1984</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button variant="outlined" onClick={() => handleAddBookToList(book.id)}>Add to List</Button>
+                    <Button variant="outlined" onClick={() => handleAddBookToList(2)}>Add to List</Button>
                   </CardActions>
                 </Card>
-              ))}
+              {/* ))} */}
             </Grid>
           </Typography>
         </Container>
