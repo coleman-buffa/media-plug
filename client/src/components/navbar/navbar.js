@@ -7,6 +7,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import PublicIcon from '@material-ui/icons/Public';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import MenuIcon from '@material-ui/icons/Menu';
+import {useAuth0} from "@auth0/auth0-react";
 import "./navbar.css";
 
 const useStyles = makeStyles({
@@ -29,6 +30,7 @@ function Navbar() {
 	const [state, setState] = React.useState({
 		left: false
 	});
+  const {logout} = useAuth0();
 
 	const toggleDrawer = (anchor, open) => (event) => {
 		if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -82,8 +84,8 @@ function Navbar() {
 			<Divider />
 			<List>
 				{['Signout'].map((text) => (
-					<ListItemLink href="/login">
-						<ListItem className={classes.navText} button key={text}>
+					<ListItemLink onClick={() => logout()}>
+						<ListItem button key={text} >
 							<ListItemIcon>{<ExitToAppIcon />}</ListItemIcon>
 							<ListItemText primary={text} />
 						</ListItem>

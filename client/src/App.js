@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import UserContext from "./utils/usercontext";
+import { useAuth0 } from "@auth0/auth0-react";
 
 // import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -11,9 +12,10 @@ import Challenges from "./pages/Challenges";
 import Search from "./pages/Search";
 import NoMatch from "./pages/NoMatch";
 
-
-import Navbar from "./components/navbar/navbar"
-import Footer from "./components/footer/footer"
+import Navbar from "./components/navbar/navbar";
+import Footer from "./components/footer/footer";
+import Loading from "./components/loading/loading";
+import ProtectedRoute from "./components/protectedroute/protectedroute";
 
 function App() {
   const [user, setUser] = useState({});
@@ -22,7 +24,12 @@ function App() {
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  // const [authenticated, setAuthenticated] = useState(false);
+
+  const { isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   const handleSignupBtnClick = e => {
     setRegisterUsername(e.target.value);
@@ -41,11 +48,10 @@ function App() {
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/" component={Explore} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/explore" component={Explore} />
-            <Route exact path="/challenges" component={Challenges} />
-            <Route exact path="/search" component={Search} />
+            <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/explore" component={Explore} />
+            <ProtectedRoute path="/challenges" component={Challenges} />
+            <ProtectedRoute path="/search" component={Search} />
             <Route path="/*" component={NoMatch} />
           </Switch>
         </Router>
