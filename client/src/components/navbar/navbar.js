@@ -1,13 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles, SwipeableDrawer, Button, List, Divider, ListItem, ListItemIcon, ListItemText} from '@material-ui/core';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SearchIcon from '@material-ui/icons/Search';
@@ -15,6 +8,7 @@ import PublicIcon from '@material-ui/icons/Public';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import MenuIcon from '@material-ui/icons/Menu';
 import {useAuth0} from "@auth0/auth0-react";
+import "./navbar.css";
 
 const useStyles = makeStyles({
 	list: {
@@ -23,6 +17,9 @@ const useStyles = makeStyles({
 	fullList: {
 		width: 'auto',
 	},
+	navText: {
+		color: 'black',
+	}, 
 });
 function ListItemLink(props) {
 	return <ListItem button component="a" {...props} />;
@@ -44,7 +41,7 @@ function Navbar() {
 	};
 
 	const list = (anchor) => (
-		<div
+		<div id="drawer"
 			className={clsx(classes.list, {
 				[classes.fullList]: anchor === 'top' || anchor === 'bottom',
 			})}
@@ -52,15 +49,16 @@ function Navbar() {
 			onClick={toggleDrawer(anchor, true)}
 			onKeyDown={toggleDrawer(anchor, false)}
 		>
+			<div>
 			<List>
-				<ListItemLink button key={'Profile'} href="/profile">
+				<ListItemLink className={classes.navText} button key={'Profile'} href="/profile">
 					<ListItemIcon>
 						<AccountCircleIcon />
 					</ListItemIcon>
 					<ListItemText primary={'Profile'} />
 				</ListItemLink>
 
-				<ListItemLink button key={'Explore'} href="/explore">
+				<ListItemLink className={classes.navText} button key={'Explore'} href="/explore">
 					<ListItemIcon>
 						<PublicIcon />
 					</ListItemIcon>
@@ -68,14 +66,14 @@ function Navbar() {
 				</ListItemLink>
 
 
-				<ListItemLink button key={'Search Books'} href="/search" >
+				<ListItemLink className={classes.navText} button key={'Search Books'} href="/search" >
 					<ListItemIcon>
 						<SearchIcon />
 					</ListItemIcon>
 					<ListItemText primary={'Search Books'} />
 				</ListItemLink>
 
-				<ListItemLink button key={'Challenges'} href="/challenges">
+				<ListItemLink className={classes.navText} button key={'Challenges'} href="/challenges">
 					<ListItemIcon>
 						<FlashOnIcon />
 					</ListItemIcon>
@@ -95,9 +93,10 @@ function Navbar() {
 				))}
 			</List>
 		</div>
+		</div>
 	);
 	return (
-		<div>
+		<div className="nav">
 			<React.Fragment key={"anchor"}>
 				<Button onClick={toggleDrawer("anchor", true)}><ListItemIcon><MenuIcon /></ListItemIcon></Button>
 				<SwipeableDrawer

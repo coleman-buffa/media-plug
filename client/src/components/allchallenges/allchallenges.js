@@ -9,16 +9,13 @@ import API from '../../utils/API';
 
 const useStyles = makeStyles({
     allChallenges: {
-        backgroundColor: 'white',
-        height: '100vh',
-        padding: 30,
-        paddingTop: 20,
-        fontSize: 30,
+        fontSize: 50,
         fontFamily: 'Georgia',
+        borderBottom: "solid black ",
     },
     contChallenge: {
         width: "95%",
-        marginTop: 30,
+        marginTop: 50,
     }
 });
 
@@ -43,12 +40,17 @@ function AllChallenges() {
         <React.Fragment>
             <CssBaseline />
             <Container className={classes.contChallenge}>
-                <Paper>
                     <Typography className={classes.allChallenges} component="div">
                         All Challenges
-                    <AllChallengeCard />
                     </Typography>
-                </Paper>
+                    {allChallenges.map(challenge => (
+                        <AllChallengeCard 
+                        key={challenge.id}
+                        id={challenge.id}
+                        name={challenge.challenge_name}
+                        desc={challenge.challenge_desc}
+                        />
+                    ))}
             </Container>
         </React.Fragment>
     );
