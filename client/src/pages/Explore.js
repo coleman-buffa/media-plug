@@ -137,7 +137,7 @@ function Explore() {
                   <Typography className={classes.bookName} variant="h4">{challenge.challenge_name}</Typography>
                 </CardContent>
                 <CardActions>
-                  <Button className={classes.addBtn} variant="contained" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
+                  <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
                 </CardActions>
               </Card>
             ))}

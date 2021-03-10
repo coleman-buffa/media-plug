@@ -18,7 +18,6 @@ module.exports = {
     db.User.create({
       user_name: req.body.nickname,
       user_email: req.body.email,
-      password: "password",
       createdAt: new Date(),
       updatedAt: new Date()
     })
