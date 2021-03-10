@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Card, Container, Button, FormControl, TextField } from '@material-ui/core';
+import { Card, Container, Button, FormControl } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
 import API from "../utils/API";
@@ -65,7 +65,7 @@ function Login() {
 						{/* All we need below! */}
 
 						{isAuthenticated ?
-							(<Button variant="contained" color="primary" onClick={() => logout()}>Logout</Button>) : (<Button variant="contained"  className={classes.login} onClick={() => loginWithRedirect()}>Get Started</Button>)}
+							(<Button className={classes.login} variant="contained" color="primary" onClick={() => logout()}>Logout</Button>) : (<Button variant="contained"  className={classes.login} onClick={() => loginWithRedirect()}>Get Started</Button>)}
 					</FormControl>
 				</form>
 				<div>
