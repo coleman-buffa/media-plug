@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     alignContent: "center"
   },
   section: {
-    display: "flex",
+    display: "inline-flex",
     justifyContent: 'center',
   },
   card: {
@@ -77,18 +77,15 @@ function Explore() {
 
   const { isAuthenticated, user } = useAuth0();
 
-
   useEffect(() => {
     getUnreadBooks();
     getUnsubbedChallenges();
   }, [userId]);
-
   useEffect(() => {
     if (user) {
       getCurrentUserId()
     }
   }, [isAuthenticated, user]);
-
   const getUnreadBooks = () => {
     API.unreadBooksByUser(userId)
       .then(results => {
@@ -104,14 +101,12 @@ function Explore() {
       })
       .catch(err => console.log(err));
   }
-
   const getUnsubbedChallenges = () => {
     API.unsubbedChallengesByUser(userId)
       .then(results => {
         setChallenges(results.data);
       });
   }
-
   const handleAddBookToList = (bookId) => {
     // console.log(bookId);
     API.saveUserBook(userId, bookId);
@@ -125,42 +120,41 @@ function Explore() {
 
   return (
     <Container className={classes.pagecont}>
-      <Grid container>
-          {/* Book List section */}
-          <Container>
-            <Typography variant="h2" className={classes.set}>Trending Books</Typography>
-            <Grid item className={classes.section}>
-              {books.map(book => (
-                <Card elevation={5} className={classes.card} key={book.id}>
-                  <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
-                  <CardContent>
-                    <Typography className={classes.bookName} variant="h4">{book.book_name}</Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddBookToList(book.id)}>Add to List</Button>
-                  </CardActions>
-                </Card>
-              ))}
-            </Grid>
-          </Container>
+      <Grid container alignItems="stretch">
+        {/* Book List section */}
+        <Container>
+          <Typography variant="h2" className={classes.set}>Trending Books</Typography>
 
+          {books.map(book => (
+            <Grid item className={classes.section}>
+              <Card elevation={5} className={classes.card} key={book.id}>
+                <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
+                <CardContent>
+                  <Typography className={classes.bookName} variant="h4">{book.book_name}</Typography>
+                </CardContent>
+                <CardActions>
+                  <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddBookToList(book.id)}>Add to List</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
 
         {/* Challenge List section */}
         <Container>
-            <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
+         <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
+          {challenges.map(challenge => (
             <Grid item className={classes.section}>
-              {challenges.map(challenge => (
-                <Card elevation={5} className={classes.chCard} key={challenge.id}>
-                  {/* <CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" /> */}
-                  <CardContent>
-                    <Typography className={classes.bookName} variant="h4">{challenge.challenge_name}</Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button className={classes.addCh} variant="contained" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
-                  </CardActions>
-                </Card>
-              ))}
+              <Card elevation={5} className={classes.card} key={challenge.id}>
+                {/* <CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" /> */}
+                <CardContent>
+                  <Typography className={classes.bookName} variant="h4">{challenge.challenge_name}</Typography>
+                </CardContent>
+                <CardActions>
+                  <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
+                </CardActions>
+              </Card>
             </Grid>
+          ))}
         </Container>
       </Grid>
     </Container>

@@ -11,14 +11,10 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         isEmail: true
       }
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
     }
   });
 
   //Model associations here
-  
+
   return User;
 }
