@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     root: {
         width: "95%",
         marginTop: 30,
+        marginBottom: 100
     }
 });
 

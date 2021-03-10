@@ -1,13 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import "./footer.css";
 
 const useStyles = makeStyles({
 	root: {
 		width: "100%",
-		marginTop: 550,
+		position: 'fixed',
+		bottom: 0,
 	},
 	icon: {
 		color: 'black',
@@ -15,22 +16,21 @@ const useStyles = makeStyles({
 			color: 'darkgreen',
 		},
 	},
-
 });
 
 function Footer() {
-	const classes = useStyles();	
+	const classes = useStyles();
 
 	return (
 		<div className="footer">
-		<BottomNavigation
-			showLabels
-			className={classes.root}
-		>
-			<BottomNavigationAction href="https://github.com/jessnyj" label="Jessny Joseph" icon={<GitHubIcon className={classes.icon} />} />
-			<BottomNavigationAction href="https://github.com/coleman-buffa" label="Coleman Buffa" icon={<GitHubIcon className={classes.icon} />} />
-			<BottomNavigationAction href="https://github.com/akhalid88" label="Muhammad Khalid" icon={<GitHubIcon className={classes.icon} />} />
-		</BottomNavigation>
+			<BottomNavigation
+				showLabels
+				className={classes.root}
+			>
+				<BottomNavigationAction href="https://github.com/jessnyj" label="Jessny Joseph" icon={<GitHubIcon className={classes.icon} />} />
+				<BottomNavigationAction href="https://github.com/coleman-buffa" label="Coleman Buffa" icon={<GitHubIcon className={classes.icon} />} />
+				<BottomNavigationAction href="https://github.com/akhalid88" label="Muhammad Khalid" icon={<GitHubIcon className={classes.icon} />} />
+			</BottomNavigation>
 		</div>
 	);
 }

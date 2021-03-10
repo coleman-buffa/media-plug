@@ -31,11 +31,9 @@ function Profile() {
   }, [isAuthenticated, user]);
 
   const getCurrentUserId = () => {
-
     API.checkUser(user.email)
       .then(result => {
         setUserId(result.data[0].id);
-
       })
       .catch(err => console.log(err));
   }
@@ -109,7 +107,10 @@ function Profile() {
 
   return (
     <div>
-      <ProfHeader />
+      <ProfHeader 
+        userName={user.nickname}
+        image={user.picture}
+      />
       <div style={{ display: "flex", justifyContent: "center" }}>
         {books.map(book => (
           <BookShelf
