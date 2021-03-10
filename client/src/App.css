@@ -82,3 +82,18 @@ body {
   background-size: cover;
 }
 
+.appTitle {
+  margin-top: 15%;
+  margin-left: 15%;
+  font-weight: bold;
+  font-size: 70px;
+  color: black;
+}
+
+#getStarted {
+  margin-left: 16%;
+  margin-right: 12%;
+  font-size: 23px;
+  font-weight: bold;
+  /* text-align: center; */
+}

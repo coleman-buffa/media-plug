@@ -20,6 +20,14 @@ const useStyles = makeStyles({
 	},
 	inputcont: {
 		margin: 5
+	},
+	login: {
+		marginLeft: 480,
+		backgroundColor: 'black',
+		color: 'white',
+		'&hover': {
+			backgroundColor: 'green',
+		}
 	}
 });
 
@@ -48,13 +56,17 @@ function Login() {
 
 	return (
 		<Container className={classes.pagecont} md="true">
-			<Card className={classes.cardcont}>
+			{/* <Card className={classes.cardcont}> */}
+			<div>
+                <h1 className="animate__animated animate__fadeInDown appTitle">Welcome to MEDIAPLUG</h1>
+                <p id="getStarted">Click 'Get Started' if you would like to sign in or if you are a first time user.</p>
+            </div>
 				<form>
 					<FormControl className={classes.formcont}>
 						{/* All we need below! */}
 
 						{isAuthenticated ?
-							(<Button variant="contained" color="primary" onClick={() => logout()}>Logout</Button>) : (<Button variant="contained" color="primary" onClick={() => loginWithRedirect()}>Login</Button>)}
+							(<Button variant="contained" color="primary" onClick={() => logout()}>Logout</Button>) : (<Button variant="contained"  className={classes.login} onClick={() => loginWithRedirect()}>Get Started</Button>)}
 					</FormControl>
 				</form>
 				<div>
@@ -62,7 +74,7 @@ function Login() {
 				</div>
 
 
-			</Card>
+			{/* </Card> */}
 		</Container>
 	);
 }
