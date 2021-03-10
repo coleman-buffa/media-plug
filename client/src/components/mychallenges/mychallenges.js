@@ -6,7 +6,6 @@ import "./mychallenges.css";
 
 const useStyles = makeStyles({
     userChCont: {
-        // backgroundColor: 'transparent',
         opacity: '1',
         height: '100vh',
         padding: 30,
@@ -28,19 +27,15 @@ function MyChallenges(props) {
         <React.Fragment>
             <CssBaseline />
             <Container id="myChall" className={classes.root}>
-                {/* <Paper> */}
-                    {/* <Typography id="userChCont" component="div" className={classes.userChCont}> */}
-                        <Modal />
-                        {local.challenges.map(user => (
-                            <UserChallenge
-                                key={user.Challenge.id}
-                                id={user.Challenge.id}
-                                name={user.Challenge.challenge_name}
-                                desc={user.Challenge.challenge_desc}
-                            />
-                        ))}
-                    {/* </Typography> */}
-                {/* </Paper> */}
+                <Modal />
+                {local.challenges.map(user => (
+                    <UserChallenge
+                        key={user.Challenge.id}
+                        id={user.Challenge.id}
+                        name={user.Challenge.challenge_name}
+                        desc={user.Challenge.challenge_desc}
+                    />
+                ))}
             </Container>
         </React.Fragment>
     );

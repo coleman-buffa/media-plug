@@ -9,6 +9,11 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'center',
         textAlign: 'center',
+        "&:hover": {
+            transform: "scale(1.01)",
+            boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
+            transition: ".1s",
+        },
     },
     chDescription: {
         marginTop: 10,

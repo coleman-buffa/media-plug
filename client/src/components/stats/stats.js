@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles, Card, CardContent, Typography } from '@material-ui/core';
+import "./stats.css";
 
 const useStyles = makeStyles({
     root: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles({
 function Stats(props) {
     const classes = useStyles();
     return (
-        <Card className={classes.root}>
+        <Card className="animate__animated animate__flipInX card">
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                     {props.name}

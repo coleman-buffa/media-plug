@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import API from "../utils/API";
 import { useAuth0 } from '@auth0/auth0-react';
 
-
 const useStyles = makeStyles({
   pagecont: {
     alignContent: "center"
@@ -16,6 +15,17 @@ const useStyles = makeStyles({
   card: {
     margin: 20,
     width: 300,
+    height: 360,
+    '&:hover': {
+      transform: "scale(1.01)",
+      boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
+      transition: ".1s",
+    },
+  },
+  chCard: {
+    margin: 20,
+    width: '20%',
+    height: 100,
     '&:hover': {
       transform: "scale(1.01)",
       boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
@@ -23,11 +33,7 @@ const useStyles = makeStyles({
     },
   },
   media: {
-    height: 250
-  },
-  button: {
-    position: 'relative',
-    bottom: 0,
+    height: 260
   },
   set: {
     marginTop: 100,
@@ -37,11 +43,24 @@ const useStyles = makeStyles({
     borderBottom: "solid black ",
   },
   bookName: {
-    fontSize: 30,
+    fontSize: 22,
     textAlign: 'center',
   },
   addBtn: {
-    marginLeft: "28%",
+    marginTop: 30,
+    marginBottom: 30,
+    marginLeft: 60,
+    position: 'absolute',
+    '&:hover': {
+      backgroundColor: 'darkgreen',
+      color: 'white',
+    },
+  },
+  addCh: {
+    marginTop: 30,
+    marginBottom: 30,
+    marginLeft: 50,
+    position: 'absolute',
     '&:hover': {
       backgroundColor: 'darkgreen',
       color: 'white',
@@ -120,12 +139,9 @@ function Explore() {
             </Grid>
           ))}
 
-
-        </Container>
-
         {/* Challenge List section */}
         <Container>
-          <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
+         <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
           {challenges.map(challenge => (
             <Grid item className={classes.section}>
               <Card elevation={5} className={classes.card} key={challenge.id}>
