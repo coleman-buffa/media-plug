@@ -1,31 +1,23 @@
 import React from 'react';
-import { makeStyles, Card, CardContent, Typography } from '@material-ui/core';
+import { makeStyles, Card, CardContent, Typography, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
-    root: {
-        minWidth: 250,
+    card: {
         marginTop: 10,
-        borderLeft: '6px solid rgb(0, 128, 255)',
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
+        borderLeft: '6px solid darkgreen',
+        maxWidth: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        textAlign: 'center',
     },
     chDescription: {
         marginTop: 10,
         marginLeft: 2,
         fontFamily: 'Arial',
-        fontSize: 16,
+        fontSize: 18,
     },
     chTitle: {
-        fontSize: 22,
+        fontSize: 24,
         fontFamily: "Garamond",
         fontWeight: 'bold',
     },
@@ -35,16 +27,20 @@ function UserChallenge(props) {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root} elevation={8}>
-            <CardContent>
-                <Typography className={classes.chTitle} variant="h5" component="h2">
-                    {props.name}
-                </Typography>
-                <Typography variant="body2" component="p" className={classes.chDescription}>
-                    {props.desc}
-                </Typography>
-            </CardContent>
-        </Card>
+        <Grid container alignItems="stretch" spacing={3}>
+            <Grid item xs={12}>
+                <Card className={classes.card} elevation={8}>
+                    <CardContent>
+                        <Typography className={classes.chTitle} variant="h5" component="h2">
+                            {props.name}
+                        </Typography>
+                        <Typography variant="body2" component="p" className={classes.chDescription}>
+                            {props.desc}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+        </Grid>
     );
 }
 

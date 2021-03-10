@@ -6,7 +6,7 @@ import "./searchcard.css";
 
 const useStyles = makeStyles({
 	searchCard: {
-		backgroundColor: '#eeeeee',
+		backgroundColor: '#F5F5F5',
 		minWidth: 275,
 		marginTop: 10,
 		"&:hover": {
