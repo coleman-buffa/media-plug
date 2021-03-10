@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     contChallenge: {
         width: "95%",
         marginTop: 50,
+        marginBottom: 100
     }
 });
 

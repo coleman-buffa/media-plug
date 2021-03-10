@@ -8,6 +8,9 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles({
 	form: {
 		marginTop: 50
+	},
+	searchCont: {
+		marginBottom: 100
 	}
 });
 
@@ -31,7 +34,6 @@ function SearchContainer() {
 		e.preventDefault();
 
 		let str = inputRef.current.value;
-		// .trim();
 		let replaced = str.split(' ').join('+');
 		setSearchTerm(replaced);
 		inputRef.current.value = "";
@@ -63,7 +65,7 @@ function SearchContainer() {
 
 	return (
 		<div>
-			<Container>
+			<Container className={classes.searchCont}>
 				<Paper elevation={5} className={classes.form}>
 					<SearchBar
 						inputRef={inputRef}

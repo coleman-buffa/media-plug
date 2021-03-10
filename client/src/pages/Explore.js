@@ -6,7 +6,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles({
   pagecont: {
-    alignContent: "center"
+    alignContent: "center",
+    marginBottom: 100
   },
   section: {
     display: "inline-flex",
