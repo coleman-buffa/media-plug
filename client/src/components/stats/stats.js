@@ -4,7 +4,7 @@ import { makeStyles, Card, CardContent, Typography } from '@material-ui/core';
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
-        backgroundColor: 'white'
+        background: 'linear-gradient(lightgrey, white, white, lightgrey)',
     },
     title: {
         fontSize: 18,

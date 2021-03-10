@@ -70,8 +70,15 @@ body {
 
 
 /* Leaves white background */
-body {
+/* body {
   background: url(https://images.pexels.com/photos/1048035/pexels-photo-1048035.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
   background-repeat: no-repeat;
   background-size: cover;
+} */
+
+body {
+  background: url(https://images.pexels.com/photos/2748756/pexels-photo-2748756.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+

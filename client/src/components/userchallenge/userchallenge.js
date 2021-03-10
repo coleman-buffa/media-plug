@@ -3,9 +3,8 @@ import { makeStyles, Card, CardContent, Typography, Grid } from '@material-ui/co
 
 const useStyles = makeStyles({
     card: {
-        // minWidth: 275,
         marginTop: 10,
-        borderLeft: '6px solid green',
+        borderLeft: '6px solid darkgreen',
         maxWidth: '50%',
         display: 'flex',
         justifyContent: 'center',
