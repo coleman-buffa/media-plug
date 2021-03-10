@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 		marginLeft: 480,
 		backgroundColor: 'black',
 		color: 'white',
-		'&hover': {
+		'&:hover': {
 			backgroundColor: 'green',
 		}
 	}
@@ -56,7 +56,6 @@ function Login() {
 
 	return (
 		<Container className={classes.pagecont} md="true">
-			{/* <Card className={classes.cardcont}> */}
 			<div>
                 <h1 className="animate__animated animate__fadeInDown appTitle">Welcome to MEDIAPLUG</h1>
                 <p id="getStarted">Click 'Get Started' if you would like to sign in or if you are a first time user.</p>
@@ -72,9 +71,6 @@ function Login() {
 				<div>
 					{/* User email: {email} */}
 				</div>
-
-
-			{/* </Card> */}
 		</Container>
 	);
 }

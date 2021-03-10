@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     card: {
         marginTop: 10,
         borderLeft: '6px solid darkgreen',
-        maxWidth: '50%',
+        maxWidth: '100%',
         display: 'flex',
         justifyContent: 'center',
         textAlign: 'center',
