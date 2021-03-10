@@ -23,9 +23,10 @@ const useStyles = makeStyles({
     },
   },
   chCard: {
+    backgroundColor: 'white',
     margin: 20,
-    width: '20%',
-    height: 100,
+    width: 280,
+    height: 300,
     '&:hover': {
       transform: "scale(1.01)",
       boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
@@ -46,6 +47,17 @@ const useStyles = makeStyles({
     fontSize: 22,
     textAlign: 'center',
   },
+  chName: {
+    fontSize: 24,
+    marginTop: 15,
+    marginBottom: 0,
+    textAlign: 'center',
+  },
+  chDesc: {
+    fontSize: 18,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
   addBtn: {
     marginTop: 30,
     marginBottom: 30,
@@ -59,7 +71,7 @@ const useStyles = makeStyles({
   addCh: {
     marginTop: 30,
     marginBottom: 30,
-    marginLeft: 50,
+    marginLeft: 70,
     position: 'absolute',
     '&:hover': {
       backgroundColor: 'darkgreen',
@@ -144,13 +156,15 @@ function Explore() {
           <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
           {challenges.map(challenge => (
             <Grid item className={classes.section}>
-              <Card elevation={5} className={classes.card} key={challenge.id}>
-                {/* <CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" /> */}
+              <Card elevation={5} className={classes.chCard} key={challenge.id}>
                 <CardContent>
-                  <Typography className={classes.bookName} variant="h4">{challenge.challenge_name}</Typography>
+                  <Typography className={classes.chName} variant="h4">{challenge.challenge_name}</Typography>
+                </CardContent>
+                <CardContent>
+                  <Typography className={classes.chDesc} variant="h4">{challenge.challenge_desc}</Typography>
                 </CardContent>
                 <CardActions>
-                  <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
+                  <Button className={classes.addCh} variant="outlined" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
                 </CardActions>
               </Card>
             </Grid>
