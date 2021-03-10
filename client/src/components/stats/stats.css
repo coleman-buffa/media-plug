@@ -1,0 +1,4 @@
+.card {
+    min-width: 275px;
+    background: linear-gradient(lightgrey, white, white, lightgrey);
+}

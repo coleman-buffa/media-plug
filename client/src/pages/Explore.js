@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import API from "../utils/API";
 import { useAuth0 } from '@auth0/auth0-react';
 
-
 const useStyles = makeStyles({
   pagecont: {
     alignContent: "center"
@@ -16,18 +15,25 @@ const useStyles = makeStyles({
   card: {
     margin: 20,
     width: 300,
+    height: 360,
     '&:hover': {
       transform: "scale(1.01)",
-			boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
-			transition: ".1s",
+      boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
+      transition: ".1s",
+    },
+  },
+  chCard: {
+    margin: 20,
+    width: '20%',
+    height: 100,
+    '&:hover': {
+      transform: "scale(1.01)",
+      boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
+      transition: ".1s",
     },
   },
   media: {
-    height: 250
-  },
-  button: {
-    position: 'relative',
-    bottom: 0,
+    height: 260
   },
   set: {
     marginTop: 100,
@@ -37,11 +43,24 @@ const useStyles = makeStyles({
     borderBottom: "solid black ",
   },
   bookName: {
-    fontSize: 30,
+    fontSize: 22,
     textAlign: 'center',
   },
   addBtn: {
-    marginLeft: "28%",
+    marginTop: 30,
+    marginBottom: 30,
+    marginLeft: 60,
+    position: 'absolute',
+    '&:hover': {
+      backgroundColor: 'darkgreen',
+      color: 'white',
+    },
+  },
+  addCh: {
+    marginTop: 30,
+    marginBottom: 30,
+    marginLeft: 50,
+    position: 'absolute',
     '&:hover': {
       backgroundColor: 'darkgreen',
       color: 'white',
@@ -107,41 +126,41 @@ function Explore() {
   return (
     <Container className={classes.pagecont}>
       <Grid container>
-        {/* Book List section */}
-        <Container>
-          <Typography variant="h2" className={classes.set}>Trending Books</Typography>
-          <Grid item className={classes.section}>
-            {books.map(book => (
-              <Card elevation={5} className={classes.card} key={book.id}>
-                <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
-                <CardContent>
-                  <Typography className={classes.bookName} variant="h4">{book.book_name}</Typography>
-                </CardContent>
-                <CardActions>
-                  <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddBookToList(book.id)}>Add to List</Button>
-                </CardActions>
-              </Card>
-            ))}
-          </Grid>
+          {/* Book List section */}
+          <Container>
+            <Typography variant="h2" className={classes.set}>Trending Books</Typography>
+            <Grid item className={classes.section}>
+              {books.map(book => (
+                <Card elevation={5} className={classes.card} key={book.id}>
+                  <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
+                  <CardContent>
+                    <Typography className={classes.bookName} variant="h4">{book.book_name}</Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddBookToList(book.id)}>Add to List</Button>
+                  </CardActions>
+                </Card>
+              ))}
+            </Grid>
+          </Container>
 
-        </Container>
 
         {/* Challenge List section */}
         <Container>
-          <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
-          <Grid item className={classes.section}>
-            {challenges.map(challenge => (
-              <Card elevation={5} className={classes.card} key={challenge.id}>
-                {/* <CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" /> */}
-                <CardContent>
-                  <Typography className={classes.bookName} variant="h4">{challenge.challenge_name}</Typography>
-                </CardContent>
-                <CardActions>
-                  <Button className={classes.addBtn} variant="contained" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
-                </CardActions>
-              </Card>
-            ))}
-          </Grid>
+            <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
+            <Grid item className={classes.section}>
+              {challenges.map(challenge => (
+                <Card elevation={5} className={classes.chCard} key={challenge.id}>
+                  {/* <CardMedia className={classes.media} image="https://via.placeholder.com/150" title="book1" /> */}
+                  <CardContent>
+                    <Typography className={classes.bookName} variant="h4">{challenge.challenge_name}</Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button className={classes.addCh} variant="contained" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
+                  </CardActions>
+                </Card>
+              ))}
+            </Grid>
         </Container>
       </Grid>
     </Container>
