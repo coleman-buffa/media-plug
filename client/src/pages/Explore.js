@@ -138,10 +138,10 @@ function Explore() {
               </Card>
             </Grid>
           ))}
-
+        </Container>
         {/* Challenge List section */}
         <Container>
-         <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
+          <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
           {challenges.map(challenge => (
             <Grid item className={classes.section}>
               <Card elevation={5} className={classes.card} key={challenge.id}>
