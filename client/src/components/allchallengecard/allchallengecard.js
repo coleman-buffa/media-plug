@@ -8,6 +8,11 @@ const useStyles = makeStyles({
         backgroundColor: '#f5f5f5',
         borderLeft: '6px solid darkgreen',
         height: 125,
+        "&:hover": {
+            transform: "scale(1.01)",
+            boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
+            transition: ".1s",
+        },
     },
     chdesc: {
         marginTop: 10,
