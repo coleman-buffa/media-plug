@@ -14,6 +14,7 @@ const useStyles = makeStyles({
     justifyContent: 'center',
   },
   card: {
+    backgroundColor: '#F5F5F5',
     margin: 20,
     width: 300,
     height: 360,
@@ -24,10 +25,10 @@ const useStyles = makeStyles({
     },
   },
   chCard: {
-    backgroundColor: 'white',
+    backgroundColor: '#F5F5F5',
     margin: 20,
     width: 280,
-    height: 300,
+    height: 290,
     '&:hover': {
       transform: "scale(1.01)",
       boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
@@ -50,7 +51,7 @@ const useStyles = makeStyles({
   },
   chName: {
     fontSize: 24,
-    marginTop: 15,
+    marginTop: 25,
     marginBottom: 0,
     textAlign: 'center',
   },
