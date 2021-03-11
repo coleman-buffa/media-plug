@@ -62,7 +62,6 @@ function SearchContainer() {
 		setSearchResults([]);
 	}
 
-
 	return (
 		<div>
 			<Container className={classes.searchCont}>

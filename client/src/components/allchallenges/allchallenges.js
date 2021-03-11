@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
 import AllChallengeCard from '../allchallengecard/allchallengecard';
 import { makeStyles } from '@material-ui/core/styles';
 import API from '../../utils/API';

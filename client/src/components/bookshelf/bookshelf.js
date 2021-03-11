@@ -31,7 +31,6 @@ function BookShelf(props) {
                 className={classes.shelfImage}
                 image={props.image}
                 title="Book Cover"
-
             />
         </div>
     );

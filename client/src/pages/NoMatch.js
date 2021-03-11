@@ -3,7 +3,7 @@ import React from "react";
 const NoMatch = () => {
   return(
     <div>
-      No Mas!
+      No Match! Get back to reading books!
     </div>
   );
 }

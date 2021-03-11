@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles, CssBaseline, Typography, Container, Paper } from '@material-ui/core';
 import UserChallenge from "../userchallenge/userchallenge";
 import Modal from "../modal/modal";
-import "./mychallenges.css";
 
 const useStyles = makeStyles({
     userChCont: {

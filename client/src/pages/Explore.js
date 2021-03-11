@@ -138,7 +138,7 @@ function Explore() {
         {/* Book List section */}
         <Container>
           <Typography variant="h2" className={classes.set}>Trending Books</Typography>
-
+          {/* Map through books array */}
           {books.map(book => (
             <Grid item className={classes.section}>
               <Card elevation={5} className={classes.card} key={book.id}>
@@ -156,6 +156,7 @@ function Explore() {
         {/* Challenge List section */}
         <Container>
           <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
+          {/* Map through challenges array */}
           {challenges.map(challenge => (
             <Grid item className={classes.section}>
               <Card elevation={5} className={classes.chCard} key={challenge.id}>

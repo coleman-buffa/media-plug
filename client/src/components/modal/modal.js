@@ -8,8 +8,8 @@ const useStyles = makeStyles({
         color: 'black',
         float: 'right',
         "&:hover": {
-			color: 'green',
-		},
+            color: 'green',
+        },
     },
     challengeTitle: {
         fontSize: 35,

@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import "./footer.css";
 
 const useStyles = makeStyles({
 	root: {

@@ -36,7 +36,6 @@ function Login() {
 	const classes = useStyles();
 	const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
 
-
 	useEffect(() => {
 		if (isAuthenticated) {
 			//API call that checks uf user email exists in DB
@@ -57,20 +56,15 @@ function Login() {
 	return (
 		<Container className={classes.pagecont} md="true">
 			<div>
-                <h1 className="animate__animated animate__fadeInDown appTitle">Welcome to MEDIAPLUG</h1>
-                <p id="getStarted">Click 'Get Started' if you would like to sign in or if you are a first time user.</p>
-            </div>
-				<form>
-					<FormControl className={classes.formcont}>
-						{/* All we need below! */}
-
-						{isAuthenticated ?
-							(<Button className={classes.login} variant="contained" color="primary" onClick={() => logout()}>Logout</Button>) : (<Button variant="contained"  className={classes.login} onClick={() => loginWithRedirect()}>Get Started</Button>)}
-					</FormControl>
-				</form>
-				<div>
-					{/* User email: {email} */}
-				</div>
+				<h1 className="animate__animated animate__fadeInDown appTitle">Welcome to MEDIAPLUG</h1>
+				<p id="getStarted">Click 'Get Started' if you would like to sign in or if you are a first time user.</p>
+			</div>
+			<form>
+				<FormControl className={classes.formcont}>
+					{isAuthenticated ?
+						(<Button className={classes.login} variant="contained" color="primary" onClick={() => logout()}>Logout</Button>) : (<Button variant="contained" className={classes.login} onClick={() => loginWithRedirect()}>Get Started</Button>)}
+				</FormControl>
+			</form>
 		</Container>
 	);
 }

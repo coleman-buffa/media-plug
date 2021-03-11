@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 
 function AllChallengeCard(props) {
     const classes = useStyles();
-    
+
     return (
         <Card className={classes.root} elevation={8}>
             <CardContent>

@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import UserContext from "./utils/usercontext";
 import { useAuth0 } from "@auth0/auth0-react";
 
-// import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Explore from "./pages/Explore";
@@ -31,32 +29,21 @@ function App() {
     return <Loading />;
   }
 
-  const handleSignupBtnClick = e => {
-    setRegisterUsername(e.target.value);
-  }
-
-  const handleLoginBtnClick = e => {
-
-  }
-
-
   return (
     <div>
-      <UserContext.Provider value={{ user, setUser, registerUsername, setRegisterUsername, registerPassword, setRegisterPassword, loginUsername, setLoginUsername, loginPassword, setLoginPassword, handleSignupBtnClick, handleLoginBtnClick }}>
-        <Navbar />
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/login" component={Login} />
-            <ProtectedRoute path="/profile" component={Profile} />
-            <ProtectedRoute path="/explore" component={Explore} />
-            <ProtectedRoute path="/challenges" component={Challenges} />
-            <ProtectedRoute path="/search" component={Search} />
-            <Route path="/*" component={NoMatch} />
-          </Switch>
-        </Router>
-        <Footer />
-      </UserContext.Provider>
+      <Navbar />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route exact path="/login" component={Login} />
+          <ProtectedRoute path="/profile" component={Profile} />
+          <ProtectedRoute path="/explore" component={Explore} />
+          <ProtectedRoute path="/challenges" component={Challenges} />
+          <ProtectedRoute path="/search" component={Search} />
+          <Route path="/*" component={NoMatch} />
+        </Switch>
+      </Router>
+      <Footer />
     </div>
   );
 }

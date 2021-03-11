@@ -8,7 +8,6 @@ import PublicIcon from '@material-ui/icons/Public';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import MenuIcon from '@material-ui/icons/Menu';
 import {useAuth0} from "@auth0/auth0-react";
-import "./navbar.css";
 
 const useStyles = makeStyles({
 	list: {

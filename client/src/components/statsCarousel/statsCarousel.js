@@ -3,7 +3,6 @@ import Carousel from 'react-material-ui-carousel'
 import Stats from "../stats/stats";
 
 function StatsCarousel(props) {
-
     return (
         <Carousel autoPlay={false}>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
