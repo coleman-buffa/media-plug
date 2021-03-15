@@ -29,6 +29,19 @@ const useStyles = makeStyles({
     margin: 20,
     width: 280,
     height: 290,
+    borderLeft: '6px solid darkgreen',
+    '&:hover': {
+      transform: "scale(1.01)",
+      boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
+      transition: ".1s",
+    },
+  },
+  userCard: {
+    backgroundColor: '#F5F5F5',
+    margin: 20,
+    width: 280,
+    height: 100,
+    borderLeft: '6px solid darkgreen',
     '&:hover': {
       transform: "scale(1.01)",
       boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",
@@ -50,6 +63,12 @@ const useStyles = makeStyles({
     textAlign: 'center',
   },
   chName: {
+    fontSize: 24,
+    marginTop: 25,
+    marginBottom: 0,
+    textAlign: 'center',
+  },
+  userName: {
     fontSize: 24,
     marginTop: 25,
     marginBottom: 0,
@@ -188,7 +207,19 @@ function Explore() {
         </Container>
 
         {/* User list section */}
-
+        <Container>
+          <Typography className={classes.chListTitle} variant="h2">Connect With Users</Typography>
+          {/* Map through challenges array */}
+          {users.map(user => (
+            <Grid item className={classes.section}>
+              <Card elevation={5} className={classes.userCard} key={user.id}>
+                <CardContent>
+                  <Typography className={classes.userName} variant="h4">{user.user_name}</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Container>
       </Grid>
     </Container>
   );
