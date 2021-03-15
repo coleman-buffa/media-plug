@@ -74,7 +74,7 @@ function SearchContainer() {
 				</Paper>
 				{searchResults.map(book => (
 					<SearchCard
-						key={book.id}
+						key={book.etag}
 						id={book.id}
 						book_name={book.volumeInfo.title}
 						book_author={book.volumeInfo.authors}

@@ -21,9 +21,16 @@ const API = {
   },
   searchBookName: function (bookName) {
     return new Promise((resolve, reject) => {
+      let tempArray = [];
       axios.get("https://www.googleapis.com/books/v1/volumes?q=" + bookName)
         .then((res) => {
-          resolve(res.data.items.slice(0, 7));
+          tempArray = res.data.items.filter(book => {
+            return book.volumeInfo.title && book.volumeInfo.authors &&
+              book.volumeInfo.description && book.volumeInfo.imageLinks &&
+              book.volumeInfo.categories && book.volumeInfo.pageCount &&
+              book.volumeInfo.averageRating && book.volumeInfo.publishedDate
+          })
+          resolve(tempArray);
         }).catch((err) => reject(err));
     })
   },
