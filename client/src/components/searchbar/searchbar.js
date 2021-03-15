@@ -19,7 +19,7 @@ function SearchBar(props) {
 	const classes = useStyles();
 	return (
 		<Grid >
-			<form className="content"  >
+			<form className="content" onSubmit={props.handleInputSearch} >
 				<FormControl fullWidth >
 					<TextField
 						value={props.searchTerm}

@@ -10,27 +10,36 @@ module.exports = function (sequelize, DataTypes) {
     },
     book_desc: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      defaultValue: "Description not found"
     },
     book_image_link: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      defaultValue: "https://via.placeholder.com/150"
     },
     book_genre: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      defaultValue: "NA"
     },
     book_page_count: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      defaultValue: 0
     },
     book_rating: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      defaultValue: 0
     },
     book_published_date: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: false,
+      defaultValue: "1900-01-01",
+      validate: {
+        isDate:true
+      }
     }     
   });
   //Model associations here
