@@ -9,10 +9,16 @@ const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 ReactDOM.render(
 	<Auth0Provider
+		// Use the following for deployment
 		domain={domain}
 		clientId={clientId}
 		redirectUri="https://media-plug.herokuapp.com/explore"
-		// redirectUri={window.location.origin}
+
+	// Use the following for local testing
+	// Make sure to remove secrets before deploying
+	// domain=""
+	// clientId=""
+	// redirectUri={window.location.origin}
 	>
 		<App />
 	</Auth0Provider>,

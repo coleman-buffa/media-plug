@@ -88,13 +88,15 @@ function Explore() {
   const [userId, setUserId] = useState(0);
   const [books, setBooks] = useState([]);
   const [challenges, setChallenges] = useState([]);
-
+  const [users, setUsers] = useState([]);
   const { isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
     getUnreadBooks();
     getUnsubbedChallenges();
+    getOtherUsers();
   }, [userId]);
+
   useEffect(() => {
     if (user) {
       getCurrentUserId()
@@ -107,25 +109,35 @@ function Explore() {
         setBooks(results.data);
       });
   }
-  const getCurrentUserId = () => {
 
+  const getCurrentUserId = () => {
     API.checkUser(user.email)
       .then(result => {
         setUserId(result.data[0].id);
       })
       .catch(err => console.log(err));
   }
+
   const getUnsubbedChallenges = () => {
     API.unsubbedChallengesByUser(userId)
       .then(results => {
         setChallenges(results.data);
       });
   }
+
+  const getOtherUsers = () => {
+    API.otherUsers(userId)
+      .then(results => {
+        setUsers(results.data);
+      })
+  }
+
   const handleAddBookToList = (bookId) => {
     // console.log(bookId);
     API.saveUserBook(userId, bookId);
     getUnreadBooks();
   }
+
   const handleAddChallengeToList = (challengeId) => {
     // console.log(`Challenge ${id}`);
     API.saveUserChallenge(userId, challengeId);
@@ -153,6 +165,7 @@ function Explore() {
             </Grid>
           ))}
         </Container>
+
         {/* Challenge List section */}
         <Container>
           <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
@@ -173,6 +186,9 @@ function Explore() {
             </Grid>
           ))}
         </Container>
+
+        {/* User list section */}
+
       </Grid>
     </Container>
   );

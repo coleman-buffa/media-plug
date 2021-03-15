@@ -11,5 +11,9 @@ router
   .route('/:email')
   .get(userController.checkUserStatus);
 
+//Matches with "api/user/other/:userId"
+router
+  .route('/other/:userId')
+  .get(userController.getOtherUsers);
 
 module.exports = router;

@@ -50,7 +50,9 @@ const API = {
   createUser: function (userInfo) {
     return axios.post("/api/user/", userInfo);
   },
-
+  otherUsers: function (userId) {
+    return axios.get("api/user/other/" + userId);
+  },
 
   //////////////
   // Challenges
