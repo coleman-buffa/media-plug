@@ -23,7 +23,7 @@ const API = {
     return new Promise((resolve, reject) => {
       axios.get("https://www.googleapis.com/books/v1/volumes?q=" + bookName)
         .then((res) => {
-          resolve(res.data.items.slice(0, 3));
+          resolve(res.data.items.slice(0, 7));
         }).catch((err) => reject(err));
     })
   },

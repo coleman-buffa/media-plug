@@ -87,9 +87,9 @@ function Profile() {
       }
     });
 
-    avgLength = pagesRead / booksRead;
-    avgRating = ratingSum / booksRead;
-
+    avgLength = Math.floor(pagesRead / booksRead);
+    avgRating = (ratingSum / booksRead).toFixed(1);
+    // avgLength = Math.floor(avgLength)
     setUserStats(
       {
         "booksRead": booksRead,

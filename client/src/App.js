@@ -16,12 +16,12 @@ import Loading from "./components/loading/loading";
 import ProtectedRoute from "./components/protectedroute/protectedroute";
 
 function App() {
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
 
-  const [registerUsername, setRegisterUsername] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginUsername, setLoginUsername] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  // const [registerUsername, setRegisterUsername] = useState("");
+  // const [registerPassword, setRegisterPassword] = useState("");
+  // const [loginUsername, setLoginUsername] = useState("");
+  // const [loginPassword, setLoginPassword] = useState("");
 
   const { isLoading } = useAuth0();
 
