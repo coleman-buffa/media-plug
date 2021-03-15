@@ -11,7 +11,8 @@ ReactDOM.render(
 	<Auth0Provider
 		domain={domain}
 		clientId={clientId}
-		redirectUri={window.location.origin}
+		redirectUri="https://media-plug.herokuapp.com/explore"
+		// redirectUri={window.location.origin}
 	>
 		<App />
 	</Auth0Provider>,
