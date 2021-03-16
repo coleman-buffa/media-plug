@@ -79,13 +79,13 @@ const useStyles = makeStyles({
   },
   chDesc: {
     fontSize: 18,
-    marginBottom: 10,
+    // marginBottom: 30,
     textAlign: 'center',
   },
   addBtn: {
     marginTop: 30,
     marginBottom: 30,
-    marginLeft: 60,
+    // marginLeft: 60,
     position: 'absolute',
     '&:hover': {
       backgroundColor: 'darkgreen',
@@ -93,15 +93,21 @@ const useStyles = makeStyles({
     },
   },
   addCh: {
-    marginTop: 30,
-    marginBottom: 30,
-    marginLeft: 70,
+    marginTop: 20,
     position: 'absolute',
     '&:hover': {
       backgroundColor: 'darkgreen',
       color: 'white',
     },
   },
+  chDiv: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  bookDiv: {
+    display: 'flex',
+    justifyContent: 'center',
+  }
 });
 
 function Explore() {
@@ -180,7 +186,7 @@ function Explore() {
                 <CardContent>
                   <Typography className={classes.bookName} variant="h4">{book.book_name}</Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions className={classes.bookDiv}>
                   <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddBookToList(book.id)}>Add to List</Button>
                 </CardActions>
               </Card>
@@ -203,7 +209,7 @@ function Explore() {
                 <CardContent>
                   <Typography className={classes.chDesc} variant="h4">{challenge.challenge_desc}</Typography>
                 </CardContent>
-                <CardActions>
+                <CardActions className={classes.chDiv}>
                   <Button className={classes.addCh} variant="outlined" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
                 </CardActions>
               </Card>
