@@ -5,7 +5,7 @@ const useStyles = makeStyles({
     root: {
         minWidth: 250,
         marginTop: 20,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: 'white',
         borderLeft: '6px solid darkgreen',
         height: 125,
         "&:hover": {
