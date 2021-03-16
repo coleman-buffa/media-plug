@@ -5,13 +5,15 @@ import API from "../utils/API";
 import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles({
-  pagecont: {
-    alignContent: "center",
-    marginBottom: 100
-  },
-  section: {
-    display: "inline-flex",
+  gridContainer: {
+    display: 'flex',
     justifyContent: 'center',
+    marginBottom: 150,
+  },
+  sectionContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap'
   },
   card: {
     backgroundColor: '#F5F5F5',
@@ -53,10 +55,11 @@ const useStyles = makeStyles({
   },
   set: {
     marginTop: 100,
-    borderBottom: "solid black ",
+    borderBottom: "solid black",
   },
   chListTitle: {
-    borderBottom: "solid black ",
+    marginTop: 40,
+    borderBottom: "solid black",
   },
   bookName: {
     fontSize: 22,
@@ -164,11 +167,11 @@ function Explore() {
   }
 
   return (
-    <Container className={classes.pagecont}>
-      <Grid container alignItems="stretch">
-        {/* Book List section */}
-        <Container>
-          <Typography variant="h2" className={classes.set}>Trending Books</Typography>
+    <Grid container className={classes.gridContainer} >
+      {/* Book List section */}
+      <section>
+        <Typography variant="h2" className={classes.set}>Trending Books</Typography>
+        <Container className={classes.sectionContainer}>
           {/* Map through books array */}
           {books.map(book => (
             <Grid item className={classes.section}>
@@ -184,10 +187,12 @@ function Explore() {
             </Grid>
           ))}
         </Container>
+      </section>
 
-        {/* Challenge List section */}
-        <Container>
-          <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
+      {/* Challenge List section */}
+      <section>
+        <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
+        <Container className={classes.sectionContainer}>
           {/* Map through challenges array */}
           {challenges.map(challenge => (
             <Grid item className={classes.section}>
@@ -205,10 +210,12 @@ function Explore() {
             </Grid>
           ))}
         </Container>
+      </section>
 
-        {/* User list section */}
-        <Container>
-          <Typography className={classes.chListTitle} variant="h2">Connect With Users</Typography>
+      {/* User list section */}
+      <section>
+        <Typography className={classes.chListTitle} variant="h2">Connect With Users</Typography>
+        <Container className={classes.sectionContainer}>
           {/* Map through challenges array */}
           {users.map(user => (
             <Grid item className={classes.section}>
@@ -220,8 +227,8 @@ function Explore() {
             </Grid>
           ))}
         </Container>
-      </Grid>
-    </Container>
+      </section>
+    </Grid>
   );
 }
 
