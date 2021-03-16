@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     backgroundColor: '#F5F5F5',
     margin: 20,
     width: 300,
-    height: 360,
+    height: "95%",
     '&:hover': {
       transform: "scale(1.01)",
       boxShadow: "0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%)",

@@ -14,11 +14,11 @@ ReactDOM.render(
 		clientId={clientId}
 		redirectUri="https://media-plug.herokuapp.com/explore"
 
-		// Use the following for local testing
-		// Make sure to remove secrets before deploying
-		// domain=""
-		// clientId=""
-		// redirectUri={window.location.origin}
+	// Use the following for local testing
+	// Make sure to remove secrets before deploying
+	// domain=""
+	// clientId=""
+	// redirectUri={window.location.origin}
 	>
 		<App />
 	</Auth0Provider>,
