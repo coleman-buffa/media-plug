@@ -1,18 +1,13 @@
 import React, { useEffect } from 'react';
-import { Container, Button, FormControl } from '@material-ui/core';
+import { Container, Button, FormControl, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
 import API from "../utils/API";
 
 const useStyles = makeStyles({
-	pagecont: {
-		alignContent: "center"
-	},
 	cardcont: {
 		marginTop: "10%",
 		padding: 10,
-		display: "flex",
-		justifyContent: "center"
 	},
 	formcont: {
 		alignContent: "center",
@@ -22,12 +17,15 @@ const useStyles = makeStyles({
 		margin: 5
 	},
 	login: {
-		marginLeft: 480,
 		backgroundColor: 'black',
 		color: 'white',
 		'&:hover': {
 			backgroundColor: 'green',
 		}
+	},
+	container: {
+		display: 'flex',
+		justifyContent: 'center',
 	}
 });
 
@@ -54,18 +52,22 @@ function Login() {
 	}, [user, isAuthenticated]);
 
 	return (
-		<Container className={classes.pagecont} md="true">
-			<div>
-				<h1 className="animate__animated animate__fadeInDown appTitle">Welcome to MEDIAPLUG</h1>
-				<p id="getStarted">Click 'Get Started' if you would like to sign in or if you are a first time user.</p>
-			</div>
-			<form>
-				<FormControl className={classes.formcont}>
-					{isAuthenticated ?
-						(<Button className={classes.login} variant="contained" color="primary" onClick={() => logout()}>Logout</Button>) : (<Button variant="contained" className={classes.login} onClick={() => loginWithRedirect()}>Get Started</Button>)}
-				</FormControl>
-			</form>
-		</Container>
+		<Grid container className={classes.container}>
+			<Grid item xs={12}>
+				<div>
+					<h1 className="animate__animated animate__fadeInDown appTitle">Welcome to MEDIAPLUG</h1>
+					<p id="getStarted">Click 'Get Started' if you would like to sign in or if you are a first time user.</p>
+				</div>
+			</Grid>
+			<Grid item className={classes.button}>
+				<form>
+					<FormControl className={classes.formcont}>
+						{isAuthenticated ?
+							(<Button className={classes.login} variant="contained" color="primary" onClick={() => logout()}>Logout</Button>) : (<Button variant="contained" className={classes.login} onClick={() => loginWithRedirect()}>Get Started</Button>)}
+					</FormControl>
+				</form>
+			</Grid>
+		</Grid>
 	);
 }
 
