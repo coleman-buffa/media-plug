@@ -26,7 +26,9 @@ function MyChallenges(props) {
         <React.Fragment>
             <CssBaseline />
             <Container id="myChall" className={classes.root}>
-                <Modal />
+                <Modal
+                    userId={local.userId}
+                />
                 {local.challenges.map(user => (
                     <UserChallenge
                         key={user.Challenge.id}

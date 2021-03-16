@@ -19,7 +19,7 @@ const useStyles = makeStyles({
         borderBottom: "solid black ",
     }
 });
-function Modal() {
+function Modal(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const nameRef = useRef("");
@@ -42,7 +42,7 @@ function Modal() {
         }
         API.saveChallenge(chal)
             .then(result => {
-                API.saveUserChallenge(1, result.data.id)
+                API.saveUserChallenge(props.userId, result.data.id)
                     .catch(err => console.log(err));
             })
             .catch(err => console.log(err));
@@ -68,7 +68,6 @@ function Modal() {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="name"
                         label="Title"
                         type="email"
                         fullWidth
@@ -77,7 +76,6 @@ function Modal() {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="name"
                         label="Description"
                         type="email"
                         fullWidth

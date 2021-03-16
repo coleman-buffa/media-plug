@@ -5,15 +5,20 @@ import API from "../utils/API";
 import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles({
+  pagecont: {
+    alignContent: "center",
+    marginBottom: 100,
+  },
   gridContainer: {
-    display: 'flex',
+    display: 'block',
     justifyContent: 'center',
     marginBottom: 150,
   },
   sectionContainer: {
     display: 'flex',
     justifyContent: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    maxWidth: "90%"
   },
   card: {
     backgroundColor: '#F5F5F5',
@@ -58,7 +63,7 @@ const useStyles = makeStyles({
     borderBottom: "solid black",
   },
   chListTitle: {
-    marginTop: 40,
+    marginTop: 100,
     borderBottom: "solid black",
   },
   bookName: {
@@ -130,6 +135,7 @@ function Explore() {
       getCurrentUserId()
     }
   }, [isAuthenticated, user]);
+  
   const getUnreadBooks = () => {
     API.unreadBooksByUser(userId)
       .then(results => {
@@ -173,68 +179,70 @@ function Explore() {
   }
 
   return (
-    <Grid container className={classes.gridContainer} >
-      {/* Book List section */}
-      <section>
-        <Typography variant="h2" className={classes.set}>Trending Books</Typography>
-        <Container className={classes.sectionContainer}>
-          {/* Map through books array */}
-          {books.map(book => (
-            <Grid item className={classes.section}>
-              <Card elevation={5} className={classes.card} key={book.id}>
-                <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
-                <CardContent>
-                  <Typography className={classes.bookName} variant="h4">{book.book_name}</Typography>
-                </CardContent>
-                <CardActions className={classes.bookDiv}>
-                  <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddBookToList(book.id)}>Add to List</Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Container>
-      </section>
+    <Container maxWidth="xl" className={classes.pagecont}>
+      <Grid container className={classes.gridContainer} >
+        {/* Book List section */}
+        <section>
+          <Typography variant="h2" className={classes.set}>Trending Books</Typography>
+          <Container className={classes.sectionContainer}>
+            {/* Map through books array */}
+            {books.map(book => (
+              <Grid item className={classes.section}>
+                <Card elevation={5} className={classes.card} key={book.etag}>
+                  <CardMedia className={classes.media} image={book.book_image_link} title="book1" />
+                  <CardContent>
+                    <Typography className={classes.bookName} variant="h4">{book.book_name}</Typography>
+                  </CardContent>
+                  <CardActions className={classes.bookDiv}>
+                    <Button className={classes.addBtn} variant="outlined" onClick={() => handleAddBookToList(book.id)}>Add to List</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Container>
+        </section>
 
-      {/* Challenge List section */}
-      <section>
-        <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
-        <Container className={classes.sectionContainer}>
-          {/* Map through challenges array */}
-          {challenges.map(challenge => (
-            <Grid item className={classes.section}>
-              <Card elevation={5} className={classes.chCard} key={challenge.id}>
-                <CardContent>
-                  <Typography className={classes.chName} variant="h4">{challenge.challenge_name}</Typography>
-                </CardContent>
-                <CardContent>
-                  <Typography className={classes.chDesc} variant="h4">{challenge.challenge_desc}</Typography>
-                </CardContent>
-                <CardActions className={classes.chDiv}>
-                  <Button className={classes.addCh} variant="outlined" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-        </Container>
-      </section>
+        {/* Challenge List section */}
+        <section>
+          <Typography className={classes.chListTitle} variant="h2">Current Challenges</Typography>
+          <Container className={classes.sectionContainer}>
+            {/* Map through challenges array */}
+            {challenges.map(challenge => (
+              <Grid item className={classes.section}>
+                <Card elevation={5} className={classes.chCard} key={challenge.id}>
+                  <CardContent>
+                    <Typography className={classes.chName} variant="h4">{challenge.challenge_name}</Typography>
+                  </CardContent>
+                  <CardContent>
+                    <Typography className={classes.chDesc} variant="h4">{challenge.challenge_desc}</Typography>
+                  </CardContent>
+                  <CardActions className={classes.chDiv}>
+                    <Button className={classes.addCh} variant="outlined" onClick={() => handleAddChallengeToList(challenge.id)}>Add to List</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Container>
+        </section>
 
-      {/* User list section */}
-      <section>
-        <Typography className={classes.chListTitle} variant="h2">Connect With Users</Typography>
-        <Container className={classes.sectionContainer}>
-          {/* Map through challenges array */}
-          {users.map(user => (
-            <Grid item className={classes.section}>
-              <Card elevation={5} className={classes.userCard} key={user.id}>
-                <CardContent>
-                  <Typography className={classes.userName} variant="h4">{user.user_name}</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Container>
-      </section>
-    </Grid>
+        {/* User list section */}
+        <section>
+          <Typography className={classes.chListTitle} variant="h2">Connect With Users</Typography>
+          <Container className={classes.sectionContainer}>
+            {/* Map through challenges array */}
+            {users.map(user => (
+              <Grid item className={classes.section}>
+                <Card elevation={5} className={classes.userCard} key={user.id}>
+                  <CardContent>
+                    <Typography className={classes.userName} variant="h4">{user.user_name}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Container>
+        </section>
+      </Grid>
+    </Container>
   );
 }
 

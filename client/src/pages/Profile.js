@@ -129,6 +129,7 @@ function Profile() {
       </div>
       <MyChallenges
         challenges={challenges}
+        userId={userId}
       />
     </div>
   );
