@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import SearchBar from '../searchbar/searchbar';
 import SearchCard from '../searchcard/searchcard';
 import API from '../../utils/API';
 import { Container, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles({
 	form: {
@@ -18,9 +19,25 @@ function SearchContainer() {
 
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchResults, setSearchResults] = useState([]);
+	const [userId, setUserId] = useState(0);
+	const { isAuthenticated, user } = useAuth0();
 	const inputRef = useRef("");
 
+	useEffect(() => {
+    if (user) {
+      getCurrentUserId()
+    }
+  }, [isAuthenticated, user]);
+
 	const classes = useStyles();
+
+	const getCurrentUserId = () => {
+    API.checkUser(user.email)
+      .then(result => {
+        setUserId(result.data[0].id);
+      })
+      .catch(err => console.log(err));
+  }
 
 	const getSearchResults = searchTerm => {
 		API.searchBookName(searchTerm)
@@ -55,7 +72,7 @@ function SearchContainer() {
 		})
 			.then(result => {
 				console.log(result);
-				API.saveUserBook(1, result.data.id);
+				API.saveUserBook(userId, result.data.id);
 			})
 			.catch(err => console.log(err));
 
